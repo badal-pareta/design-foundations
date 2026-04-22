@@ -1,0 +1,22 @@
+{
+  "name": "@polly/design-foundations",
+  "version": "1.0.0",
+  "description": "Framework-agnostic design primitives including icon fonts, global styles, typography, and shared CSS utilities used across Polly microfrontends.",
+  "license": "ISC",
+  "sideEffects": ["*.css"],
+  "files": ["dist"],
+  "style": "./dist/styles/index.css",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/styles/index.css",
+    "./styles": "./dist/styles/index.css",
+    "./fonts/*": "./dist/fonts/*"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && cpy \"src/**/*\" dist"
+  },
+  "devDependencies": {
+    "cpy-cli": "^5.0.0"
+  }
+}
