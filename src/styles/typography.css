@@ -1,0 +1,214 @@
+/* CLI Typography Styles */
+.cli-large {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+.cli-medium {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+.cli-small {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.6875rem !important;
+  font-weight: 500 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+.cli-micro {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.625rem !important;
+  font-weight: 500 !important;
+  line-height: 0.875rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+/* Display Typography Styles */
+.display-large {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 3.375rem !important;
+  font-weight: 400 !important;
+  line-height: 4rem !important;
+  letter-spacing: 0 !important;
+}
+
+.display-medium {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 2.75rem !important;
+  font-weight: 450 !important;
+  line-height: 3.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+.display-small {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 2.25rem !important;
+  font-weight: 500 !important;
+  line-height: 2.75rem !important;
+  letter-spacing: 0 !important;
+}
+
+/* Headline Typography Styles */
+.headline-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 2rem !important;
+  font-weight: 400 !important;
+  line-height: 2.5rem !important;
+  letter-spacing: 0 !important;
+}
+
+.headline-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.75rem !important;
+  font-weight: 400 !important;
+  line-height: 2.25rem !important;
+  letter-spacing: -0.1px !important;
+}
+
+.headline-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  line-height: 2rem !important;
+  letter-spacing: -0.1px !important;
+}
+
+/* Title Typography Styles */
+.title-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.375rem !important;
+  font-weight: 500 !important;
+  line-height: 1.75rem !important;
+  letter-spacing: 0 !important;
+}
+
+.title-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5rem !important;
+  letter-spacing: 0 !important;
+}
+
+.title-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+.title-micro {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Body Typography Styles */
+.body-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.75rem !important;
+  letter-spacing: 0 !important;
+}
+
+.body-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5rem !important;
+  letter-spacing: 0 !important;
+}
+
+.body-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0.1px !important;
+}
+
+.body-micro {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.6875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.125rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Label Typography Styles */
+.label-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+.label-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+.label-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.6875rem !important;
+  font-weight: 500 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+.label-micro {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.625rem !important;
+  font-weight: 500 !important;
+  line-height: 0.875rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+/* Tag Typography Styles */
+.tag-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+.tag-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+.tag-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+.tag-micro {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.625rem !important;
+  font-weight: 700 !important;
+  line-height: 0.875rem !important;
+  letter-spacing: 0.35px !important;
+}

@@ -1,12 +1,14 @@
 {
-  "name": "@polly/design-foundations",
+  "name": "@polly-fe/design-foundations",
   "version": "1.0.0",
   "description": "Framework-agnostic design primitives including icon fonts, global styles, typography, and shared CSS utilities used across Polly microfrontends.",
   "license": "ISC",
-  "sideEffects": ["*.css"],
-  "files": ["dist"],
+  "type": "module",
+  "main": "./dist/styles/index.css",
   "style": "./dist/styles/index.css",
   "types": "./dist/index.d.ts",
+  "sideEffects": ["*.css"],
+  "files": ["dist"],
   "exports": {
     ".": "./dist/styles/index.css",
     "./styles": "./dist/styles/index.css",
@@ -14,9 +16,13 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && cpy \"src/**/*\" dist"
-  },
-  "devDependencies": {
-    "cpy-cli": "^5.0.0"
+    "build": "npm run clean && mkdir -p dist && cp -r src/* dist/",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "echo \"No linting specified\" && exit 0",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major"
   }
 }

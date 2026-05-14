@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+/* Global reset and box-sizing */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Base body styles */
+body {
+  color: color-mix(in srgb, #808080 60%, #000 40%);
+}
+
+/* Base span styling */
+span {
+  font-family: "Inter", sans-serif;
+}
+
+/* Scrollbar styling */
+:root {
+  scrollbar-color: color-mix(in srgb, #968AA6 80%, #000 20%) #f0f0f0;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, #968AA6 80%, #000 20%);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, #968AA6 90%, #fff 10%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: color-mix(in srgb, #968AA6 60%, #000 40%);
+}
+
+/* Alternate scrollbar theme */
+.scrollbar-alternate * {
+  scrollbar-color: color-mix(in srgb, #936DC3 80%, #000 20%) #f0f0f0;
+  scrollbar-width: thin;
+}
+
+.scrollbar-alternate ::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, #936DC3 80%, #000 20%);
+}
+
+.scrollbar-alternate ::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, #936DC3 90%, #fff 10%);
+}
+
+.scrollbar-alternate ::-webkit-scrollbar-thumb:active {
+  background-color: color-mix(in srgb, #936DC3 60%, #000 40%);
+}
+
+/* Range input styling for React components */
+.polly-range-input-react::-webkit-slider-thumb {
+  appearance: none;
+  background-color: #8E42EE;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 1rem;
+  pointer-events: auto;
+  width: 1rem;
+}
+
+.polly-range-input-react::-moz-range-thumb {
+  appearance: none;
+  background-color: #8E42EE;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 1rem;
+  pointer-events: auto;
+  width: 1rem;
+}
+
+/* Accessibility hidden class */
+.accessible-hidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0);
+  height: 1px !important;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px;
+}
+
+/* Disabled state */
+.p-disabled {
+  opacity: 0.4;
+}
+
+/* Background container */
+.bg-container {
+  background: #fff;
+  background: radial-gradient(318.33% 134.18% at -3.61% -6.42%, rgba(167, 143, 247, 0.08) 0%, rgba(167, 143, 247, 0.04) 31.65%, rgba(167, 143, 247, 0.02) 100%);
+}

@@ -1,0 +1,116 @@
+/* Animation utility classes */
+.spin {
+  animation: polly-spin 2s infinite linear;
+}
+
+/* Keyframe animations */
+@keyframes polly-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes spin-back {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bounce-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-up {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-left {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-width-expand {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.04);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes bounce-width-collapse {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.96);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes moveColor {
+  0% {
+    background-color: color-mix(in srgb, #8E42EE 10%, #fff 90%);
+  }
+  50% {
+    background-color: color-mix(in srgb, #8E42EE 20%, #fff 80%);
+  }
+  100% {
+    background-color: color-mix(in srgb, #8E42EE 10%, #fff 90%);
+  }
+}
