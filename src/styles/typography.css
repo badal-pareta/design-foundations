@@ -212,3 +212,41 @@
   line-height: 0.875rem !important;
   letter-spacing: 0.35px !important;
 }
+
+/* Text utilities */
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-no-select {
+  user-select: none;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: bold;
+}
