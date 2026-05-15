@@ -1,6 +1,6 @@
 {
   "name": "@polly-fe/design-foundations",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Framework-agnostic design primitives including icon fonts, global styles, typography, and shared CSS utilities used across Polly microfrontends.",
   "license": "ISC",
   "type": "module",
