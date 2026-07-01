@@ -1,0 +1,79 @@
+// TODO | Kishan: Revisit this component to replace polly-badge with this one for
+//  styling (or remove this styling and create custom many-to-many badges)
+
+body {
+  .p-avatar {
+    @include label-micro;
+    background: var(--avatar-background-default);
+    border: var(--avatar-container-border) !important;
+    color: var(--avatar-text-default);
+    height: var(--avatar-container-height);
+    width: var(--avatar-container-width);
+
+    &.color {
+      &-purple {
+        background-color: var(--avatar-background-purple);
+      }
+
+      &-orange {
+        background-color: var(--avatar-background-orange);
+      }
+
+      &-cyan {
+        background-color: var(--avatar-background-cyan);
+      }
+
+      &-pink {
+        background-color: var(--avatar-background-pink);
+      }
+
+      &-blue {
+        background-color: var(--avatar-background-blue);
+      }
+
+      &-secondary-purple {
+        background-color: var(--avatar-background-secondary-purple);
+      }
+    }
+
+    &.more-items {
+      @include title-micro;
+    }
+
+    &.p-avatar-lg {
+      width: var(--avatar-size-lg);
+      height: var(--avatar-size-lg);
+      font-size: var(--avatar-font-size-lg);
+
+      .p-avatar-icon {
+        font-size: var(--avatar-icon-size-lg);
+      }
+    }
+
+    &.p-avatar-xl {
+      width: var(--avatar-size-xl);
+      height: var(--avatar-size-xl);
+      font-size: var(--avatar-font-size-xl);
+
+      .p-avatar-icon {
+        font-size: var(--avatar-icon-size-xl);
+      }
+    }
+  }
+
+  .p-avatar-group {
+    .p-avatar {
+      margin-inline-start: var(--avatar-group-avatar-margininline) !important;
+      margin-left: var(--avatar-group-avatar-marginleft) !important;
+    }
+  }
+
+  .multi-avatar {
+    &.p-avatar-group {
+      margin-left: var(--avatar-multiavatar-group-marginleft);
+      .p-avatar {
+        margin-left: var(--avatar-multiavatar-group-avatar-marginleft) !important;
+      }
+    }
+  }
+}

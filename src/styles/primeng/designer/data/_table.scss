@@ -1,0 +1,658 @@
+body {
+  // TODO: Badal | need to revisit this stylesheet for resizable part
+  p-table {
+    &.qubit {
+      .p-datatable {
+        font-family: var(--table-base-fontfamily);
+
+        .p-datatable-resizable {
+          .p-datatable-thead {
+            tr {
+              th {
+                overflow: var(--table-base-resizable-thead-th-overflow);
+                white-space: var(--table-base-resizable-thead-th-whitespace);
+
+                &.p-datatable-column-resizable:not(.p-datatable-frozen-column) {
+                  background-clip: var(--table-base-resizable-thead-th-columnresizable-backgroundclip);
+                  position: var(--table-base-resizable-thead-th-columnresizable-position);
+                }
+              }
+            }
+          }
+
+          .p-datatable-tfoot,
+          .p-datatable-tbody {
+            tr {
+              th {
+                overflow: var(--table-base-resizable-tbody-th-overflow);
+                white-space: var(--table-base-resizable-tbody-th-whitespace);
+              }
+            }
+          }
+        }
+
+        &.p-datatable-resizable-fit {
+          .p-datatable-thead {
+            tr {
+              th {
+                &.p-datatable-column-resizable {
+                  &:last-child {
+                    .p-datatable-column-resizer {
+                      display: var(--table-base-resizable-fit-lastcolumnresizer-display);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .p-datatable-column-resizer {
+          border: var(--table-base-resizable-columnresizer-border);
+          cursor: var(--table-base-resizable-columnresizer-cursor);
+          display: var(--table-base-resizable-columnresizer-display);
+          height: var(--table-base-resizable-columnresizer-height);
+          margin: var(--table-base-resizable-columnresizer-margin);
+          padding: var(--table-base-resizable-columnresizer-padding);
+          position: var(--table-base-resizable-columnresizer-position);
+          right: var(--table-base-resizable-columnresizer-right);
+          top: var(--table-base-resizable-columnresizer-top);
+          width: var(--table-base-resizable-columnresizer-width);
+        }
+
+        .p-datatable-column-resize-indicator {
+          background-color: var(--table-base-resizable-columnresizeindicator-background);
+          position: var(--table-base-resizable-columnresizeindicator-position);
+          width: var(--table-base-resizable-columnresizeindicator-width);
+          z-index: var(--table-base-resizable-columnresizeindicator-zindex);
+        }
+
+        .p-datatable-thead {
+          tr {
+            border-bottom: var(--table-base-header-row-borderbottom);
+            th {
+              @include title-micro;
+              background-color: var(--table-base-header-cell-background);
+              color: var(--table-base-header-cell-color);
+              padding: var(--table-base-header-cell-padding);
+              border: var(--table-base-header-cell-border);
+              border-right: var(--table-base-header-cell-borderright);
+              border-bottom: var(--table-base-header-cell-borderbottom);
+              &.color-alternate {
+                background-color: var(--table-base-header-cell-coloralternate-background);
+              }
+            }
+          }
+        }
+
+        .p-datatable-tbody {
+          tr {
+            background-color: var(--table-base-body-row-background);
+
+            &:nth-child(odd) {
+              background-color: var(--table-base-body-row-odd-background);
+            }
+
+            &:hover {
+              background-color: var(--table-base-body-row-hover-background);
+            }
+
+            &.p-datatable-row-selected,
+            &:active {
+              background-color: var(--table-base-body-row-active-background);
+            }
+
+            &.p-datatable-row-selected,
+            &:focus {
+              border: var(--table-base-body-row-selected-border);
+              background-color: var(--table-base-body-row-selected-background);
+            }
+
+            td {
+              @include body-small;
+              color: var(--table-base-body-cell-color);
+              border: var(--table-base-body-cell-border);
+              border-right: var(--table-base-body-cell-borderright);
+              border-bottom: var(--table-base-body-cell-borderbottom);
+              padding: var(--table-base-body-cell-padding);
+
+              &.size {
+                &-large {
+                  padding: var(--table-base-body-cell-size-large-padding);
+                }
+
+                &-medium {
+                  padding: var(--table-base-body-cell-size-medium-padding);
+                }
+
+                &-small {
+                  padding: var(--table-base-body-cell-size-small-padding);
+                }
+              }
+            }
+
+            &:hover {
+              &:nth-child(odd) {
+                background-color: var(--table-base-body-row-hover-odd-background);
+              }
+              background-color: var(--table-base-body-row-hover-background);
+            }
+
+            &.p-datatable-row-selected,
+            &:active {
+              &:nth-child(odd) {
+                background-color: var(--table-base-body-row-active-odd-background);
+              }
+              background-color: var(--table-base-body-row-active-background);
+            }
+          }
+        }
+      }
+
+      &.skeleton {
+        .p-datatable {
+          .p-datatable-thead {
+            tr {
+              border: var(--table-skeleton-header-row-border);
+              background-color: var(--table-skeleton-header-row-background);
+
+              th {
+                background-color: var(--table-skeleton-header-cell-background);
+                border: var(--table-skeleton-header-cell-border);
+                padding: var(--table-skeleton-header-cell-padding);
+              }
+            }
+          }
+
+          .p-datatable-tbody {
+            tr {
+              td {
+                padding: var(--table-skeleton-body-cell-padding);
+              }
+            }
+          }
+        }
+      }
+
+      &.clear {
+        .p-datatable {
+          .p-datatable-thead {
+            tr {
+              border: var(--table-clear-header-row-border);
+
+              th {
+                color: var(--table-clear-header-cell-color);
+              }
+            }
+          }
+
+          .p-datatable-tbody {
+            tr {
+              background-color: var(--table-clear-body-row-background);
+
+              &:is(:hover, :active) {
+                background-color: var(--table-clear-body-row-hover-background);
+              }
+
+              td {
+                border: var(--table-clear-body-cell-border);
+              }
+            }
+          }
+        }
+      }
+
+      &.vertical {
+        .p-datatable {
+          border: var(--table-vertical-container-border);
+
+          .p-datatable-thead {
+            tr {
+              th {
+                &:not(:last-child) {
+                  border-right: var(--table-vertical-header-cell-borderright);
+                }
+              }
+            }
+          }
+
+          .p-datatable-tbody {
+            tr {
+              td {
+                &:not(:last-child) {
+                  border-right: var(--table-vertical-body-cell-borderright);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.rounded {
+        .p-datatable {
+          border-radius: var(--table-rounded-container-borderradius);
+          overflow: var(--table-rounded-container-overflow);
+
+          .p-datatable-table-container {
+            border-radius: var(--table-rounded-tablecontainer-borderradius);
+          }
+        }
+      }
+
+      .p-virtualscroller {
+        min-height: var(--table-qubittable-flexscrollable-tablecontainer-virtualscroller-minheight) !important;
+      }
+    }
+
+    &.qubit-table {
+      .p-datatable {
+        font-family: var(--table-qubittable-fontfamily);
+        letter-spacing: var(--table-qubittable-letter-spacing);
+        line-height: var(--table-qubittable-line-height);
+
+        .p-virtualscroller {
+          min-height: var(--table-qubittable-flexscrollable-tablecontainer-virtualscroller-minheight) !important;
+        }
+
+        &.p-datatable-flex.p-datatable-scrollable {
+          .p-datatable-table-container {
+            &:has(.p-virtualscroller) {
+              overflow: var(--table-qubittable-flexscrollable-tablecontainer-virtualscroller-overflow);
+            }
+
+            .p-virtualscroller {
+              .p-virtualscroller-content {
+                height: var(--table-qubittable-flexscrollable-tablecontainer-virtualscrollercontent-height) !important;
+              }
+            }
+          }
+        }
+
+        &.p-datatable-resizable {
+          .p-datatable-thead {
+            tr {
+              th {
+                overflow: var(--table-qubittable-resizable-thead-th-overflow);
+                white-space: var(--table-qubittable-resizable-thead-th-whitespace);
+
+                &.p-datatable-column-resizable:not(.p-datatable-frozen-column) {
+                  background-clip: var(--table-qubittable-resizable-thead-th-columnresizable-backgroundclip);
+                  position: var(--table-qubittable-resizable-thead-th-columnresizable-position);
+                }
+              }
+            }
+          }
+
+          .p-datatable-tfoot,
+          .p-datatable-tbody {
+            tr {
+              th {
+                overflow: var(--table-qubittable-resizable-tbody-th-overflow);
+                white-space: var(--table-qubittable-resizable-tbody-th-whitespace);
+              }
+            }
+          }
+        }
+
+        &.p-datatable-resizable-fit {
+          .p-datatable-thead {
+            tr {
+              th {
+                &.p-datatable-column-resizable {
+                  &:last-child {
+                    .p-datatable-column-resizer {
+                      display: var(--table-base-resizable-fit-lastcolumnresizer-display);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .p-datatable-column-resizer {
+          border-right: var(--table-qubittable-resizable-columnresizer-borderright);
+          cursor: var(--table-qubittable-resizable-columnresizer-cursor);
+          display: var(--table-qubittable-resizable-columnresizer-display);
+          height: var(--table-qubittable-resizable-columnresizer-height);
+          margin: var(--table-qubittable-resizable-columnresizer-margin);
+          padding: var(--table-qubittable-resizable-columnresizer-padding);
+          position: var(--table-qubittable-resizable-columnresizer-position);
+          right: var(--table-qubittable-resizable-columnresizer-right);
+          top: var(--table-qubittable-resizable-columnresizer-top);
+          width: var(--table-qubittable-resizable-columnresizer-width);
+
+          &:hover {
+            border-right: var(--table-qubittable-resizable-columnresizer-hover-borderright);
+          }
+        }
+
+        .p-datatable-thead {
+          tr {
+            display: var(--table-qubittable-header-row-display);
+            align-items: var(--table-qubittable-header-row-alignitems);
+
+            &.type {
+              &-island {
+                background-color: var(--table-qubittable-types-island-header-row-background);
+                border: var(--table-qubittable-types-island-header-row-border);
+                border-radius: var(--table-qubittable-types-island-header-row-borderradius);
+                margin-bottom: var(--table-qubittable-types-island-header-row-marginbottom);
+              }
+            }
+
+            th {
+              @include title-micro;
+              color: var(--table-qubittable-header-cell-color);
+              background-color: var(--table-qubittable-header-cell-background);
+              border: var(--table-qubittable-header-cell-border);
+              display: var(--table-qubittable-header-cell-display);
+              align-items: var(--table-qubittable-header-cell-alignitems);
+              // flex: var(--table-qubittable-header-cell-flex);
+              // border-right: var(--table-qubittable-header-cell-borderright);
+              border-bottom: var(--table-qubittable-header-cell-borderbottom);
+
+              &.size {
+                &-large {
+                  grid-gap: var(--table-qubittable-sizes-large-header-gridgap);
+                  height: var(--table-qubittable-sizes-large-header-height);
+                }
+
+                &-medium {
+                  grid-gap: var(--table-qubittable-sizes-medium-header-gridgap);
+                  height: var(--table-qubittable-sizes-medium-header-height);
+                }
+
+                &-small {
+                  grid-gap: var(--table-qubittable-sizes-small-header-gridgap);
+                  height: var(--table-qubittable-sizes-small-header-height);
+                }
+              }
+
+              &.type {
+                &-simplified {
+                  background-color: var(--table-qubittable-types-simplified-header-cell-background);
+                  border-right: var(--table-qubittable-types-simplified-header-cell-borderright);
+                  border-bottom: var(--table-qubittable-types-simplified-header-cell-borderbottom);
+
+                  &.size {
+                    &-large {
+                      padding: var(--table-qubittable-types-simplified-header-cell-size-large-padding);
+                    }
+
+                    &-medium {
+                      padding: var(--table-qubittable-types-simplified-header-cell-size-medium-padding);
+                    }
+
+                    &-small {
+                      padding: var(--table-qubittable-types-simplified-header-cell-size-small-padding);
+                    }
+                  }
+
+                  &.color-alternate {
+                    background-color: var(--table-qubittable-types-simplified-header-cell-coloralternate-background);
+                  }
+                }
+
+                &-display {
+                  background-color: var(--table-qubittable-types-display-header-cell-background);
+                  border-bottom: var(--table-qubittable-types-display-header-cell-borderbottom);
+
+                  &.color-alternate {
+                    background-color: var(--table-qubittable-types-display-header-cell-coloralternate-background);
+                  }
+
+                  &.size {
+                    &-large {
+                      padding: var(--table-qubittable-types-display-header-cell-size-large-padding);
+                    }
+
+                    &-medium {
+                      padding: var(--table-qubittable-types-display-header-cell-size-medium-padding);
+                    }
+
+                    &-small {
+                      padding: var(--table-qubittable-types-display-header-cell-size-small-padding);
+                    }
+                  }
+                }
+
+                &-island {
+                  background-color: var(--table-qubittable-types-island-header-cell-background);
+                  border: var(--table-qubittable-types-island-header-cell-border);
+                  padding: var(--table-qubittable-types-island-header-cell-padding);
+                }
+              }
+            }
+          }
+        }
+
+        .p-datatable-tbody {
+          tr {
+            display: var(--table-qubittable-body-row-display);
+            align-items: var(--table-qubittable-body-row-alignitems);
+
+            &.type {
+              &-simplified {
+                background-color: var(--table-qubittable-types-simplified-body-row-background);
+                border: var(--table-qubittable-types-simplified-body-row-border);
+
+                &:nth-child(even) {
+                  background-color: var(--table-qubittable-types-simplified-body-row-even-background);
+                }
+              }
+
+              &-display {
+                background-color: var(--table-qubittable-types-display-body-row-background);
+                border: var(--table-qubittable-types-display-body-row-border);
+
+                &:nth-child(even) {
+                  background-color: var(--table-qubittable-types-display-body-row-even-background);
+                }
+
+                &:hover {
+                  background-color: var(--table-qubittable-types-display-body-row-hover-background);
+                }
+
+                &.p-datatable-row-selected,
+                &:active {
+                  background-color: var(--table-qubittable-types-display-body-row-selected-background);
+                }
+              }
+
+              &-flatline {
+                background-color: var(--table-qubittable-types-flatline-body-row-background);
+                border: var(--table-qubittable-types-flatline-body-row-border);
+                border-bottom: var(--table-qubittable-types-flatline-body-row-borderbottom);
+
+                &:hover {
+                  background-color: var(--table-qubittable-types-flatline-body-row-hover-background);
+                }
+
+                &.p-datatable-row-selected,
+                &:active {
+                  background-color: var(--table-qubittable-types-flatline-body-row-selected-background);
+                }
+              }
+
+              &-island {
+                background-color: var(--table-qubittable-types-island-body-row-background);
+                border: var(--table-qubittable-types-island-body-row-border);
+                border-radius: var(--table-qubittable-types-island-body-row-borderradius);
+                margin-bottom: var(--table-qubittable-types-island-body-row-marginbottom);
+                padding: var(--table-qubittable-types-island-body-row-padding);
+
+                &:hover {
+                  background-color: var(--table-qubittable-types-island-body-row-hover-background);
+                }
+
+                &.p-datatable-row-selected,
+                &:active {
+                  background-color: var(--table-qubittable-types-island-body-row-selected-background);
+                }
+              }
+            }
+
+            &.p-datatable-row-group-header {
+              background-color: var(--table-qubittable-body-row-rowgroupheader-background) !important;
+              border-bottom: var(--table-qubittable-body-row-rowgroupheader-borderbottom);
+            }
+
+            td {
+              @include title-micro;
+              display: var(--table-qubittable-body-cell-display);
+              align-items: var(--table-qubittable-body-cell-alignitems);
+              // flex: var(--table-qubittable-body-cell-flex);
+              border: var(--table-qubittable-body-cell-border);
+
+              &.size {
+                &-large {
+                  grid-gap: var(--table-qubittable-sizes-large-body-gridgap);
+                  padding: var(--table-qubittable-sizes-large-body-padding);
+                }
+
+                &-medium,
+                &-small {
+                  grid-gap: var(--table-qubittable-sizes-small-body-gridgap);
+                }
+              }
+
+              &.type {
+                &-simplified {
+                  background-color: var(--table-qubittable-types-simplified-body-cell-background);
+                  border-bottom: var(--table-qubittable-types-simplified-body-cell-borderbottom);
+                  border-right: var(--table-qubittable-types-simplified-body-cell-borderright);
+
+                  &.size {
+                    &-large {
+                      padding: var(--table-qubittable-types-simplified-body-cell-size-large-padding);
+                    }
+
+                    &-medium {
+                      padding: var(--table-qubittable-types-simplified-body-cell-size-medium-padding);
+                    }
+
+                    &-small {
+                      padding: var(--table-qubittable-types-simplified-body-cell-size-small-padding);
+                    }
+                  }
+                }
+
+                &-display {
+                  &.size {
+                    &-large {
+                      padding: var(--table-qubittable-types-display-body-cell-size-large-padding);
+                    }
+
+                    &-medium {
+                      padding: var(--table-qubittable-types-display-body-cell-size-medium-padding);
+                    }
+
+                    &-small {
+                      padding: var(--table-qubittable-types-display-body-cell-size-small-padding);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.qubit-co-scientist-table {
+      .p-datatable-thead {
+        tr {
+          border-bottom: var(--table-qubitcoscientisttable-header-row-borderbottom);
+          th {
+            @include title-micro;
+            background-color: var(--table-qubitcoscientisttable-header-cell-background);
+            color: var(--table-qubitcoscientisttable-header-cell-color);
+            padding: var(--table-qubitcoscientisttable-header-cell-padding);
+            border: var(--table-qubitcoscientisttable-header-cell-border);
+            border-right: var(--table-qubitcoscientisttable-header-cell-borderright);
+            border-bottom: var(--table-qubitcoscientisttable-header-cell-borderbottom);
+
+            &.color-alternate {
+              background-color: var(--table-qubitcoscientisttable-header-cell-coloralternate-background);
+            }
+          }
+        }
+      }
+
+      .p-datatable-tbody {
+        tr {
+          background-color: var(--table-qubitcoscientisttable-body-row-background);
+
+          &:nth-child(odd) {
+            background-color: var(--table-qubitcoscientisttable-body-row-odd-background);
+          }
+
+          &:hover {
+            background-color: var(--table-qubitcoscientisttable-body-row-hover-background);
+          }
+
+          &.p-datatable-row-selected,
+          &:active {
+            background-color: var(--table-qubitcoscientisttable-body-row-active-background);
+          }
+
+          &.p-datatable-row-selected,
+          &:focus {
+            border: var(--table-qubitcoscientisttable-body-row-selected-border);
+            background-color: var(--table-qubitcoscientisttable-body-row-selected-background);
+          }
+
+          td {
+            @include body-small;
+            color: var(--table-qubitcoscientisttable-body-cell-color);
+            border: var(--table-qubitcoscientisttable-body-cell-border);
+            border-right: var(--table-qubitcoscientisttable-body-cell-borderright);
+            border-bottom: var(--table-qubitcoscientisttable-body-cell-borderbottom);
+            padding: var(--table-qubitcoscientisttable-body-cell-padding);
+
+            &.size {
+              &-large {
+                padding: var(--table-qubitcoscientisttable-body-cell-size-large-padding);
+              }
+
+              &-medium {
+                padding: var(--table-qubitcoscientisttable-body-cell-size-medium-padding);
+              }
+
+              &-small {
+                padding: var(--table-qubitcoscientisttable-body-cell-size-small-padding);
+              }
+            }
+          }
+
+          &:hover {
+            &:nth-child(odd) {
+              background-color: var(--table-qubitcoscientisttable-body-row-hover-odd-background);
+            }
+            background-color: var(--table-qubitcoscientisttable-body-row-hover-background);
+          }
+
+          &.p-datatable-row-selected,
+          &:active {
+            &:nth-child(odd) {
+              background-color: var(--table-qubitcoscientisttable-body-row-active-odd-background);
+            }
+            background-color: var(--table-qubitcoscientisttable-body-row-active-background);
+          }
+        }
+      }
+
+      .p-datatable {
+        .p-datatable-column-resizer {
+          border-right: var(--table-qubitcoscientisttable-columnresizer-borderright);
+        }
+
+        .p-datatable-table-container {
+          border: var(--table-qubitcoscientisttable-container-border);
+          border-radius: var(--table-qubitcoscientisttable-container-borderradius);
+        }
+      }
+    }
+  }
+}

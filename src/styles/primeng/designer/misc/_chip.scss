@@ -1,0 +1,110 @@
+// Chip styles based on PrimeNG v18 and design tokens - Simplified structure
+body {
+  .p-chip {
+    @include label-small;
+    background: var(--chip-filled-primary-backgroundcolor-default) !important;
+    color: var(--chip-filled-primary-color-default) !important;
+    border: var(--chip-filled-primary-border-default) !important;
+    border-radius: var(--chip-base-borderradius) !important;
+    padding: var(--chip-base-padding) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: var(--chip-base-gap) !important;
+    transition: var(--chip-base-transition) !important;
+
+    &:hover {
+      background: var(--chip-filled-primary-backgroundcolor-hover) !important;
+      color: var(--chip-filled-primary-color-hover) !important;
+      border: var(--chip-filled-primary-border-hover) !important;
+    }
+
+    &:active {
+      background: var(--chip-filled-primary-backgroundcolor-active) !important;
+      color: var(--chip-filled-primary-color-active) !important;
+      border: var(--chip-filled-primary-border-active) !important;
+    }
+
+    &:focus {
+      background: var(--chip-filled-primary-backgroundcolor-focused) !important;
+      color: var(--chip-filled-primary-color-focused) !important;
+      border: var(--chip-filled-primary-border-focused) !important;
+    }
+
+    &:disabled,
+    &.p-chip-disabled {
+      background: var(--chip-filled-primary-backgroundcolor-disabled) !important;
+      color: var(--chip-filled-primary-color-disabled) !important;
+      border: var(--chip-filled-primary-border-disabled) !important;
+      pointer-events: none !important;
+    }
+
+    &.p-chip-error {
+      background: var(--chip-filled-primary-backgroundcolor-error) !important;
+      color: var(--chip-filled-primary-color-error) !important;
+      border: var(--chip-filled-primary-border-error) !important;
+    }
+
+    .p-chip-icon,
+    .p-icon {
+      font-size: var(--chip-icon-size) !important;
+      color: var(--chip-icon-color) !important;
+      width: var(--chip-icon-size) !important;
+      height: var(--chip-icon-size) !important;
+    }
+
+    .p-chip-remove-icon {
+      cursor: pointer !important;
+      font-size: var(--chip-icon-size) !important;
+      width: var(--chip-icon-size) !important;
+      height: var(--chip-icon-size) !important;
+      color: var(--chip-icon-color) !important;
+    }
+
+    &.p-autocomplete-chip {
+      @include label-small;
+      background: var(--chip-filled-primary-backgroundcolor-default) !important;
+      color: var(--chip-filled-primary-color-default) !important;
+      border: var(--chip-filled-primary-border-default) !important;
+      border-radius: var(--chip-base-borderradius) !important;
+      padding: var(--chip-base-padding) !important;
+      &:hover {
+        background: var(--chip-filled-primary-backgroundcolor-hover) !important;
+        color: var(--chip-filled-primary-color-hover) !important;
+        border: var(--chip-filled-primary-border-hover) !important;
+      }
+
+      &:active {
+        background: var(--chip-filled-primary-backgroundcolor-active) !important;
+        color: var(--chip-filled-primary-color-active) !important;
+        border: var(--chip-filled-primary-border-active) !important;
+      }
+
+      &:focus {
+        background: var(--chip-filled-primary-backgroundcolor-focused) !important;
+        color: var(--chip-filled-primary-color-focused) !important;
+        border: var(--chip-filled-primary-border-focused) !important;
+        outline: var(--chip-focus-outline) !important;
+        outline-offset: var(--chip-focus-outlineoffset) !important;
+      }
+
+      &:disabled,
+      &.p-chip-disabled {
+        background: var(--chip-filled-primary-backgroundcolor-disabled) !important;
+        color: var(--chip-filled-primary-color-disabled) !important;
+        border: var(--chip-filled-primary-border-disabled) !important;
+        pointer-events: none !important;
+      }
+
+      &.p-chip-error {
+        background: var(--chip-filled-primary-backgroundcolor-error) !important;
+        color: var(--chip-filled-primary-color-error) !important;
+        border: var(--chip-filled-primary-border-error) !important;
+      }
+    }
+  }
+
+  .p-chip-label {
+    overflow-wrap: var(--chip-label-overflowwrap);
+    word-break: var(--chip-label-wordbreak);
+  }
+}

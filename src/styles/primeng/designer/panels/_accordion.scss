@@ -1,0 +1,131 @@
+body {
+  .p-accordion {
+    p-accordion-panel {
+      &.qubit {
+        &.p-accordionpanel {
+          border: var(--accordion-panel-border);
+          border-color: var(--accordion-header-border-color);
+        }
+
+        /* HEADER */
+        .p-accordionheader {
+          @include title-small;
+          background-color: var(--accordion-header-background-default);
+          border: 0;
+          border-bottom: var(--accordion-header-border-default);
+          border-radius: var(--accordion-header-radius-default);
+          color: var(--accordion-header-color-default);
+          margin-bottom: var(--accordion-header-margin-bottom);
+          padding: var(--accordion-header-padding-default);
+          transition: var(--accordion-header-transition);
+
+          p {
+            @include title-small;
+            margin: var(--accordion-title-margin);
+            color: var(--accordion-title-color-default);
+          }
+
+          /* ICON */
+          .p-iconwrapper {
+            color: var(--accordion-icon-color-default);
+            transition: var(--accordion-icon-transition);
+            font-size: var(--accordion-icon-size);
+            box-shadow: var(--accordion-header-focus-boxshadow);
+            transform: var(--accordion-icon-transform-closed);
+          }
+
+          /* HOVER */
+          &:not(.p-disabled):not([aria-expanded='true']):hover {
+            background: var(--accordion-header-background-hover);
+            color: var(--accordion-header-color-hover) !important;
+
+            .p-iconwrapper {
+              color: var(--accordion-icon-color-hover);
+            }
+          }
+
+          /* ACTIVE */
+          &[aria-expanded='true'] {
+            background-color: var(--accordion-header-background-active) !important;
+            color: var(--accordion-header-color-active);
+            border-bottom: var(--accordion-header-border-active);
+            border-radius: var(--accordion-header-radius-active);
+
+            p {
+              color: var(--accordion-title-color-active);
+            }
+
+            .p-iconwrapper {
+              color: var(--accordion-icon-color-active);
+              transform: var(--accordion-icon-transform-default);
+            }
+          }
+        }
+
+        /* CONTENT */
+        .p-accordioncontent {
+          border: var(--accordion-content-border-normal);
+          background: var(--accordion-content-background);
+          border-bottom: var(--accordion-content-border-bottom);
+          padding: var(--accordion-content-padding-default);
+
+          .p-accordioncontent-content {
+            border: var(--accordion-content-border-normal);
+            font-size: var(--accordion-content-fontsize);
+            font-weight: var(--accordion-content-fontweight);
+            line-height: var(--accordion-content-lineheight);
+            color: var(--accordion-content-textcolor);
+          }
+        }
+      }
+
+      /* DISABLED */
+      &.p-disabled {
+        cursor: not-allowed;
+        background-color: var(--accordion-state-disabled-header-background);
+        color: var(--accordion-state-disabled-header-color);
+        opacity: var(--accordion-state-disabled-content-opacity);
+
+        p,
+        .p-iconwrapper {
+          color: var(--accordion-state-disabled-title-color);
+        }
+      }
+
+      /* SIZE SMALL */
+      &.size-small {
+        .p-accordionheader {
+          padding: var(--accordion-size-small-header-padding);
+        }
+
+        .p-accordioncontent {
+          padding: var(--accordion-size-small-content-padding);
+        }
+      }
+
+      /* STICKY HEADER (explicit variant – kept) */
+      &.sticky-header {
+        .p-accordionheader {
+          position: sticky;
+          top: 0;
+          z-index: 1;
+        }
+      }
+
+      /* CO-SCIENTIST CARD (app-specific – kept minimal) */
+      &.co-scientist-accordion-card {
+        .p-accordionheader {
+          .p-iconwrapper {
+            display: none;
+          }
+        }
+
+        .p-accordioncontent {
+          background-color: transparent;
+          border: 0;
+          padding: 0.75rem 0;
+        }
+      }
+    }
+  }
+}

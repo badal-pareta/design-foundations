@@ -1,0 +1,16 @@
+body {
+  .p-textarea {
+    @include label-large;
+    transition: var(--textarea-base-transition) !important;
+    border: var(--textarea-base-border) !important;
+    border-radius: var(--textarea-base-borderradius) !important;
+    color: var(--textarea-base-color) !important;
+    height: var(--textarea-base-height) !important;
+    padding: var(--textarea-base-padding) !important;
+
+    &::placeholder {
+      color: var(--textarea-base-placeholder-color) !important;
+      opacity: var(--textarea-base-placeholder-opacity) !important;
+    }
+  }
+}

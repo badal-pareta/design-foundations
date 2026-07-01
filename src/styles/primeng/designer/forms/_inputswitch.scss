@@ -1,0 +1,137 @@
+/* ================= Input Switch (v17) / Toggle Switch (v18) ================= */
+body {
+  p-toggleswitch {
+    align-items: var(--toggleswitch-base-alignitems);
+    display: var(--toggleswitch-base-display);
+
+    .p-toggleswitch {
+      background-color: var(--toggleswitch-base-background);
+      height: var(--toggleswitch-base-height);
+      position: var(--toggleswitch-base-position);
+      width: var(--toggleswitch-base-width);
+
+      /* SLIDER */
+      .p-toggleswitch-slider {
+        background: var(--toggleswitch-slider-background-off);
+        border: var(--toggleswitch-slider-border-width) var(--toggleswitch-slider-border-style) var(--toggleswitch-slider-border-color-off);
+        border-radius: var(--toggleswitch-slider-borderradius);
+        height: var(--toggleswitch-slider-height);
+        position: var(--toggleswitch-slider-position);
+        transition: var(--toggleswitch-slider-transition);
+        width: var(--toggleswitch-slider-width);
+
+        /* HANDLE */
+        .p-toggleswitch-handle {
+          background-color: var(--toggleswitch-handle-background-off);
+          border-radius: var(--toggleswitch-handle-borderradius);
+          box-shadow: var(--toggleswitch-handle-shadow);
+          height: var(--toggleswitch-handle-height);
+          left: var(--toggleswitch-handle-left);
+          position: var(--toggleswitch-handle-position);
+          top: var(--toggleswitch-handle-top);
+          transition: var(--toggleswitch-handle-transition);
+          width: var(--toggleswitch-handle-width);
+        }
+
+        &:active {
+          .p-toggleswitch-handle {
+            box-shadow: var(--toggleswitch-active-handle-boxshadow);
+            outline: var(--toggleswitch-active-handle-outline);
+          }
+        }
+      }
+
+      /* DISABLED */
+      &.p-disabled {
+        opacity: var(--toggleswitch-disabled-opacity);
+      }
+
+      /* DISABLED (OFF) */
+      &.p-disabled:not(.p-toggleswitch-checked) {
+        .p-toggleswitch-slider {
+          .p-toggleswitch-handle {
+            background-color: var(--toggleswitch-disabled-handle-background);
+            opacity: var(--toggleswitch-disabled-handle-opacity);
+          }
+        }
+      }
+
+      /* CHECKED (ON) */
+      &.p-toggleswitch-checked {
+        .p-toggleswitch-slider {
+          background-color: var(--toggleswitch-slider-background-on);
+          border-color: var(--toggleswitch-slider-border-color-on);
+
+          .p-toggleswitch-handle {
+            background-color: var(--toggleswitch-handle-background-on);
+            transform: translateX(var(--toggleswitch-handle-translatex-on));
+          }
+        }
+
+        &:not(.p-disabled):hover {
+          .p-toggleswitch-slider {
+            background-color: var(--toggleswitch-slider-background-onhover) !important;
+            border-color: var(--toggleswitch-slider-border-color-on) !important;
+            
+            .p-toggleswitch-handle {
+              background-color: var(--toggleswitch-handle-background-on) !important;
+              transform: translateX(var(--toggleswitch-handle-translatex-on)) !important;
+          }
+          }
+        }
+      }
+
+      /* FOCUS */
+      &.p-focus {
+        .p-toggleswitch-slider {
+          .p-toggleswitch-handle {
+            outline: var(--toggleswitch-focus-handle-outline);
+          }
+        }
+      }
+
+      /* HOVER (OFF) */
+      &:not(.p-disabled):not(.p-toggleswitch-checked):hover {
+        .p-toggleswitch-slider {
+          background-color: var(--toggleswitch-slider-background-off) !important;
+          border-color: var(--toggleswitch-slider-border-color-off) !important;
+  
+          .p-toggleswitch-handle {
+            background-color: var(--toggleswitch-handle-background-off);
+            outline: var(--toggleswitch-hover-off-handle-outline);
+          }
+        }
+      }
+
+      /* MEDIUM SIZE */
+      &.medium {
+        .p-toggleswitch-slider {
+          &:active {
+            .p-toggleswitch-handle {
+              box-shadow: var(--toggleswitch-medium-active-boxshadow);
+              outline: var(--toggleswitch-medium-active-outline);
+            }
+          }
+        }
+
+        &.p-focus {
+          .p-toggleswitch-slider {
+            .p-toggleswitch-handle {
+              outline: var(--toggleswitch-medium-outline-width) var(--toggleswitch-outline-style)
+                var(--toggleswitch-outline-color-focus);
+            }
+          }
+        }
+
+        &:not(.p-disabled):hover {
+          .p-toggleswitch-slider {
+            .p-toggleswitch-handle {
+              outline: var(--toggleswitch-medium-outline-width) var(--toggleswitch-outline-style)
+                var(--toggleswitch-outline-color-hover);
+            }
+          }
+        }
+      }
+    }
+  }
+}

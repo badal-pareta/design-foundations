@@ -1,0 +1,53 @@
+body {
+  .p-listbox {
+    background: var(--listbox-root-background);
+    border: var(--listbox-root-border);
+    box-shadow: var(--listbox-root-boxshadow);
+    color: var(--listbox-root-color);
+    outline-color: var(--listbox-root-outlinecolor);
+    transition: var(--listbox-root-transition);
+  }
+  .p-listbox-header {
+    @include label-medium;
+    margin-bottom: var(--listbox-header-marginbottom) !important;
+    padding: var(--listbox-header-padding) !important;
+    text-align: var(--listbox-header-textalign);
+  }
+
+  .p-listbox-list-container {
+    border: var(--listbox-container-borderwidth) solid var(--listbox-container-bordercolor) !important;
+    border-radius: var(--listbox-container-borderradius);
+    height: var(--listbox-container-height) !important;
+    max-height: var(--listbox-container-maxheight) !important;
+  }
+  .p-listbox-list {
+    @include label-large;
+    gap: var(--listbox-list-gap);
+    padding: var(--listbox-list-padding);
+    text-align: var(--listbox-list-textalign);
+  }
+  .p-listbox-option-group {
+    @include label-large;
+    background-color: var(--listbox-optiongroup-backgroundcolor) !important;
+    color: var(--listbox-optiongroup-color) !important;
+  }
+  .p-listbox-option {
+    @include label-large;
+    background-color: var(--listbox-option-backgroundcolor) !important;
+    border-radius: var(--listbox-option-borderradius);
+    color: var(--listbox-option-color-default);
+    justify-content: var(--listbox-option-justifycontent);
+    padding: var(--listbox-option-padding);
+    transition: var(--listbox-option-transition);
+  }
+
+  .p-listbox-option.p-listbox-option-selected {
+    background: var(--listbox-option-background-selected) !important;
+    color: var(--listbox-option-color-selected) !important;
+  }
+
+  .p-listbox:not(.p-disabled) .p-listbox-option:not(.p-listbox-option-selected):not(.p-disabled).p-focus {
+    background: var(--listbox-option-background-focus) !important;
+    color: var(--listbox-option-color-focus) !important;
+  }
+}

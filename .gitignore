@@ -1,2 +1,4 @@
 /node_modules
 /dist
+/src/styles/primeng/elucidata.css
+/src/styles/primeng/shared.css

@@ -1,0 +1,20 @@
+// badge
+$badge-font-size-small: 0.5rem;
+$badge-line-height: 0.5rem;
+$badge-size-small-line-height: 0.4rem;
+$badge-padding: 0.0625rem 0.125rem;
+$badge-border-radius: 6.25rem;
+$badge-size: 0.8125rem;
+$badge-size-small: 0.625rem;
+
+//progressbar
+$progressbar-border-radius: 0.1875rem;
+$progressbar-default-gradient: linear-gradient(270deg, #7235BE 0%, #D2B3F8 100%);
+$progressbar-green-gradient: linear-gradient(270deg, #24CF35 0%, #A7ECAE 100%);
+$progressbar-blue-gradient: linear-gradient(270deg, #3C5DE2 0%, #B1BEF3 100%);
+$progressbar-red-gradient: linear-gradient(270deg, #E50045 0%, #FF80A6 100%);
+$progressbar-size-default: 1.125rem;
+$progressbar-size-small: 0.3125rem;
+
+//skeleton
+$skeleton-gradient-bg: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255,255,255,0.3), rgba(255, 255, 255, 0));

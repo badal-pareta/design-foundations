@@ -1,0 +1,43 @@
+body {
+  p-badge {
+    &.p-badge {
+      @include label-micro;
+      background-color: var(--badge-base-background);
+      border-radius: var(--badge-base-borderradius);
+      font-size: var(--badge-base-fontsize);
+      font-weight: var(--badge-base-fontweight);
+
+      align-items: var(--badge-base-alignitems) !important;
+      display: var(--badge-base-display) !important;
+      justify-content: var(--badge-base-justifycontent) !important;
+
+      min-width: var(--badge-base-minwidth) !important;
+      height: var(--badge-base-height) !important;
+      padding: var(--badge-base-padding) !important;
+      line-height: var(--badge-base-lineheight) !important;
+      text-align: var(--badge-base-textalign) !important;
+
+      color: var(--badge-base-color);
+
+      /* SMALL */
+      &.small {
+        font-size: var(--badge-small-fontsize) !important;
+        height: var(--badge-small-height);
+        min-width: var(--badge-small-minwidth);
+        line-height: var(--badge-small-lineheight) !important;
+      }
+
+      /* SIDEBAR BADGE */
+      &.sidebar-badge {
+        background-color: var(--badge-sidebar-background);
+        color: var(--badge-sidebar-color);
+      }
+
+      /* CIRCLE (default v18 behavior) */
+      &.p-badge-circle {
+        padding: var(--badge-circle-padding);
+      }
+    }
+
+  }
+}

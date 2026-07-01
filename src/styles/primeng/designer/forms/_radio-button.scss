@@ -1,0 +1,115 @@
+@import '../../abstracts/index.scss';
+
+body {
+  p-radiobutton {
+    &.qubit {
+      .p-radiobutton {
+        align-items: var(--radiobutton-base-alignitems);
+        cursor: var(--radiobutton-base-cursor);
+        display: var(--radiobutton-base-display);
+        height: var(--radiobutton-base-height);
+        user-select: var(--radiobutton-base-userselect);
+        width: var(--radiobutton-base-width);
+
+        /* ================= BOX ================= */
+
+        &-box {
+          @include add-transition(var(--radiobutton-box-transition));
+          align-items: var(--radiobutton-box-alignitems) !important;
+          border: var(--radiobutton-box-border) !important;
+          border-radius: var(--radiobutton-box-borderradius) !important;
+          display: var(--radiobutton-box-display) !important;
+          height: var(--radiobutton-box-height) !important;
+          justify-content: var(--radiobutton-box-justifycontent) !important;
+          width: var(--radiobutton-box-width) !important;
+          background: var(--radiobutton-box-background-default) !important;
+
+          /* Hover */
+          &:hover {
+            background-color: var(--radiobutton-box-background-hover) !important;
+          }
+
+          &:active {
+            background-color: var(--radiobutton-box-background-active) !important;
+
+            .p-radiobutton-icon {
+              border-color: var(--radiobutton-icon-bordercolor-active) !important;
+            }
+          }
+
+          /* ICON (default ring) */
+          .p-radiobutton-icon {
+            background: var(--radiobutton-icon-background-default);
+            border: var(--radiobutton-icon-borderwidth) var(--radiobutton-icon-borderstyle) var(--radiobutton-icon-bordercolor-default);
+            border-radius: var(--radiobutton-icon-borderradius);
+            height: var(--radiobutton-icon-height);
+            margin: var(--radiobutton-icon-margin);
+            position: var(--radiobutton-icon-position);
+            transform: var(--radiobutton-icon-transform);
+            visibility: var(--radiobutton-icon-visibility);
+            width: var(--radiobutton-icon-width);
+            padding: var(--radiobutton-icon-padding-default);
+            
+            &:hover {
+              background-color: var(--radiobutton-icon-background-hover) !important;
+            }
+
+          }
+        }
+
+        /* ================= CHECKED ================= */
+        &.p-radiobutton-checked {
+          .p-radiobutton-box {
+            .p-radiobutton-icon {
+              background-clip: var(--radiobutton-checked-icon-backgroundclip) !important;
+              background-color: var(--radiobutton-checked-icon-background) !important;
+              border-color: var(--radiobutton-checked-icon-bordercolor) !important;
+              padding: var(--radiobutton-checked-icon-padding);
+
+              &:hover {
+                outline: var(--radiobutton-checked-hover-icon-outlinewidth) var(--radiobutton-checked-hover-icon-outlinestyle) var(--radiobutton-checked-hover-icon-outlinecolor) !important;
+                outline-offset: var(--radiobutton-checked-hover-icon-outlineoffset) !important;
+              }
+            }
+          }
+        }
+
+        /* ================= FOCUS ================= */
+        &.p-focus {
+          .p-radiobutton-box {
+            .p-radiobutton-icon {
+              outline: var(--radiobutton-focus-icon-outlinewidth) var(--radiobutton-focus-icon-outlinestyle) var(--radiobutton-focus-icon-outlinecolor) !important;
+              outline-offset: var(--radiobutton-focus-icon-outlineoffset) !important;
+            }
+          }
+        }
+
+        /* ================= DISABLED ================= */
+        &.p-disabled {
+          .p-radiobutton-box {
+            pointer-events: var(--radiobutton-disabled-box-pointerevents) !important;
+
+            .p-radiobutton-icon {
+              border: var(--radiobutton-icon-borderwidth) var(--radiobutton-icon-borderstyle) var(--radiobutton-disabled-icon-bordercolor) !important;
+            }
+          }
+        }
+
+        /* ================= LABEL ================= */
+        &-label {
+           @include label-large;
+          margin: var(--radiobutton-label-margin);
+          padding: var(--radiobutton-label-padding);
+        }
+      }
+
+      /* ================= SIZE MEDIUM ================= */
+      &.medium {
+        .p-radiobutton-box {
+          height: var(--radiobutton-medium-box-height);
+          width: var(--radiobutton-medium-box-width);
+        }
+      }
+    }
+  }
+}

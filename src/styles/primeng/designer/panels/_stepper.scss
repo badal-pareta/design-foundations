@@ -1,0 +1,149 @@
+body {
+  .p-stepper {
+    .p-steplist {
+      min-height: var(--stepper-steplist-minheight);
+    }
+
+    .p-step {
+      gap: var(--stepper-step-gap);
+      padding: var(--stepper-step-padding);
+      /* ================= HEADER ================= */
+      .p-step-header {
+        align-items: var(--stepper-step-header-alignitems);
+        background: var(--stepper-step-header-background);
+        border: var(--stepper-step-header-border);
+        border-radius: var(--stepper-step-header-borderradius);
+        cursor: var(--stepper-step-header-cursor);
+        display: var(--stepper-step-header-display);
+        flex-direction: var(--stepper-step-header-flexdirection);
+        gap: var(--stepper-step-header-gap);
+        outline-color: var(--stepper-step-header-outlinecolor);
+        padding: var(--stepper-step-header-padding);
+        text-decoration: var(--stepper-step-header-textdecoration);
+        transition:
+          background var(--stepper-transition-duration),
+          color var(--stepper-transition-duration),
+          border-color var(--stepper-transition-duration),
+          outline-color var(--stepper-transition-duration),
+          box-shadow var(--stepper-transition-duration);
+      }
+
+      /* ================= DEFAULT STEP ================= */
+      .p-step-number {
+        @include title-micro;
+        align-items: var(--stepper-step-number-alignitems);
+        background: var(--stepper-step-number-background-default);
+        border-color: var(--stepper-step-number-bordercolor-default);
+        border-radius: var(--stepper-step-number-borderradius);
+        color: var(--stepper-step-number-color-default);
+        display: var(--stepper-step-number-display);
+        height: var(--stepper-step-number-height);
+        justify-content: var(--stepper-step-number-justifycontent);
+        min-width: var(--stepper-step-number-minwidth);
+        position: relative;
+        z-index: 1;
+
+        &::after {
+          border-radius: var(--stepper-step-number-borderradius);
+          box-shadow: none;
+        }
+      }
+
+      /* ================= TITLE ================= */
+      .p-step-title {
+        @include title-micro;
+        color: var(--stepper-step-title-color-default);
+        margin: var(--stepper-step-title-margin);
+        max-width: var(--stepper-step-title-maxwidth);
+        transition:
+          background var(--stepper-transition-duration),
+          color var(--stepper-transition-duration),
+          border-color var(--stepper-transition-duration),
+          box-shadow var(--stepper-transition-duration),
+          outline-color var(--stepper-transition-duration);
+      }
+
+      /* ================= ACTIVE STEP ================= */
+      &.p-step-active {
+        .p-step-number {
+          @include title-micro;
+          background: var(--stepper-step-number-background-active);
+          border-color: var(--stepper-step-number-bordercolor-active);
+          box-shadow: var(--stepper-step-number-shadow-active);
+          color: var(--stepper-step-number-color-active);
+        }
+
+        .p-step-title {
+          @include title-micro;
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
+          color: var(--stepper-step-title-color-active);
+        }
+
+        .p-stepper-separator {
+          background: var(--stepper-separator-background-active);
+        }
+      }
+
+      /* ================= COMPLETED STEP (🔥 PREVIOUS STEPS (step < active)) ================= */
+      // &:has(~ .p-step.p-step-active) {
+      //   .p-step-number {
+      //     @include title-micro;
+
+      //     background: var(--stepper-step-number-background-completed);
+      //     border-color: var(--stepper-step-number-bordercolor-completed);
+      //     box-shadow: var(--stepper-step-number-shadow-completed);
+      //     color: var(--stepper-step-number-color-completed);
+      //   }
+
+      //   .p-step-title {
+      //     @include title-micro;
+
+      //     background-color: transparent;
+      //     border: none;
+      //     color: var(--stepper-step-title-color-completed);
+      //   }
+
+      //   .p-stepper-separator {
+      //     background: var(--stepper-separator-background-completed);
+      //   }
+      // }
+    }
+  }
+  .p-step:has(~ .p-step-active) .p-stepper-separator {
+    background: var(--stepper-separator-background-completed);
+  }
+  /* ================= SEPARATOR ================= */
+  .p-stepper-separator {
+    background: var(--stepper-separator-background-default);
+    flex: var(--stepper-separator-flex);
+    height: var(--stepper-separator-height);
+    left: var(--stepper-separator-left);
+    position: var(--stepper-separator-position);
+    right: var(--stepper-separator-right);
+    top: var(--stepper-separator-top);
+    transform: translateY(var(--stepper-separator-translatey));
+    width: 100%;
+    transition:
+      background var(--stepper-transition-duration),
+      border-color var(--stepper-transition-duration),
+      box-shadow var(--stepper-transition-duration),
+      color var(--stepper-transition-duration),
+      outline-color var(--stepper-transition-duration);
+  }
+
+  /* ================= PANEL ================= */
+  .p-steppanel {
+    background: var(--stepper-steppanel-background);
+    color: var(--stepper-steppanel-color);
+
+    .p-stepper-separator {
+      display: var(--stepper-steppanel-separator-display);
+    }
+  }
+
+  .p-steppanels {
+    padding: var(--stepper-steppanels-padding);
+  }
+}

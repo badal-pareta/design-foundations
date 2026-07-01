@@ -1,0 +1,56 @@
+body {
+  .qubit {
+    .p-progressbar {
+      background-color: var(--progressbar-container-background-default);
+      @include border-radius(var(--progressbar-container-borderradius));
+      border: var(--progressbar-container-border);
+      height: var(--progressbar-container-height-default);
+
+      .p-progressbar-value {
+        background: var(--progressbar-value-background-default);
+        //TODO: Badal | Animate the progessbar 
+        &.p-progressbar-value-animate {
+          // background: $primaryDarkerColor;
+        }
+      }
+    }
+
+    &.success {
+      .p-progressbar {
+        .p-progressbar-value {
+          background: var(--progressbar-value-background-success);
+        }
+      }
+    }
+
+    &.running {
+      .p-progressbar {
+        .p-progressbar-value {
+          background: var(--progressbar-value-background-running);
+        }
+      }
+    }
+
+    &.pre-processing {
+      .p-progressbar {
+        .p-progressbar-value {
+          background: var(--progressbar-value-background-preprocessing);
+        }
+      }
+    }
+
+    &.danger {
+      .p-progressbar {
+        .p-progressbar-value {
+          background: var(--progressbar-value-background-danger);
+        }
+      }
+    }
+
+    &.small {
+      .p-progressbar {
+        height: var(--progressbar-container-height-small);
+      }
+    }
+  }
+}

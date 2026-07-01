@@ -1,0 +1,152 @@
+p-toast {
+  .qubit {
+    &.p-toast {
+      width: var(--toast-base-width);
+
+      .p-toast-message {
+        @include label-large;
+        background-color: var(--toast-base-background);
+        border-radius: var(--toast-base-borderradius);
+        box-shadow: var(--toast-base-boxshadow);
+        border-left: var(--toast-base-borderleftwidth) var(--toast-base-borderleftstyle);
+        margin: var(--toast-base-margin);
+        padding: var(--toast-base-padding);
+
+        /* CONTENT */
+        .p-toast-message-content {
+          border-width: var(--toast-content-borderwidth);
+          display: var(--toast-content-display);
+          grid-template-columns: var(--toast-content-gridtemplatecolumns);
+          gap: var(--toast-content-gap);
+
+          .p-toast-message-icon {
+            padding: var(--toast-icon-padding);
+          }
+
+          .p-toast-message-text {
+            display: var(--toast-text-display);
+            flex-direction: var(--toast-text-flexdirection);
+            gap: var(--toast-text-gap);
+            margin: var(--toast-text-margin);
+
+            .p-toast-detail {
+              color: var(--toast-detail-color);
+            }
+          }
+
+          .p-toast-summary {
+            font-weight: var(--toast-summary-fontweight);
+            padding: var(--toast-summary-padding);
+          }
+
+          .p-toast-detail {
+            margin: var(--toast-detail-margin);
+          }
+        }
+
+        /* CLOSE BUTTON (v18) */
+        .p-toast-close-button {
+          border-radius: var(--toast-closebutton-borderradius);
+          transition: var(--toast-closebutton-transition);
+          background-color: var(--toast-closebutton-background);
+          border: var(--toast-closebutton-border);
+          
+          padding: var(--toast-closebutton-padding);
+          right: var(--toast-closebutton-right);
+          &:hover {
+            background-color: var(--toast-closebutton-backgroundhover);
+          }
+
+          &:active {
+            background-color: var(--toast-closebutton-backgroundactive);
+          }
+
+
+          /* Icon inside p-button */
+          .p-toast-close-icon {
+            @include polly-icon-override('\75');
+            color: var(--toast-closebutton-iconcolor);
+            height: var(--toast-closebutton-iconsize);
+            width: var(--toast-closebutton-iconsize);
+
+            font-size: var(--toast-closebutton-iconfontsize);
+            .p-icon {
+            display: none;
+          }
+          }
+        }
+
+        /* SEVERITIES */
+        &.p-toast-message-info {
+          border-color: var(--toast-severity-info-bordercolor);
+
+          .p-toast-message-icon,
+          .p-toast-summary {
+            color: var(--toast-severity-info-iconcolor);
+          }
+        }
+
+        &.p-toast-message-success {
+          border-color: var(--toast-severity-success-bordercolor);
+
+          .p-toast-message-icon,
+          .p-toast-summary {
+            color: var(--toast-severity-success-iconcolor);
+          }
+        }
+
+        &.p-toast-message-warn {
+          border-color: var(--toast-severity-warn-bordercolor);
+
+          .p-toast-message-icon,
+          .p-toast-summary {
+            color: var(--toast-severity-warn-iconcolor);
+          }
+        }
+
+        &.p-toast-message-error {
+          border-color: var(--toast-severity-error-bordercolor);
+
+          .p-toast-message-icon,
+          .p-toast-summary {
+            color: var(--toast-severity-error-iconcolor);
+          }
+        }
+      }
+
+      /* ICON VISIBILITY */
+      &.icon {
+        &--hidden {
+          .p-toast-message-icon {
+            display: none;
+          }
+        }
+      }
+
+      /* VERTICAL LAYOUT */
+      &.vertical {
+        .p-toast-message {
+          padding: var(--toast-variant-vertical-padding);
+
+          .p-toast-message-content {
+            align-items: var(--toast-variant-vertical-content-alignitems);
+
+            .p-toast-message-icon {
+              padding: var(--toast-variant-vertical-icon-padding);
+            }
+
+            .p-toast-message-text {
+              align-items: var(--toast-variant-vertical-text-alignitems);
+              flex-direction: var(--toast-variant-vertical-text-flexdirection);
+              gap: var(--toast-variant-vertical-text-gap);
+            }
+
+            .p-toast-summary {
+              padding: var(--toast-variant-vertical-summary-padding);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+/* ================= Overlay panel (v17) / Popover  (v18) ================= */
+
+body {
+  .p-popover {
+    &::before,
+    &::after {
+      border-width: var(--popover-selector-borderwidth);
+      margin-left: var(--popover-selector-marginleft);
+      border-bottom-color: var(--popover-selector-borderbottomcolor);
+      left: var(--popover-selector-left);
+    }
+
+    &.qubit {
+      background-color: var(--popover-base-background);
+      box-shadow: var(--popover-base-shadow);
+      border-radius: var(--popover-base-borderradius);
+      border: var(--popover-base-border) !important;
+      color: var(--popover-base-color);
+      padding: var(--popover-base-padding);
+      margin-top: var(--popover-base-margintop);
+
+      .p-popover-content {
+        padding: var(--popover-content-padding) !important;
+      }
+
+      /* No padding variant */
+      &.padding-0 {
+        padding: var(--popover-nopadding-padding);
+      }
+
+      /* Sidenav alignment variants */
+      &.sidenav-overlay {
+        // moving popover beside sidenav top | bottom
+        transform: var(--popover-sidenav-transform-default) !important;
+
+        &.notification {
+          transform: var(--popover-sidenav-transform-notification) !important;
+        }
+
+        &.user-options {
+          transform: var(--popover-sidenav-transform-useroptions) !important;
+        }
+      }
+
+      /* Filter overlay */
+      &.filter-overlay {
+        margin-top: var(--popover-filteroverlay-margintop);
+      }
+
+      /* Modal-like popover */
+      &.modal {
+        box-shadow: var(--popover-modal-shadow);
+        background-color: var(--popover-modal-background);
+        border-radius: var(--popover-modal-borderradius);
+        max-height: var(--popover-modal-maxheight);
+        overflow: var(--popover-modal-overflow);
+        padding: var(--popover-modal-padding);
+      }
+    }
+
+    &.pre-login {
+      padding: 0.571rem 1rem;
+    }
+  }
+}

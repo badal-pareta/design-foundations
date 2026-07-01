@@ -1,0 +1,170 @@
+.p-tabs.qubit {
+  width: var(--tabs-container-width);
+
+  .p-tablist {
+    &-content {
+      scroll-padding-inline: var(--tabs-list-navbutton-size);
+    }
+
+    &-tab-list {
+      background: var(--tabs-list-background);
+      border: var(--tabs-list-border);
+      display: flex;
+      gap: var(--tabs-list-gap);
+      position: relative;
+    }
+
+    &-active-bar {
+      background: var(--tabs-list-inkbar-color);
+      bottom: 0;
+      height: var(--tabs-list-inkbar-height);
+      position: absolute;
+    }
+  }
+
+  .p-tab {
+    @include label-large;
+    align-items: center;
+    background: var(--tabs-tab-background-default);
+    border: none;
+    border-radius: var(--tabs-tab-radius);
+    color: var(--tabs-tab-color-default);
+    cursor: pointer;
+    display: inline-flex;
+    gap: 0.25rem;
+    height: var(--tabs-tab-height);
+    padding: var(--tabs-tab-padding-y) var(--tabs-tab-padding-x);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+    user-select: none;
+
+    &:hover:not([data-p-disabled='true']) {
+      background: var(--tabs-tab-background-hover);
+      color: var(--tabs-tab-color-hover);
+    }
+
+    &[data-p-active='true'] {
+      background: var(--tabs-tab-background-active);
+      color: var(--tabs-tab-color-active);
+    }
+
+    &[data-p-disabled='true'] {
+      color: var(--tabs-tab-color-disabled);
+      cursor: not-allowed;
+    }
+
+    > i {
+      color: var(--tabs-tab-icon-color-default);
+      font-size: var(--tabs-tab-icon-size);
+      margin: 0;
+      vertical-align: middle;
+
+      &.notification-icon {
+        background: var(--tabs-modifier-notification-dot-background);
+        border-radius: var(--tabs-modifier-notification-dot-radius);
+        display: inline-block;
+        font-size: 0;
+        height: var(--tabs-modifier-notification-dot-size);
+        line-height: 0;
+        width: var(--tabs-modifier-notification-dot-size);
+      }
+    }
+
+    &[data-p-active='true'] > i {
+      color: var(--tabs-tab-icon-color-active);
+    }
+  }
+
+  .p-tabpanels {
+    background: var(--tabs-panel-background);
+    border: var(--tabs-panel-border);
+    color: var(--tabs-panel-color);
+    font-family: var(--tabs-tab-font-family);
+    font-size: var(--tabs-tab-font-size);
+    font-weight: var(--tabs-tab-font-weight);
+    padding: var(--tabs-panel-padding);
+  }
+
+  &.filled {
+    .p-tablist-tab-list {
+      gap: var(--tabs-variant-filled-list-gap);
+    }
+
+    .p-tab {
+      background: var(--tabs-variant-filled-tab-background-default);
+      border-radius: var(--tabs-variant-filled-tab-radius);
+
+      > i {
+        color: var(--tabs-variant-filled-tab-icon-color-default);
+      }
+
+      &:hover {
+        background: var(--tabs-variant-filled-tab-background-hover);
+      }
+
+      &:active {
+        background: var(--tabs-variant-filled-tab-background-pressed);
+      }
+
+      &[data-p-active='true'] {
+        background: var(--tabs-variant-filled-tab-background-active);
+        color: var(--tabs-variant-filled-tab-color-active);
+
+        /* keep icon in same family for active */
+        > i {
+          color: var(--tabs-variant-filled-tab-icon-color-active);
+        }
+      }
+    }
+
+    .p-tablist-active-bar {
+      background: var(--tabs-variant-filled-tab-inkbar-color);
+      height: var(--tabs-variant-filled-tab-inkbar-height);
+    }
+  }
+
+  &.medium {
+    .p-tab {
+      @include label-medium;
+      font-size: var(--tabs-size-medium-tab-font-size);
+      height: var(--tabs-size-medium-tab-height);
+
+      > i {
+        font-size: var(--tabs-size-medium-tab-icon-size);
+      }
+    }
+  }
+
+  &.omixatlas {
+    &-landing {
+      .p-tablist-tab-list {
+        padding: var(--tabs-modifier-omixatlas-landing-list-padding);
+      }
+    }
+
+    &-details {
+      .p-tablist-tab-list {
+        padding: var(--tabs-modifier-omixatlas-details-list-padding);
+      }
+    }
+
+    &-dataset-cards {
+      .p-tabs {
+        &-nav {
+          padding: var(--tabs-modifier-omixatlas-dataset-cards-nav-padding);
+        }
+
+        .p-tabpanels {
+          padding: var(--tabs-modifier-omixatlas-dataset-cards-panels-padding);
+        }
+      }
+    }
+  }
+
+  &.nav-border-bottom {
+    .p-tablist-tab-list {
+      border-bottom: var(--tabs-modifier-navborderbottom-list-border);
+    }
+  }
+}

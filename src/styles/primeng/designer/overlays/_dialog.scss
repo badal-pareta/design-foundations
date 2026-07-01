@@ -1,0 +1,179 @@
+body {
+  %dialog-mask {
+    background-color: var(--dialog-background-overlay);
+    &.p-overlay-mask {
+      background-color: var(--dialog-background-overlay);
+      pointer-events: var(--dialog-overlaymask-pointerevents-default) !important;
+    }
+    &.no-mask-background {
+      background-color: transparent;
+    }
+    &.p-overlay-mask-enter {
+      animation: none;
+    }
+  }
+
+  %dialog-base {
+    border: var(--dialog-border-default);
+    border-radius: var(--dialog-border-radius);
+    background-color: var(--dialog-background-default);
+    color: var(--dialog-text-color-default);
+    max-height: var(--dialog-maxheight);
+    padding: var(--dialog-padding-container);
+    position: var(--dialog-position-default) !important;
+
+    .p-dialog-header {
+      background-color: var(--dialog-header-background-default);
+      border-radius: var(--dialog-header-border-radius-top);
+      border-top: var(--dialog-border-width) solid var(--dialog-border-color-subtle);
+      display: flex;
+      gap: var(--dialog-header-gap-default);
+      height: var(--dialog-header-height-default);
+      padding: var(--dialog-header-padding-default);
+
+      .p-dialog-title {
+        @include title-medium;
+        color: var(--dialog-title-color-default);
+      }
+
+      .p-dialog-header-actions {
+        gap: var(--dialog-headeractions-gap);
+
+        .p-dialog-close-button {
+          background-color: var(--dialog-closebutton-background-default);
+          border: var(--dialog-closebutton-border);
+          color: var(--dialog-closebutton-color-default);
+          justify-content: var(--dialog-closebutton-justifycontent);
+          height: var(--dialog-closebutton-height);
+
+          .p-icon {
+            @include polly-icon-override('\75');
+            font-size: var(--dialog-closebutton-icon-fontsize);
+          }
+        }
+
+        /* MAXIMIZE BUTTON */
+        .p-dialog-maximize-button {
+          background-color: var(--dialog-maximizebutton-background-default);
+          border: var(--dialog-maximizebutton-border);
+
+          &:hover {
+            background-color: var(--dialog-maximizebutton-background-hover);
+          }
+        }
+      }
+    }
+
+    &.clear {
+      .p-dialog-header {
+        background-color: var(--dialog-header-background-clear);
+      }
+    }
+
+    .p-dialog-content {
+      background-color: var(--dialog-content-background);
+      display: var(--dialog-content-display);
+      padding: var(--dialog-content-padding-default);
+    }
+
+    .p-dialog-footer {
+      background-color: var(--dialog-footer-background);
+      border-top: var(--dialog-footer-border-top-width) solid var(--dialog-footer-border-top-color);
+      display: var(--dialog-footer-display);
+      flex-wrap: var(--dialog-footer-flexwrap);
+      gap: var(--dialog-footer-gap);
+      padding: var(--dialog-footer-padding-default);
+      flex: 0;
+    }
+
+    &.popup-dialog {
+      .p-dialog-header {
+        background-color: var(--dialog-header-background-popup);
+        border-bottom: var(--dialog-header-border-bottom-width) solid var(--dialog-header-border-bottom-color);
+        gap: var(--dialog-header-gap-none);
+        height: var(--dialog-header-height-auto);
+
+        .p-dialog-header-actions {
+          padding-top: var(--dialog-header-padding-popupheaderaction);
+          .p-dialog-close-button {
+            height: var(--dialog-header-height-auto);
+          }
+        }
+
+        .p-dialog-title {
+          color: var(--dialog-title-color-popup);
+        }
+      }
+
+      .p-dialog-content {
+        padding: var(--dialog-content-padding-popup);
+      }
+
+      .p-dialog-footer {
+        padding: var(--dialog-footer-padding-popup);
+      }
+    }
+
+    &.popup-modal {
+      .p-dialog-header {
+        background-color: var(--dialog-header-background-default);
+        border-top: var(--dialog-border-width) solid var(--dialog-border-color-subtle);
+        gap: var(--dialog-header-gap-none);
+        height: var(--dialog-header-height-auto);
+      }
+
+      .p-dialog-content {
+        padding: var(--dialog-content-padding-popupmodal);
+      }
+
+      .p-dialog-footer {
+        padding: var(--dialog-footer-padding-popupmodal);
+      }
+    }
+  }
+
+  .p-dialog-mask {
+    @extend %dialog-mask;
+  }
+
+  p-dialog,
+  p-dynamicdialog {
+    .p-dialog-mask {
+      @extend %dialog-mask;
+    }
+
+    .qubit.p-dialog {
+      @extend %dialog-base;
+    }
+
+    .qubit {
+      .p-dialog-mask {
+        background-color: var(--dialog-background-overlay);
+
+        &.no-mask-background {
+          background-color: transparent;
+        }
+
+        &.p-overlay-mask-enter {
+          animation: none;
+        }
+      }
+
+      &.padding-0 {
+        &.p-dialog {
+          .p-dialog-content {
+            padding: var(--dialog-content-padding-none);
+          }
+        }
+      }
+
+      &.padding-header-0 {
+        &.p-dialog {
+          .p-dialog-header {
+            padding: var(--dialog-header-padding-none);
+          }
+        }
+      }
+    }
+  }
+}

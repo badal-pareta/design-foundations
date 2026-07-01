@@ -1,0 +1,71 @@
+body {
+  p-card {
+    .p-card {
+      background-color: var(--card-bg-default);
+      border: var(--card-border-width) var(--card-border-style) var(--card-border-default);
+      border-radius: var(--card-radius-default);
+      overflow: var(--card-overflow);
+      padding: var(--card-padding-default);
+      transition: var(--card-transition-boxshadow);
+
+      &:hover {
+        background-color: var(--card-bg-hover);
+        border-color: var(--card-state-hover-border);
+        box-shadow: var(--card-shadow-hover);
+        transition: var(--card-transition-boxshadow);
+      }
+
+      &:active {
+        box-shadow: var(--card-shadow-active);
+      }
+    }
+
+    &.material {
+      .p-card {
+        border: var(--card-variant-material-border);
+      }
+    }
+
+    &.card {
+      &-small {
+        .p-card {
+          border-radius: var(--card-radius-small);
+        }
+      }
+
+      &-medium {
+        .p-card {
+          border-radius: var(--card-radius-medium);
+        }
+      }
+
+      &-large {
+        .p-card {
+          border-radius: var(--card-radius-large);
+        }
+      }
+    }
+
+    &.active {
+      .p-card {
+        background-color: var(--card-bg-active);
+        // border: var(--card-border-width) var(--card-border-style) var(--card-border-active);
+      }
+
+      &:not(&.material) {
+        .p-card {
+          border: var(--card-variant-flat-borderactive);
+        }
+      }
+    }
+
+    &.focus {
+      .p-card {
+        &:focus {
+          outline: var(--card-state-focus-outline-width) var(--card-state-focus-outline-style) var(--card-state-focus-outline-color);
+          outline-offset: var(--card-state-focus-outline-offset);
+        }
+      }
+    }
+  }
+}

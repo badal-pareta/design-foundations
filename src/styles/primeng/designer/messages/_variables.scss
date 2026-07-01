@@ -1,0 +1,11 @@
+$toast-box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.08), 0 0 0.25rem 0 rgba(0, 0, 0, 0.24);
+$toast-margin: 0 0 1em 0;
+$toast-neutral-color: color-mix(in srgb, var(--color-primary-neutral) 60%, var(--color-standard-black) 40%);
+$toast-bg-color: var(--color-standard-white);
+$toast-success-color: var(--color-primary-blue);
+$toast-warn-color: color-mix(in srgb, var(--color-primary-orange) 70%, var(--color-standard-black) 30%);
+$toast-error-color: color-mix(in srgb, var(--color-primary-red) 70%, var(--color-standard-black) 30%);
+$toast-message-text-margin: 0;
+$toast-summary-font-weight: normal;
+$toast-detail-margin: 0;
+$toast-padding: 0.25rem 0.25rem 0.375rem 0.625rem;

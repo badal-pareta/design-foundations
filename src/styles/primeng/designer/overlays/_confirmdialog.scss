@@ -1,0 +1,55 @@
+body {
+  .p-confirmdialog {
+    &.p-dialog {
+      box-shadow: var(--confirmdialog-shadow-default);
+      -moz-box-shadow: var(--confirmdialog-shadow-default);
+      -webkit-box-shadow: var(--confirmdialog-shadow-default);
+      border-radius: var(--confirmdialog-border-radius);
+      background-color: var(--confirmdialog-background-default);
+      color: var(--confirmdialog-title-color-default);
+      max-height: var(--confirmdialog-maxheight);
+      padding: var(--confirmdialog-padding-container);
+      pointer-events: var(--confirmdialog-pointerevents-default) !important;
+      position: var(--confirmdialog-position-default) !important;
+
+      .p-dialog-header {
+        border-radius: var(--confirmdialog-header-border-radius-top);
+        background-color: var(--confirmdialog-header-background-default);
+        border-top: var(--confirmdialog-border-width) solid var(--confirmdialog-border-color-subtle);
+        display: var(--confirmdialog-header-display);
+        grid-gap: var(--confirmdialog-header-gap);
+        padding: var(--confirmdialog-header-padding);
+
+        .p-dialog-title {
+          @include title-medium;
+          color: var(--confirmdialog-title-color-default);
+        }
+
+        .p-dialog-header-icon {
+          color: var(--confirmdialog-headericon-color-default);
+        }
+      }
+
+      .p-dialog-content {
+        background-color: var(--confirmdialog-content-background);
+        display: var(--confirmdialog-content-display);
+        flex-direction: var(--confirmdialog-content-flexdirection);
+        grid-gap: var(--confirmdialog-content-gap);
+        padding: var(--confirmdialog-content-padding);
+
+        .p-confirmdialog-message {
+          @include body-medium;
+          margin: var(--confirmdialog-message-margin);
+        }
+      }
+
+      .p-dialog-footer {
+        background-color: var(--confirmdialog-footer-background);
+        border-top: var(--confirmdialog-footer-border-top-width) solid var(--confirmdialog-footer-border-top-color);
+        display: var(--confirmdialog-footer-display);
+        grid-gap: var(--confirmdialog-footer-gap);
+        padding: var(--confirmdialog-footer-padding);
+      }
+    }
+  }
+}

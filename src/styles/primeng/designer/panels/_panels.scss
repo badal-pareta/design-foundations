@@ -1,0 +1,98 @@
+body {
+  /* Hide default toggle icon wrapper (v18) */
+  .p-panel {
+    color: var(--panel-text-default);
+    &-header {
+      background: var(--panel-background-header);
+      border: var(--panel-border-header);
+      border-radius: var(--panel-border-header-radius);
+      color: var(--panel-text-header);
+      padding: var(--panel-padding-header);
+
+      .p-panel-icons {
+        display: var(--panel-icon-display) !important;
+      }
+    }
+
+    &-title {
+      @include title-micro;
+    }
+
+    &-content-container {
+      @include title-micro;
+    }
+
+    &-content {
+      padding: var(--panel-padding-content);
+    }
+
+    &-footer {
+      padding: var(--panel-padding-footer);
+    }
+  }
+  .p-panel-toggleable {
+    &.p-panel-header {
+      padding: var(--panel-padding-header);
+    }
+  }
+
+  .atlas-table-details-panel {
+    .p-panel {
+      border-radius: var(--panel-border-container-radius);
+      cursor: var(--panel-cursor-container);
+      gap: var(--panel-gap-container);
+      padding: var(--panel-padding-atlastable-container);
+
+      &-icons {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      &-header {
+        background-color: var(--panel-background-container-header);
+        border-radius: var(--panel-border-container-header-radius);
+        color: var(--panel-text-container);
+
+        .p-panel-icons {
+          color: var(--panel-icon-container-color);
+          font-size: var(--panel-icon-font-size);
+
+          &:hover {
+            background-color: var(--panel-background-container-icon-hover);
+          }
+        }
+
+        &:hover {
+          background-color: var(--panel-background-container-header-hover);
+        }
+      }
+
+      &-content {
+        background-color: var(--panel-background-container-content);
+        border-radius: var(--panel-border-container-content-radius);
+        color: var(--panel-text-container-content);
+        display: flex;
+        flex-direction: column;
+        gap: var(--panel-gap-container-content);
+      }
+    }
+
+    &.active {
+      .p-panel {
+        &-header {
+          background-color: var(--panel-background-container-active-header);
+          color: var(--panel-text-container-active-header);
+
+          .p-panel-icons {
+            color: var(--panel-icon-container-active-color);
+
+            &:hover {
+              background-color: var(--panel-background-container-active-icon-hover);
+            }
+          }
+        }
+      }
+    }
+  }
+}

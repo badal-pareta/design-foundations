@@ -1,0 +1,158 @@
+// ========================================
+// INPUT SWITCH
+// ========================================
+
+$transition-duration: 0.3s;
+$input-switch-border-radius: var(--radius-full);
+$input-switch-focus-color: rgba(var(--color-neutral-purple), 0.1);
+$input-switch-outline-width-default: var(--spacing-2);
+$input-switch-outline-width-medium: 0.3rem;
+
+$input-switch-handler-shadow:
+  0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+  0px 2px 1px 0px rgba(0, 0, 0, 0.12),
+  0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+$input-switch-pressed-state-color: rgba(var(--color-neutral-purple), 0.25);
+$input-switch-off-handle-bg-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 20%,
+  var(--color-standard-white) 80%
+);
+$input-switch-off-handle-icon-bg-color: var(--color-standard-white);
+$input-switch-off-handle-hover-bg-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 20%,
+  var(--color-standard-white) 80%
+);
+$input-switch-on-handle-bg-color: color-mix(
+  in srgb,
+  var(--color-neutral-purple) 40%,
+  var(--color-standard-white) 60%
+);
+$input-switch-on-handle-icon-color: var(--color-secondary-purple);
+$input-switch-on-handle-hover-bg-color: color-mix(
+  in srgb,
+  var(--color-neutral-purple) 40%,
+  var(--color-standard-white) 60%
+);
+
+$input-switch-transition: all $transition-duration;
+
+// ========================================
+// CALENDAR / DATEPICKER
+// ========================================
+$datepicker-font-family: var(--font-family-inter);
+$datepicker-padding: 0.625rem;
+$datepicker-box-shadow: 0 4px 20px 4px rgba(0, 0, 0, 0.08);
+$datepicker-margin-top: var(--spacing-2);
+$datepicker-bg-color: var(--color-standard-white);
+$datepicker-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 90%,
+  var(--color-standard-white) 10%
+);
+
+$datepicker-border: 0;
+$datepicker-border-radius: var(--radius-xl);
+$datepicker-month-margin-right: var(--spacing-2);
+$datepicker-table-margin: 0.625rem 0; // Suggest: var(--spacing-2-5) 0
+$datepicker-header-padding-bottom: 0.625rem; // Suggest: --spacing-2-5
+$datepicker-medium-table-header-padding: 0.125rem; // Suggest: --spacing-0-5 or round to --spacing-1
+$datepicker-large-table-header-padding: 0.75rem;
+$datepicker-medium-table-header-width: var(--spacing-6); // 1.5rem
+$datepicker-medium-table-header-height: var(--spacing-6); // 1.5rem
+$datepicker-large-table-header-width: var(--spacing-8); // 2rem
+$datepicker-large-table-header-height: var(--spacing-8); // 2rem
+$datepicker-medium-table-data-padding: var(--spacing-1); // 0.25rem
+$datepicker-large-table-data-padding: var(--spacing-1) 0.125rem; // Suggest: var(--spacing-1) var(--spacing-0-5)
+$datepicker-medium-table-data-width: var(--spacing-6); // 1.5rem
+$datepicker-medium-table-data-height: var(--spacing-6); // 1.5rem
+$datepicker-large-table-data-width: var(--spacing-8); // 2rem
+$datepicker-large-table-data-height: var(--spacing-8); // 2rem
+
+$datepicker-table-data-border: none; // skipped - border mechanic
+$datepicker-table-data-border-radius: var(--radius-full);
+$datepicker-table-data-highlight-color: var(--color-standard-white);
+$datepicker-table-data-highlight-bg-color: var(--color-primary-purple);
+$datepicker-next-prev-border-radius: var(--radius-sm); // 0.25rem
+$datepicker-medium-next-prev-padding: var(--spacing-1); // 0.25rem
+$datepicker-large-next-prev-padding: 0.75rem;
+$datepicker-year-month-picker-border-radius: var(--radius-sm); // 0.25rem
+$datepicker-header-separator-style: 1px solid
+  color-mix(
+    in srgb,
+    var(--color-primary-neutral) 60%,
+    var(--color-standard-white) 40%
+  );
+
+// ========================================
+// DROPDOWN
+// ========================================
+$dropdown-font-family: var(--font-family-inter);
+
+$dropdown-border-transition: border-color 300ms;
+$dropdown-line-height: 1.25rem;
+
+// ========================================
+// INPUT TEXT
+// ========================================
+$input-border-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 60%,
+  var(--color-standard-white) 40%
+);
+
+$input-focus-border-color: color-mix(
+  in srgb,
+  var(--color-secondary-purple) 80%,
+  var(--color-standard-black) 20%
+);
+
+$input-error-border-color: color-mix(
+  in srgb,
+  var(--color-primary-red) 70%,
+  var(--color-standard-black) 30%
+);
+
+$input-disabled-border-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 25%,
+  var(--color-standard-white) 75%
+);
+
+$input-font-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 60%,
+  var(--color-standard-black) 40%
+);
+
+$input-placeholder-font-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 60%,
+  var(--color-standard-white) 40%
+);
+$input-border-radius: var(--radius-sm); // 0.25rem
+
+$input-icon-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 90%,
+  var(--color-standard-white) 10%
+);
+
+$input-disabled-icon-color: color-mix(
+  in srgb,
+  var(--color-primary-neutral) 60%,
+  var(--color-standard-white) 40%
+);
+
+$input-active-icon-color: color-mix(
+  in srgb,
+  var(--color-neutral-purple) 80%,
+  var(--color-standard-black) 20%
+);
+
+$input-focus-icon-color: color-mix(
+  in srgb,
+  var(--color-secondary-purple) 80%,
+  var(--color-standard-black) 20%
+);

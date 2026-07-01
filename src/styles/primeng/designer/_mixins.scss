@@ -1,0 +1,397 @@
+// sass-lint:disable variable-name-format
+// sass-lint:disable nesting-depth
+// sass-lint:disable no-disallowed-properties
+
+
+@mixin polly-icon-override($icon) {
+  &:before {
+    content: $icon;
+    font-family: 'iconset';
+  }
+}
+
+@mixin appearance($val) {
+  -moz-appearance: $val;
+  -webkit-appearance: $val;
+  appearance: $val;
+}
+
+@mixin transition($transition...) {
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+@mixin focused-input {
+  @include shadow($inputFocusShadow);
+  border-color: $inputFocusBorderColor;
+  outline: 0 none;
+}
+
+@mixin disabled-input {
+  background-color: $inputDisabledBgColor;
+  border-color: $inputDisabledBorderColor;
+  color: $inputDisabledTextColor;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+@mixin shadow($value) {
+  -moz-box-shadow: $value;
+  -webkit-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin border-radius($val) {
+  -moz-border-radius: $val;
+  -webkit-border-radius: $val;
+  border-radius: $val;
+}
+
+@mixin border-radius-right($val) {
+  -moz-border-radius-bottomright: $val;
+  -moz-border-radius-topright: $val;
+  -webkit-border-bottom-right-radius: $val;
+  -webkit-border-top-right-radius: $val;
+  border-bottom-right-radius: $val;
+  border-top-right-radius: $val;
+}
+
+@mixin border-radius-left($val) {
+  -moz-border-radius-bottomleft: $val;
+  -moz-border-radius-topleft: $val;
+  -webkit-border-bottom-left-radius: $val;
+  -webkit-border-top-left-radius: $val;
+  border-bottom-left-radius: $val;
+  border-top-left-radius: $val;
+}
+
+@mixin border-radius-top($val) {
+  -moz-border-radius-topleft: $val;
+  -moz-border-radius-topright: $val;
+  -webkit-border-top-left-radius: $val;
+  -webkit-border-top-right-radius: $val;
+  border-top-left-radius: $val;
+  border-top-right-radius: $val;
+}
+
+@mixin border-radius-bottom($val) {
+  -moz-border-radius-bottomleft: $val;
+  -moz-border-radius-bottomright: $val;
+  -webkit-border-bottom-left-radius: $val;
+  -webkit-border-bottom-right-radius: $val;
+  border-bottom-left-radius: $val;
+  border-bottom-right-radius: $val;
+}
+
+@mixin opacity($opacity) {
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie);
+  opacity: $opacity;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+
+  :-moz-placeholder {
+    @content;
+  }
+
+  ::-moz-placeholder {
+    @content;
+  }
+
+  :-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin rotate($deg) {
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin scale($deg) {
+  -moz-transform: scale($deg);
+  -ms-transform: scale($deg);
+  -o-transform: scale($deg);
+  -webkit-transform: scale($deg);
+  transform: scale($deg);
+}
+
+@mixin translate-x($deg) {
+  -ms-transform: translateX($deg);
+  -webkit-transform: translateX($deg);
+  transform: translateX($deg);
+}
+
+@mixin add-transition($transition) {
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+@mixin add-color($property, $color) {
+  #{$property}: $color;
+}
+
+
+/* CLI Typography Styles */
+@mixin cli-large {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin cli-medium {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+@mixin cli-small {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.6875rem !important;
+  font-weight: 500 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+@mixin cli-micro {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.625rem !important;
+  font-weight: 500 !important;
+  line-height: 0.875rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+/* Display Typography Styles */
+@mixin display-large {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 3.375rem !important;
+  font-weight: 400 !important;
+  line-height: 4rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin display-medium {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 2.75rem !important;
+  font-weight: 450 !important;
+  line-height: 3.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin display-small {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 2.25rem !important;
+  font-weight: 500 !important;
+  line-height: 2.75rem !important;
+  letter-spacing: 0 !important;
+}
+
+/* Headline Typography Styles */
+@mixin headline-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 2rem !important;
+  font-weight: 400 !important;
+  line-height: 2.5rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin headline-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.75rem !important;
+  font-weight: 400 !important;
+  line-height: 2.25rem !important;
+  letter-spacing: -0.1px !important;
+}
+
+@mixin headline-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  line-height: 2rem !important;
+  letter-spacing: -0.1px !important;
+}
+
+/* Title Typography Styles */
+@mixin title-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.375rem !important;
+  font-weight: 500 !important;
+  line-height: 1.75rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin title-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin title-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin title-micro {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Body Typography Styles */
+@mixin body-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.75rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin body-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin body-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0.1px !important;
+}
+
+@mixin body-micro {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.6875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.125rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Label Typography Styles */
+@mixin label-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin label-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+@mixin label-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.6875rem !important;
+  font-weight: 500 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+@mixin label-micro {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.625rem !important;
+  font-weight: 500 !important;
+  line-height: 0.875rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+/* Tag Typography Styles */
+@mixin tag-large {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25rem !important;
+  letter-spacing: 0 !important;
+}
+
+@mixin tag-medium {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+@mixin tag-small {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  line-height: 1rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+@mixin tag-micro {
+  font-family: "Inter", sans-serif !important;
+  font-size: 0.625rem !important;
+  font-weight: 700 !important;
+  line-height: 0.875rem !important;
+  letter-spacing: 0.35px !important;
+}
+
+/* Text utilities */
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-no-select {
+  user-select: none;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: bold;
+}

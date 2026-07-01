@@ -1,0 +1,242 @@
+body {
+  %input-text-base {
+    @include label-large;
+    border: var(--inputtext-field-border-width) var(--inputtext-field-border-style) var(--inputtext-field-border-color-default);
+    border-radius: var(--inputtext-field-border-radius);
+    color: var(--inputtext-field-text-color) !important;
+    font-size: var(--inputtext-field-font-size);
+    font-weight: var(--inputtext-field-font-weight);
+    height: var(--inputtext-field-height-default);
+    padding: var(--inputtext-field-padding-default);
+    transition: var(--inputtext-field-transition);
+  }
+
+  .p-inputtext,
+  .datepicker-input {
+    @extend %input-text-base;
+
+    &.p-component.pre-login-form-input.form-input {
+      color: var(--inputtext-prelogin-color-default) !important;
+      font-family: var(--inputtext-prelogin-fontfamily) !important;
+      font-size: var(--inputtext-prelogin-fontsize) !important;
+      font-weight: var(--inputtext-prelogin-fontweight) !important;
+      line-height: var(--inputtext-prelogin-lineheight) !important;
+      &::placeholder {
+        color: var(--inputtext-prelogin-color-placeholder) !important;
+      }
+      &.ng-invalid.ng-dirty.ng-touched {
+        color: var(--inputtext-prelogin-color-invalid) !important;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 1000px var(--inputtext-prelogin-autofill-background) inset !important;
+        box-shadow: 0 0 0 1000px var(--inputtext-prelogin-autofill-background) inset !important;
+        -webkit-text-fill-color: var(--inputtext-prelogin-color-default) !important;
+        caret-color: var(--inputtext-prelogin-color-default) !important;
+        transition: background-color 9999s ease-in-out 0s;
+      }
+    }
+  }
+
+  .datepicker-input {
+    &-sm {
+      height: var(--inputtext-field-height-small);
+      padding: var(--inputtext-field-padding-small);
+    }
+
+    &-lg {
+      height: var(--inputtext-field-height-large);
+      padding: var(--inputtext-field-padding-large);
+    }
+  }
+  .qubit {
+    @include placeholder {
+      color: var(--inputtext-placeholder-color) !important;
+    }
+
+    &.p-inputtext {
+      @extend %input-text-base;
+      &:enabled:hover:not(.ng-invalid.ng-touched) {
+        border-color: var(--inputtext-field-border-color-hover);
+        outline: var(--inputtext-field-outline-width) var(--inputtext-field-outline-style) var(--inputtext-field-outline-color-hover);
+      }
+
+      &:enabled:is(:focus, :active):not(.ng-invalid.ng-touched) {
+        border: var(--inputtext-field-border-width) var(--inputtext-field-border-style) var(--inputtext-field-border-color-focus);
+        outline: var(--inputtext-field-outline-width) var(--inputtext-field-outline-style) var(--inputtext-field-outline-color-focus);
+      }
+
+      &:disabled {
+        background-color: var(--inputtext-field-background-disabled);
+        border: var(--inputtext-field-border-width) var(--inputtext-field-border-style) var(--inputtext-field-border-color-disabled);
+        outline: var(--inputtext-field-outline-width) var(--inputtext-field-outline-style) var(--inputtext-field-outline-color-disabled);
+      }
+
+      &.ng-invalid.ng-touched {
+        border: var(--inputtext-field-border-width) var(--inputtext-field-border-style) var(--inputtext-field-border-color-error);
+        color: var(--inputtext-field-text-color);
+        outline: var(--inputtext-field-outline-width) var(--inputtext-field-outline-style) var(--inputtext-field-outline-color-error);
+      }
+
+      &.p-inputtext-sm {
+        height: var(--inputtext-field-height-small);
+        padding: var(--inputtext-field-padding-small);
+      }
+
+      &.p-inputtext-lg {
+        height: var(--inputtext-field-height-large);
+        padding: var(--inputtext-field-padding-large);
+      }
+
+      &::placeholder {
+        color: var(--inputtext-placeholder-color);
+      }
+
+      &.ng-invalid.ng-touched::placeholder {
+        color: var(--inputtext-prelogin-color-invalid) !important;
+      }
+    }
+
+    /* Rounded alternate stays same */
+    &.rounded-alternate.p-inputtext {
+      border: var(--inputtext-field-border-width) var(--inputtext-field-border-style) var(--inputtext-roundedalternate-border-color-default);
+      border-radius: var(--inputtext-roundedalternate-border-radius);
+
+      &:enabled:hover:not(.ng-invalid.ng-touched) {
+        border-color: var(--inputtext-roundedalternate-border-color-hover);
+        outline: var(--inputtext-roundedalternate-outline-width) var(--inputtext-field-outline-style)
+          var(--inputtext-roundedalternate-outline-color-hover);
+      }
+
+      &:enabled:is(:focus, :active):not(.ng-invalid.ng-touched) {
+        border-color: var(--inputtext-roundedalternate-border-color-focus);
+        outline: var(--inputtext-roundedalternate-outline-width) var(--inputtext-field-outline-style)
+          var(--inputtext-roundedalternate-outline-color-focus);
+      }
+    }
+  }
+
+  .p-iconfield {
+    display: var(--inputtext-iconfield-display);
+
+    &-left,
+    &-right {
+      .qubit.p-inputtext {
+        padding: var(--inputtext-iconfield-padding-default);
+      }
+
+      .qubit.p-inputtext-sm {
+        padding: var(--inputtext-iconfield-padding-small);
+      }
+
+      .qubit.p-inputtext-lg {
+        padding: var(--inputtext-iconfield-padding-large);
+      }
+
+      .p-inputicon {
+        color: var(--inputtext-icon-color-default);
+        font-size: var(--inputtext-icon-size-default);
+        margin-top: 0;
+        top: var(--inputtext-icon-position-top-default);
+
+        &:first-child {
+          inset-inline-start: var(--inputtext-icon-position-left-insetstart);
+          left: var(--inputtext-icon-position-left-default);
+          top: var(--inputtext-icon-position-top-firstchild);
+        }
+
+        &:last-child {
+          inset-inline-end: var(--inputtext-icon-position-right-insetend);
+          right: var(--inputtext-icon-position-right-default);
+          top: var(--inputtext-icon-position-top-lastchild);
+        }
+
+        &-default {
+          top: var(--inputtext-icon-position-top-default) !important;
+        }
+
+        i {
+          font-size: var(--inputtext-icon-size-default);
+        }
+
+        i.input-icon-sm {
+          font-size: var(--inputtext-icon-size-small);
+        }
+
+        i.input-icon-lg {
+          font-size: var(--inputtext-icon-size-large);
+        }
+      }
+
+      &:has(.p-inputtext:enabled:active) .p-inputicon {
+        color: var(--inputtext-icon-color-active);
+      }
+
+      &:has(.p-inputtext:enabled:focus) .p-inputicon {
+        color: var(--inputtext-icon-color-focus);
+      }
+
+      &:has(.p-inputtext:disabled) .p-inputicon {
+        color: var(--inputtext-icon-color-disabled);
+        opacity: var(--inputtext-icon-opacity-disabled);
+      }
+    }
+
+    /* LEFT */
+
+    &-left {
+      .qubit.p-inputtext {
+        padding: var(--inputtext-iconfield-padding-left-default);
+      }
+
+      .qubit.p-inputtext-sm {
+        padding: var(--inputtext-iconfield-padding-left-small);
+      }
+
+      .qubit.p-inputtext-lg {
+        padding: var(--inputtext-iconfield-padding-left-large);
+      }
+
+      .p-inputicon {
+        left: var(--inputtext-icon-position-left-default);
+
+        &-sm {
+          left: var(--inputtext-icon-position-left-small);
+        }
+        &-lg {
+          left: var(--inputtext-icon-position-left-large);
+        }
+      }
+    }
+
+    /* RIGHT */
+
+    &-right {
+      .qubit.p-inputtext {
+        padding: var(--inputtext-iconfield-padding-right-default);
+      }
+
+      .qubit.p-inputtext-sm {
+        padding: var(--inputtext-iconfield-padding-right-small);
+      }
+
+      .qubit.p-inputtext-lg {
+        padding: var(--inputtext-iconfield-padding-right-large);
+      }
+
+      .p-inputicon {
+        right: var(--inputtext-icon-position-right-default);
+
+        &-sm {
+          right: var(--inputtext-icon-position-right-small);
+        }
+        &-lg {
+          right: var(--inputtext-icon-position-right-large);
+        }
+      }
+    }
+  }
+}

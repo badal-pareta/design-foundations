@@ -1,0 +1,13 @@
+.qubit {
+  &.p-skeleton {
+    background-color: var(--skeleton-background-default);
+
+    &.dark {
+      background-color: var(--skeleton-background-dark);
+    }
+
+    &:after {
+      background: var(--skeleton-background-after-default);
+    }
+  }
+}

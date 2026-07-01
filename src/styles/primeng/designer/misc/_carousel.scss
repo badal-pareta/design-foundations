@@ -1,0 +1,19 @@
+body {
+  .p-carousel {
+    .p-carousel-indicator-list {
+      padding: var(--carousel-indicator-list-padding);
+      gap: var(--carousel-indicator-list-gap);
+    }
+    .p-carousel-indicator-active .p-carousel-indicator-button {
+      background: var(--carousel-indicator-button-background-active);
+    }
+
+    .p-carousel-indicator-button {
+      background: var(--carousel-indicator-button-background-default);
+      width: var(--carousel-indicator-button-width);
+      height: var(--carousel-indicator-button-height);
+      transition: var(--carousel-indicator-button-transition);
+      border-radius: var(--carousel-indicator-button-border-radius);
+    }
+  }
+}

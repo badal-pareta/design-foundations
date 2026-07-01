@@ -1,0 +1,36 @@
+body {
+  p-progress-spinner {
+    .p-progressspinner {
+      stroke: var(--progressspinner-stroke-color-default);
+      @keyframes custom-progress-spinner-color {
+        0%,
+        100% {
+          stroke: var(--progressspinner-keyframes-color-start-stroke);
+        }
+      }
+
+      .p-progress-spinner-circle {
+        animation:
+          custom-progress-spinner-dash var(--progressspinner-animation-dash-duration) var(--progressspinner-animation-dash-timing) var(--progressspinner-animation-dash-iteration),
+          custom-progress-spinner-color var(--progressspinner-animation-color-duration) var(--progressspinner-animation-color-timing) var(--progressspinner-animation-color-iteration);
+      }
+
+      @keyframes custom-progress-spinner-dash {
+        0% {
+          stroke-dasharray: var(--progressspinner-keyframes-dash-start-strokearray);
+          stroke-dashoffset: var(--progressspinner-keyframes-dash-start-strokeoffset);
+        }
+
+        50% {
+          stroke-dasharray: var(--progressspinner-keyframes-dash-middle-strokearray);
+          stroke-dashoffset: var(--progressspinner-keyframes-dash-middle-strokeoffset);
+        }
+
+        100% {
+          stroke-dasharray: var(--progressspinner-keyframes-dash-end-strokearray);
+          stroke-dashoffset: var(--progressspinner-keyframes-dash-end-strokeoffset);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+// Card Styles
+$card-flat-active-border-style: 1px solid color-mix(in srgb, var(--color-secondary-purple) 25%, white 75%);
+$card-radius-large: 1rem;
+$card-radius-medium: 0.75rem;
+$card-radius-small: 0.5rem;
+
+// Tab view Styles
+$tab-view-active-state-color: color-mix(in srgb, var(--color-primary-purple) 60%, var(--color-standard-black) 40%);
+$tab-view-active-border-and-icon-color: color-mix(in srgb, var(--color-primary-purple) 80%, var(--color-standard-black) 20%);
+$tab-view-font-family: var(--font-family-inter);
+$tab-view-icon-font-family: 'iconset';
+$tab-header-color: color-mix(in srgb, var(--color-primary-neutral) 60%, var(--color-standard-black) 40%);
+$tab-active-header-color: $tab-view-active-state-color;
+$tab-view-active-tab-bottom-border: 2px solid $tab-view-active-border-and-icon-color;
+$tab-view-hover-tab-bottom-border: 2px solid var(--color-secondary-purple);
+$tab-view-pressed-tab-bottom-border: 2px solid $tab-view-active-state-color;
+$tab-view-icon-color: color-mix(in srgb, var(--color-neutral-purple) 80%, var(--color-standard-black) 20%);
+$tab-header-active-icon-color: $tab-view-active-border-and-icon-color;
+$tab-view-active-header-color: $tab-header-color;
+$tab-view-filled-border-radius: 0.5rem;
+$tab-view-active-filled-header-color: color-mix(in srgb, var(--color-neutral-purple) 60%, var(--color-standard-black) 40%);
+$tab-view-filled-hover-bg-color: color-mix(in srgb, var(--color-neutral-purple) 15%, var(--color-standard-white) 85%);
+$tab-view-filled-pressed-bg-color: color-mix(in srgb, var(--color-neutral-purple) 30%, var(--color-standard-white) 70%);
+$tab-view-filled-active-header-bg-color: color-mix(in srgb, var(--color-secondary-purple) 15%, var(--color-standard-white) 85%);
+$tab-view-filled-active-header-color: color-mix(in srgb, var(--color-secondary-purple) 60%, var(--color-standard-black) 40%);
+$tab-view-filled-icon-color: color-mix(in srgb, var(--color-secondary-purple) 80%, var(--color-standard-black) 20%);
+$tab-view-filled-pressed-icon-color: $tab-view-icon-color;
+$tab-view-filled-active-icon-color: color-mix(in srgb, var(--color-secondary-purple) 80%, var(--color-standard-black) 20%);
+
+//Accordion
+$accordion-header-link-padding-small: 0.625rem 0.625rem 0.625rem 0.875rem;
+$accordion-padding-default: 1rem 1rem 1rem 1.25rem;
+$according-content-padding-default: 1rem 1.25rem;
+$according-content-padding-small: 0.625rem 0.875rem;

@@ -1,11 +1,12 @@
 {
   "name": "@polly-fe/design-foundations",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Framework-agnostic design primitives including icon fonts, global styles, typography, and shared CSS utilities used across Polly microfrontends.",
   "license": "ISC",
   "type": "module",
   "main": "./dist/styles/index.css",
   "style": "./dist/styles/index.css",
+  "primeng": "./dist/styles/primeng.css",
   "types": "./dist/index.d.ts",
   "sideEffects": [
     "*.css"
@@ -19,11 +20,16 @@
   "exports": {
     ".": "./dist/styles/index.css",
     "./styles": "./dist/styles/index.css",
+    "./primeng": "./dist/styles/primeng.css",
     "./fonts/*": "./dist/fonts/*"
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && mkdir -p dist && cp -r src/* dist/",
+    "build:scss:default": "sass src/styles/foundation/index.scss:dist/styles/index.css --no-source-map --load-path=src/styles",
+    "build:scss:primeng": "sass src/styles/primeng/primeng-full.scss:dist/styles/primeng.css --no-source-map --load-path=src/styles",
+    "build:scss": "npm run build:scss:default && npm run build:scss:primeng",
+    "build:copy": "mkdir -p dist/fonts && cp -r src/fonts/* dist/fonts/ 2>/dev/null || true",
+    "build": "npm run clean && npm run build:scss && npm run build:copy",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build",
     "test": "echo \"No tests specified\" && exit 0",
@@ -31,5 +37,8 @@
     "version:patch": "npm version patch && npm publish",
     "version:minor": "npm version minor && npm publish",
     "version:major": "npm version major && npm publish"
+  },
+  "devDependencies": {
+    "sass": "^1.100.0"
   }
 }
