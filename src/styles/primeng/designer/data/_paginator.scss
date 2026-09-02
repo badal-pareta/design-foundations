@@ -1,0 +1,106 @@
+.p-paginator,
+.p-paginator.p-component {
+  background: var(--paginator-base-background);
+  border-radius: var(--paginator-base-borderradius);
+  color: var(--paginator-base-color);
+  gap: var(--paginator-base-gap);
+  justify-content: var(--paginator-base-justifycontent);
+  padding: var(--paginator-base-padding);
+  position: var(--paginator-base-position);
+
+  &.size {
+    &-small {
+      padding: var(--paginator-size-small-padding);
+    }
+  }
+
+  @include qubit-select-theme($compound: false, $overlay: false);
+}
+
+.p-paginator .p-paginator-current {
+  @include label-medium;
+  align-items: var(--paginator-current-alignitems);
+  background-color: var(--paginator-current-backgroundcolor);
+  border: var(--paginator-current-border);
+  color: var(--paginator-current-color);
+  display: var(--paginator-current-display);
+  height: var(--paginator-current-height);
+  margin: var(--paginator-current-margin);
+  min-width: var(--paginator-current-minwidth);
+  order: var(--paginator-current-order);
+  padding: var(--paginator-current-padding);
+}
+
+.p-paginator {
+  &-page,
+  &-next,
+  &-last,
+  &-first,
+  &-prev {
+    background: var(--paginator-navbutton-background-default);
+    border-radius: var(--paginator-navbutton-borderradius);
+    color: var(--paginator-navbutton-color-default);
+    height: var(--paginator-navbutton-height);
+    margin: var(--paginator-navbutton-margin);
+    min-width: var(--paginator-navbutton-minwidth);
+    padding: var(--paginator-navbutton-padding);
+    transition: var(--paginator-navbutton-transition);
+
+    &.p-disabled {
+      background-color: var(--paginator-navbutton-background-disabled);
+      color: var(--paginator-navbutton-color-disabled);
+    }
+
+    &:hover {
+      background-color: var(--paginator-navbutton-background-hover);
+    }
+    &:active {
+      background-color: var(--paginator-navbutton-background-active);
+      color: var(--paginator-navbutton-color-active);
+    }
+  }
+
+  &-page-selected {
+    background: var(--paginator-pageselected-background) !important;
+    border: var(--paginator-pageselected-border) !important;
+    color: var(--paginator-pageselected-color) !important;
+    transition: var(--paginator-pageselected-transition);
+  }
+}
+
+.p-paginator-pages {
+  gap: var(--paginator-pages-gap) !important;
+}
+
+/*
+ * Three zones — start · centre · end — that hold on EVERY paginator regardless
+ * of which side content is present. The pager nav stays in normal flow and is
+ * centred by the container's justify-content: center; the optional side pieces
+ * are pinned out of flow so they never pull the nav off the true line-centre:
+ *   • rows-per-page dropdown  → start (far left)
+ *   • start label             → start, just right of the dropdown
+ *   • current-page report     → end (far right)
+ */
+.p-paginator .p-paginator-rpp-dropdown,
+.p-paginator .p-paginator-content-start,
+.p-paginator .p-paginator-current {
+  margin: var(--paginator-sidezone-margin);
+  position: var(--paginator-sidezone-position);
+  top: var(--paginator-sidezone-top);
+  transform: var(--paginator-sidezone-transform);
+}
+
+.p-paginator .p-paginator-rpp-dropdown {
+  left: var(--paginator-rppdropdown-left);
+}
+
+.p-paginator .p-paginator-content-start {
+  @include label-medium;
+  color: var(--paginator-contentstart-color);
+  left: var(--paginator-contentstart-left);
+  white-space: var(--paginator-contentstart-whitespace);
+}
+
+.p-paginator .p-paginator-current {
+  right: var(--paginator-current-right);
+}
