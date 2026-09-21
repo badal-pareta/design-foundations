@@ -1,0 +1,111 @@
+/* =========================================================
+   PAGINATOR — driven by --paginator-* tokens.
+   ========================================================= */
+
+.polly-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: var(--paginator-base-justifycontent);
+  flex-wrap: wrap;
+  gap: var(--paginator-base-gap);
+  position: relative;
+  width: 100%;
+
+  padding: var(--paginator-base-padding);
+  background: var(--paginator-base-background);
+  color: var(--paginator-base-color);
+}
+
+/* first / prev / next / last nav buttons */
+.polly-paginator-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--paginator-navbutton-minwidth);
+  padding: var(--paginator-navbutton-padding);
+
+  background: var(--paginator-navbutton-background-default);
+  color: var(--paginator-navbutton-color-default);
+  border: none;
+  cursor: pointer;
+  transition: var(--paginator-navbutton-transition);
+}
+
+.polly-paginator-nav:hover:not(:disabled) {
+  background: var(--paginator-navbutton-background-hover);
+}
+
+.polly-paginator-nav:disabled {
+  background: var(--paginator-navbutton-background-disabled);
+  color: var(--paginator-navbutton-color-disabled);
+  cursor: not-allowed;
+}
+
+/* page number buttons */
+.polly-paginator-pages {
+  display: flex;
+  align-items: center;
+  gap: var(--paginator-pages-gap);
+}
+
+.polly-paginator-page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--paginator-base-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--paginator-pageselected-transition);
+}
+
+.polly-paginator-page[aria-current="true"] {
+  background: var(--paginator-pageselected-background);
+  border: var(--paginator-pageselected-border);
+  color: var(--paginator-pageselected-color);
+}
+
+/* ---------------------------------------------------------
+   FULL LAYOUT — rows-per-page dropdown (left) + current-page
+   report (right) as absolute side-zones, nav stays centered.
+   (matches the token model: --paginator-sidezone-* is absolute.)
+   --------------------------------------------------------- */
+
+/* current-page report ("Showing 1 - 50 of 8041") pinned right */
+.polly-paginator-current {
+  position: var(--paginator-sidezone-position);
+  right: var(--paginator-current-right);
+  top: var(--paginator-sidezone-top);
+  transform: var(--paginator-sidezone-transform);
+
+  display: var(--paginator-current-display);
+  align-items: var(--paginator-current-alignitems);
+  height: var(--paginator-current-height);
+  padding: var(--paginator-current-padding);
+
+  color: var(--paginator-current-color);
+  white-space: nowrap;
+}
+
+/* rows-per-page dropdown pinned left, compact */
+.polly-paginator .polly-dropdown-root {
+  position: var(--paginator-sidezone-position);
+  left: var(--paginator-rppdropdown-left);
+  top: var(--paginator-sidezone-top);
+  transform: var(--paginator-sidezone-transform);
+
+  width: auto;
+  min-width: 4.5rem;
+  height: 2rem;
+}
+
+/* jump-to-page input */
+.polly-paginator-jtp {
+  width: 3rem;
+  height: 2rem;
+  text-align: center;
+}

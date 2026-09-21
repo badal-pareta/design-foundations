@@ -1,0 +1,104 @@
+/* =========================================================
+   ACCORDION — driven by --accordion-* tokens.
+   Active (expanded) header carries data-p-highlight.
+   ========================================================= */
+
+.polly-accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.polly-accordion-tab {
+  border: var(--accordion-panel-border);
+}
+
+.polly-accordion-header {
+  display: var(--accordion-header-display);
+  justify-content: var(--accordion-header-justifycontent);
+  align-items: var(--accordion-header-alignitems);
+  position: var(--accordion-header-position);
+
+  padding: var(--accordion-header-padding-default);
+  background: var(--accordion-header-background-default);
+  border: var(--accordion-header-border-default);
+  color: var(--accordion-header-color-default);
+
+  cursor: pointer;
+  user-select: var(--accordion-header-userselect);
+  transition: var(--accordion-header-transition);
+}
+
+.polly-accordion-header:hover {
+  background: var(--accordion-header-background-hover);
+  color: var(--accordion-header-color-hover);
+}
+
+.polly-accordion-header[data-p-highlight="true"] {
+  background: var(--accordion-header-background-active);
+  border: var(--accordion-header-border-active);
+  color: var(--accordion-header-color-active);
+}
+
+/* the clickable header button.
+   PrimeReact renders [icon, title]; reverse so the title sits left
+   and the chevron sits right (matches the reference). */
+.polly-accordion-header-action {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+  width: 100%;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.polly-accordion-title {
+  margin: var(--accordion-title-margin);
+  font-size: var(--accordion-title-fontsize);
+  font-weight: var(--accordion-title-fontweight);
+  line-height: var(--accordion-title-lineheight);
+  color: var(--accordion-title-color-default);
+}
+
+.polly-accordion-header[data-p-highlight="true"] .polly-accordion-title {
+  color: var(--accordion-title-color-active);
+}
+
+.polly-accordion-icon {
+  font-size: var(--accordion-icon-size);
+  color: var(--accordion-icon-color-default);
+  transform: var(--accordion-icon-transform-default);
+  transition: var(--accordion-icon-transition);
+}
+
+.polly-accordion-header[data-p-highlight="true"] .polly-accordion-icon {
+  transform: var(--accordion-icon-transform-active);
+  color: var(--accordion-icon-color-active);
+}
+
+.polly-accordion-content {
+  display: var(--accordion-content-display);
+  flex-direction: column;
+  gap: var(--accordion-content-gap);
+
+  padding: var(--accordion-content-padding-default);
+  background: var(--accordion-content-background);
+  border-bottom: var(--accordion-content-border-bottom);
+
+  font-size: var(--accordion-content-fontsize);
+  font-weight: var(--accordion-content-fontweight);
+  line-height: var(--accordion-content-lineheight);
+}
+
+/* disabled */
+.polly-accordion-header[data-p-disabled="true"] {
+  background: var(--accordion-state-disabled-header-background);
+  color: var(--accordion-state-disabled-header-color);
+  cursor: var(--accordion-state-disabled-header-cursor);
+}

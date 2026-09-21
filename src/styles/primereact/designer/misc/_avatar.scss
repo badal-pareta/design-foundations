@@ -1,0 +1,65 @@
+/* =========================================================
+   AVATAR — driven by --avatar-* tokens.
+   ========================================================= */
+
+.polly-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: var(--avatar-size-md);
+  height: var(--avatar-size-md);
+
+  border: var(--avatar-container-border);
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: var(--avatar-background-purple);
+  color: var(--avatar-text-default);
+  font-size: var(--avatar-font-size-md);
+}
+
+.polly-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* sizes */
+.polly-avatar.size--lg {
+  width: var(--avatar-size-lg);
+  height: var(--avatar-size-lg);
+  font-size: var(--avatar-font-size-lg);
+}
+
+.polly-avatar.size--xl {
+  width: var(--avatar-size-xl);
+  height: var(--avatar-size-xl);
+  font-size: var(--avatar-font-size-xl);
+}
+
+/* shape */
+.polly-avatar.shape--square {
+  border-radius: var(--radius-sm);
+}
+
+/* colours */
+.polly-avatar.variant--blue {
+  background: var(--avatar-background-blue);
+}
+.polly-avatar.variant--cyan {
+  background: var(--avatar-background-cyan);
+}
+.polly-avatar.variant--orange {
+  background: var(--avatar-background-orange);
+}
+.polly-avatar.variant--pink {
+  background: var(--avatar-background-pink);
+}
+.polly-avatar.variant--purple {
+  background: var(--avatar-background-purple);
+}
+.polly-avatar.variant--neutral {
+  background: var(--avatar-background-secondary-purple);
+}

@@ -1,0 +1,70 @@
+/* =========================================================
+   RADIO BUTTON  — driven by --radiobutton-* tokens.
+   box = large circular hover target; icon = the visible ring/dot.
+   ========================================================= */
+
+.polly-radio {
+  display: var(--radiobutton-base-display);
+  align-items: var(--radiobutton-base-alignitems);
+  position: relative;
+  cursor: var(--radiobutton-base-cursor);
+  user-select: var(--radiobutton-base-userselect);
+}
+
+.polly-radio-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: var(--radiobutton-base-cursor);
+}
+
+.polly-radio-box {
+  display: var(--radiobutton-box-display);
+  align-items: var(--radiobutton-box-alignitems);
+  justify-content: var(--radiobutton-box-justifycontent);
+
+  width: var(--radiobutton-box-width);
+  height: var(--radiobutton-box-height);
+
+  border-radius: var(--radiobutton-box-borderradius);
+  background: var(--radiobutton-box-background-default);
+  transition: var(--radiobutton-box-transition);
+}
+
+.polly-radio:hover .polly-radio-box {
+  background: var(--radiobutton-box-background-hover);
+}
+
+/* the visible ring */
+.polly-radio-icon {
+  width: var(--radiobutton-icon-width);
+  height: var(--radiobutton-icon-height);
+
+  border: var(--radiobutton-icon-borderwidth) var(--radiobutton-icon-borderstyle)
+    var(--radiobutton-icon-bordercolor-default);
+  border-radius: var(--radiobutton-icon-borderradius);
+  background: var(--radiobutton-icon-background-default);
+}
+
+/* checked — filled centre via content-box clip + padding.
+   PrimeReact puts data-p-checked on the ROOT. */
+.polly-radio[data-p-checked="true"] .polly-radio-icon {
+  border-color: var(--radiobutton-icon-bordercolor-checked);
+  background: var(--radiobutton-checked-icon-background);
+  background-clip: var(--radiobutton-checked-icon-backgroundclip);
+  padding: var(--radiobutton-checked-icon-padding);
+}
+
+/* disabled */
+.polly-radio[data-p-disabled="true"] .polly-radio-icon {
+  border-color: var(--radiobutton-disabled-icon-bordercolor);
+}
+
+/* medium size */
+.polly-radio.size--md .polly-radio-box {
+  width: var(--radiobutton-medium-box-width);
+  height: var(--radiobutton-medium-box-height);
+}

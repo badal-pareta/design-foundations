@@ -1,0 +1,38 @@
+/* =========================================================
+   HYPERLINK — no dedicated --link tokens; mirrors qubit-hyperlink
+   with core color tokens + color-mix (identical to the reference).
+   ========================================================= */
+
+.polly-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+
+  cursor: pointer;
+  text-decoration: none;
+
+  color: color-mix(in srgb, var(--color-primary-purple) 80%, var(--color-standard-black) 20%);
+  font-size: var(--font-size-label-medium);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--font-height-label-medium);
+}
+
+.polly-link:hover {
+  color: color-mix(in srgb, var(--color-primary-purple) 60%, var(--color-standard-black) 40%);
+  text-decoration: underline;
+}
+
+.polly-link:active {
+  color: color-mix(in srgb, var(--color-primary-blue) 90%, var(--color-standard-black) 10%);
+}
+
+/* trailing icon (e.g. open-in-new) — never underlined */
+.polly-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--inputtext-icon-size-default);
+  height: var(--inputtext-icon-size-default);
+  font-size: var(--inputtext-icon-size-default);
+  text-decoration: none;
+}

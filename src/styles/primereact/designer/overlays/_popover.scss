@@ -1,0 +1,27 @@
+/* =========================================================
+   POPOVER (PrimeReact OverlayPanel) — driven by --popover-* tokens.
+   ========================================================= */
+
+.polly-popover {
+  background: var(--popover-base-background);
+  border: var(--popover-base-border);
+  border-radius: var(--popover-base-borderradius);
+  box-shadow: var(--popover-base-shadow);
+  color: var(--popover-base-color);
+  margin-top: var(--popover-base-margintop);
+  padding: var(--popover-base-padding);
+}
+
+.polly-popover-content {
+  padding: var(--popover-content-padding);
+}
+
+.polly-popover-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--popover-base-color);
+  cursor: pointer;
+}

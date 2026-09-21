@@ -1,0 +1,49 @@
+/* =========================================================
+   PROGRESS BAR — driven by --progressbar-* tokens.
+   root = the track; value = the gradient fill; label = the % text.
+   ========================================================= */
+
+.polly-progressbar-container {
+  width: 100%;
+  height: var(--progressbar-container-height-default);
+
+  background: var(--progressbar-container-background-default);
+  border: var(--progressbar-container-border);
+  border-radius: var(--progressbar-container-borderradius);
+  overflow: hidden;
+}
+
+.polly-progressbar-value {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--progressbar-value-background-default);
+  transition: width 0.3s ease;
+}
+
+.polly-progressbar-label {
+  color: var(--color-standard-white);
+  font-size: var(--font-size-label-micro);
+  font-weight: var(--font-weight-medium);
+}
+
+/* small height */
+.polly-progressbar-container.size--sm {
+  height: var(--progressbar-container-height-small);
+}
+
+/* status variants */
+.polly-progressbar-container.variant--success .polly-progressbar-value {
+  background: var(--progressbar-value-background-success);
+}
+.polly-progressbar-container.variant--danger .polly-progressbar-value {
+  background: var(--progressbar-value-background-danger);
+}
+.polly-progressbar-container.variant--running .polly-progressbar-value {
+  background: var(--progressbar-value-background-running);
+}
+.polly-progressbar-container.variant--preprocessing .polly-progressbar-value {
+  background: var(--progressbar-value-background-preprocessing);
+}

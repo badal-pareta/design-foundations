@@ -1,0 +1,80 @@
+/* =========================================================
+   TOGGLE SWITCH  — driven by --toggleswitch-* tokens.
+   PrimeReact module is `inputswitch`; the knob is the slider ::before.
+   ========================================================= */
+
+.polly-switch {
+  display: var(--toggleswitch-base-display);
+  align-items: var(--toggleswitch-base-alignitems);
+  position: var(--toggleswitch-base-position);
+
+  width: var(--toggleswitch-base-width);
+  height: var(--toggleswitch-base-height);
+  background: var(--toggleswitch-base-background);
+}
+
+.polly-switch-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.polly-switch-slider {
+  position: var(--toggleswitch-slider-position);
+  width: var(--toggleswitch-slider-width);
+  height: var(--toggleswitch-slider-height);
+
+  background: var(--toggleswitch-slider-background-off);
+  border: var(--toggleswitch-slider-border-width) var(--toggleswitch-slider-border-style)
+    var(--toggleswitch-slider-border-color-off);
+  border-radius: var(--toggleswitch-slider-borderradius);
+
+  transition: var(--toggleswitch-slider-transition);
+  cursor: pointer;
+}
+
+/* knob */
+.polly-switch-slider::before {
+  content: "";
+  position: var(--toggleswitch-handle-position);
+  top: var(--toggleswitch-handle-top);
+  left: var(--toggleswitch-handle-left);
+
+  width: var(--toggleswitch-handle-width);
+  height: var(--toggleswitch-handle-height);
+
+  background: var(--toggleswitch-handle-background-off);
+  border-radius: var(--toggleswitch-handle-borderradius);
+  box-shadow: var(--toggleswitch-handle-shadow);
+
+  transition: transform var(--toggleswitch-handle-transition);
+}
+
+/* ON */
+.polly-switch[data-p-highlight="true"] .polly-switch-slider {
+  background: var(--toggleswitch-slider-background-on);
+  border-color: var(--toggleswitch-slider-border-color-on);
+}
+
+.polly-switch[data-p-highlight="true"] .polly-switch-slider::before {
+  background: var(--toggleswitch-handle-background-on);
+  transform: translateX(var(--toggleswitch-handle-translatex-on));
+}
+
+.polly-switch[data-p-highlight="true"]:hover .polly-switch-slider {
+  background: var(--toggleswitch-slider-background-onhover);
+}
+
+/* disabled */
+.polly-switch[data-p-disabled="true"] {
+  opacity: var(--toggleswitch-disabled-opacity);
+}
+
+.polly-switch[data-p-disabled="true"] .polly-switch-slider::before {
+  background: var(--toggleswitch-disabled-handle-background);
+}

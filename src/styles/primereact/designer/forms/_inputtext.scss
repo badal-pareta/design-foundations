@@ -1,0 +1,145 @@
+/* =========================================================
+   BASE INPUT
+   ========================================================= */
+
+.polly-inputtext {
+  width: 100%;
+
+  border:
+    var(--inputtext-field-border-width)
+    var(--inputtext-field-border-style)
+    var(--inputtext-field-border-color-default);
+
+  border-radius: var(--inputtext-field-border-radius);
+
+  color: var(--inputtext-field-text-color);
+  font-size: var(--inputtext-field-font-size);
+  font-weight: var(--inputtext-field-font-weight);
+
+  height: var(--inputtext-field-height-default);
+  padding: var(--inputtext-field-padding-default);
+
+  background: var(--inputtext-field-background);
+
+  transition: var(--inputtext-field-transition);
+}
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.polly-inputtext::placeholder {
+  color: var(--inputtext-placeholder-color);
+}
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.polly-inputtext:hover:not(:disabled):not(.is-invalid) {
+  border-color: var(--inputtext-field-border-color-hover);
+
+  outline:
+    var(--inputtext-field-outline-width)
+    var(--inputtext-field-outline-style)
+    var(--inputtext-field-outline-color-hover);
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.polly-inputtext:focus,
+.polly-inputtext:active {
+  border:
+    var(--inputtext-field-border-width)
+    var(--inputtext-field-border-style)
+    var(--inputtext-field-border-color-focus);
+
+  outline:
+    var(--inputtext-field-outline-width)
+    var(--inputtext-field-outline-style)
+    var(--inputtext-field-outline-color-focus);
+}
+
+/* =========================================================
+   INVALID
+   ========================================================= */
+
+.polly-inputtext.is-invalid {
+  border:
+    var(--inputtext-field-border-width)
+    var(--inputtext-field-border-style)
+    var(--inputtext-field-border-color-error);
+
+  outline:
+    var(--inputtext-field-outline-width)
+    var(--inputtext-field-outline-style)
+    var(--inputtext-field-outline-color-error);
+}
+
+.polly-inputtext.is-invalid::placeholder {
+  color: var(--inputtext-prelogin-color-invalid);
+}
+
+/* =========================================================
+   DISABLED
+   ========================================================= */
+
+.polly-inputtext:disabled,
+.polly-inputtext.is-disabled {
+  background: var(--inputtext-field-background-disabled);
+
+  border:
+    var(--inputtext-field-border-width)
+    var(--inputtext-field-border-style)
+    var(--inputtext-field-border-color-disabled);
+
+  outline:
+    var(--inputtext-field-outline-width)
+    var(--inputtext-field-outline-style)
+    var(--inputtext-field-outline-color-disabled);
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   SIZES
+   ========================================================= */
+
+.polly-inputtext.size--sm {
+  height: var(--inputtext-field-height-small);
+  padding: var(--inputtext-field-padding-small);
+}
+
+.polly-inputtext.size--lg {
+  height: var(--inputtext-field-height-large);
+  padding: var(--inputtext-field-padding-large);
+}
+
+/* =========================================================
+   ICON FIELD
+   ========================================================= */
+
+[data-pc-name="iconfield"] {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+/* icon */
+
+[data-pc-name="inputicon"] {
+  position: absolute;
+  top: 50%;
+  left: var(--inputtext-icon-position-left-default);
+  font-size: 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* input padding so text doesn't overlap icon */
+
+[data-pc-name="iconfield"] .polly-inputtext {
+  padding-left: var(--spacing-8);
+}

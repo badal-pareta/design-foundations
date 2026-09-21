@@ -1,0 +1,127 @@
+/* =========================================================
+   STEPPER ROOT
+   ========================================================= */
+
+.polly-stepper {
+  width: 100%;
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+.polly-stepper-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   STEP
+   ========================================================= */
+
+.polly-step {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: var(--stepper-step-padding);
+  position: relative;
+}
+
+/* =========================================================
+   HEADER (button)
+   ========================================================= */
+
+.polly-step-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--stepper-step-header-gap);
+
+  padding: var(--stepper-step-header-padding);
+
+  background: var(--stepper-step-header-background);
+  border: var(--stepper-step-header-border);
+  border-radius: var(--stepper-step-header-borderradius);
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.polly-step-number {
+  height: var(--stepper-step-number-height);
+  min-width: var(--stepper-step-number-minwidth);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--stepper-step-number-borderradius);
+  background: var(--stepper-step-number-background-default);
+  color: var(--stepper-step-number-color-default);
+
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.polly-step-title {
+  color: var(--stepper-step-title-color-default);
+}
+
+/* =========================================================
+   CONNECTOR
+   ========================================================= */
+
+.polly-step-separator {
+  position: absolute;
+  top: calc(var(--stepper-step-number-height) / 2);
+  left: 50%;
+  width: 100%;
+
+  height: var(--stepper-separator-height);
+  background: var(--stepper-separator-background-default);
+
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.polly-step:last-child .polly-step-separator {
+  display: none;
+}
+
+/* =========================================================
+   ACTIVE STEP
+   ========================================================= */
+
+.polly-step[data-p-active="true"] .polly-step-number {
+  background: var(--stepper-step-number-background-active);
+  border: var(--stepper-step-number-border-active);
+  box-shadow: var(--stepper-step-number-shadow-active);
+  color: var(--stepper-step-number-color-active);
+}
+
+/* =========================================================
+   PANELS
+   ========================================================= */
+
+.polly-stepper-panels {
+  padding: var(--stepper-steppanels-padding);
+}
+
+.polly-step-panel {
+  background: var(--stepper-steppanel-background);
+  color: var(--stepper-steppanel-color);
+}

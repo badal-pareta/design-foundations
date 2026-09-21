@@ -1,0 +1,187 @@
+/* =========================================================
+   AUTOCOMPLETE — driven by --autocomplete-* tokens.
+   Bordered input + dropdown chevron + overlay option list.
+   Input border/height reuse the inputtext tokens (no dedicated
+   --autocomplete base border/height tokens exist).
+   ========================================================= */
+
+.polly-ac {
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+}
+
+.polly-ac-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.polly-ac-input {
+  width: var(--autocomplete-base-input-width);
+  height: var(--inputtext-field-height-default);
+  padding: var(--autocomplete-base-input-padding-default);
+  padding-right: 2.25rem;
+
+  color: var(--autocomplete-base-input-color);
+  font-size: var(--inputtext-field-font-size);
+
+  background: var(--inputtext-field-background-default);
+  border: var(--inputtext-field-border-width) var(--inputtext-field-border-style)
+    var(--inputtext-field-border-color-default);
+  border-radius: var(--inputtext-field-border-radius);
+
+  transition: var(--inputtext-field-transition);
+}
+
+.polly-ac-input:hover {
+  border-color: var(--inputtext-field-border-color-hover);
+}
+
+.polly-ac-input:focus {
+  border-color: var(--inputtext-field-border-color-focus);
+  outline: var(--inputtext-field-outline-width) var(--inputtext-field-outline-style)
+    var(--inputtext-field-outline-color-focus);
+}
+
+/* dropdown chevron */
+.polly-ac-dropdown {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+
+  background: var(--autocomplete-base-dropdown-backgroundcolor);
+  border: var(--autocomplete-base-dropdown-border);
+  color: var(--autocomplete-base-dropdown-color);
+  font-size: var(--autocomplete-base-dropdown-fontsize);
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   OVERLAY
+   --------------------------------------------------------- */
+
+.polly-ac-panel {
+  background: var(--autocomplete-base-overlay-background);
+  border: var(--autocomplete-base-overlay-border);
+  border-radius: var(--autocomplete-base-overlay-borderradius);
+  box-shadow: var(--autocomplete-base-overlay-boxshadow);
+  margin: var(--autocomplete-base-overlay-margin);
+  padding: var(--autocomplete-base-overlay-padding);
+}
+
+.polly-ac-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--autocomplete-base-overlay-list-padding);
+  gap: var(--autocomplete-base-overlay-list-gap);
+}
+
+.polly-ac-item {
+  padding: var(--autocomplete-base-overlay-option-padding);
+  margin: var(--autocomplete-base-overlay-option-margin);
+  border: var(--autocomplete-base-overlay-option-border);
+
+  background: var(--autocomplete-base-overlay-option-backgroundcolor);
+  color: var(--autocomplete-base-overlay-option-color);
+  font-size: var(--autocomplete-base-overlay-option-fontsize);
+  font-weight: var(--autocomplete-base-overlay-option-fontweight);
+  line-height: var(--autocomplete-base-overlay-option-lineheight);
+
+  word-wrap: var(--autocomplete-base-overlay-option-wordwrap);
+  cursor: pointer;
+}
+
+.polly-ac-item:hover {
+  background: var(--autocomplete-base-overlay-option-hover-backgroundcolor);
+  color: var(--autocomplete-base-overlay-option-hover-color);
+}
+
+.polly-ac-item[data-p-highlight="true"],
+.polly-ac-item[data-p-focus="true"] {
+  background: var(--autocomplete-base-overlay-option-highlight-backgroundcolor);
+  color: var(--autocomplete-base-overlay-option-highlight-color);
+}
+
+.polly-ac-empty {
+  padding: var(--autocomplete-base-overlay-emptymessage-padding);
+  background: var(--autocomplete-base-overlay-emptymessage-backgroundcolor);
+  color: var(--autocomplete-base-overlay-emptymessage-color);
+  font-size: var(--autocomplete-base-overlay-emptymessage-fontsize);
+  line-height: var(--autocomplete-base-overlay-emptymessage-lineheight);
+}
+
+/* ---------------------------------------------------------
+   MULTIPLE (chips)
+   --------------------------------------------------------- */
+
+.polly-ac-container.multiple {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--autocomplete-base-multiple-chip-gap);
+  padding: var(--autocomplete-base-input-multiple-padding);
+
+  border: var(--inputtext-field-border-width) var(--inputtext-field-border-style)
+    var(--inputtext-field-border-color-default);
+  border-radius: var(--inputtext-field-border-radius);
+  background: var(--inputtext-field-background-default);
+}
+
+.polly-ac-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--autocomplete-base-multiple-chip-label-gap);
+
+  padding: var(--autocomplete-base-multiple-chip-padding);
+  background: var(--autocomplete-base-multiple-chip-backgroundcolor);
+  color: var(--autocomplete-base-multiple-chip-color);
+  border: var(--autocomplete-base-multiple-chip-border);
+  border-radius: var(--autocomplete-base-multiple-chip-borderradius);
+}
+
+.polly-ac-chip-remove {
+  font-size: var(--autocomplete-base-multiple-chip-removeicon-fontsize);
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   VARIANT — tonal
+   --------------------------------------------------------- */
+
+.polly-ac.variant--tonal .polly-ac-input {
+  background: var(--autocomplete-tonal-input-backgroundcolor-default);
+  color: var(--autocomplete-tonal-input-color-default);
+  border: var(--autocomplete-tonal-input-border);
+  border-radius: var(--autocomplete-tonal-input-borderradius);
+}
+
+.polly-ac.variant--tonal .polly-ac-input:hover {
+  background: var(--autocomplete-tonal-input-backgroundcolor-hover);
+  color: var(--autocomplete-tonal-input-color-hover);
+}
+
+.polly-ac.variant--tonal .polly-ac-input:focus {
+  background: var(--autocomplete-tonal-input-backgroundcolor-focus);
+  color: var(--autocomplete-tonal-input-color-focus);
+  outline: var(--autocomplete-tonal-input-outline);
+}
+
+.polly-ac.variant--tonal .polly-ac-dropdown {
+  color: var(--autocomplete-tonal-dropdown-icon-color);
+}
+
+/* ---------------------------------------------------------
+   DISABLED
+   --------------------------------------------------------- */
+
+.polly-ac[data-p-disabled="true"],
+.polly-ac-input:disabled {
+  opacity: var(--autocomplete-base-disabled-opacity);
+  cursor: not-allowed;
+}

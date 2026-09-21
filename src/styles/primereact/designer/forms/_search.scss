@@ -1,0 +1,76 @@
+/* =========================================================
+   SEARCH — a rounded search bar (icon + input). No PrimeReact
+   component; composed from an icon + InputText. Reuses the
+   inputtext "rounded alternate" + select "rounded" tokens.
+   ========================================================= */
+
+.polly-search {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: var(--spacing-1);
+
+  height: var(--inputtext-field-height-default);
+  padding: var(--select-variant-rounded-padding);
+
+  background: var(--inputtext-field-background-default);
+  border: var(--inputtext-roundedalternate-outline-width) solid
+    var(--inputtext-roundedalternate-border-color-default);
+  border-radius: var(--inputtext-roundedalternate-border-radius);
+
+  transition: var(--inputtext-field-transition);
+}
+
+.polly-search:hover {
+  border-color: var(--inputtext-roundedalternate-border-color-hover);
+  outline: var(--inputtext-roundedalternate-outline-width) solid
+    var(--inputtext-roundedalternate-outline-color-hover);
+}
+
+.polly-search:focus-within {
+  border-color: var(--inputtext-roundedalternate-border-color-focus);
+  outline: var(--inputtext-roundedalternate-outline-width) solid
+    var(--inputtext-roundedalternate-outline-color-focus);
+}
+
+.polly-search.is-invalid {
+  border-color: var(--inputtext-field-border-color-error);
+  outline: var(--inputtext-roundedalternate-outline-width) solid
+    var(--inputtext-field-border-color-error);
+}
+
+/* search icon */
+.polly-search .polly-icon {
+  color: color-mix(in srgb, var(--color-neutral-purple) 80%, var(--color-standard-black) 20%);
+  font-size: var(--inputtext-icon-size-default);
+}
+
+/* the input sits borderless inside the bar */
+.polly-search .polly-inputtext {
+  flex: 1;
+  min-width: 0;
+  height: var(--inputtext-icon-size-default);
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.polly-search .polly-inputtext:hover,
+.polly-search .polly-inputtext:focus {
+  border: 0;
+  outline: none;
+}
+
+/* width helpers (reference: contracted 25rem / expanded 50rem / auto) */
+.polly-search.width--contracted {
+  width: 25rem;
+}
+
+.polly-search.width--expanded {
+  width: 50rem;
+}
+
+.polly-search.width--auto {
+  width: auto;
+}

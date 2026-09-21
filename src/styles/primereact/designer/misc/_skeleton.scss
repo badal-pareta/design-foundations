@@ -1,0 +1,26 @@
+/* =========================================================
+   SKELETON — driven by --skeleton-* tokens.
+   PrimeReact sets width/height/borderRadius/shape inline.
+   ========================================================= */
+
+.polly-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--skeleton-background-default);
+  border-radius: var(--radius-sm);
+}
+
+.polly-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: var(--skeleton-background-after-default);
+  animation: polly-skeleton-shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes polly-skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

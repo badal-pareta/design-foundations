@@ -1,0 +1,58 @@
+/* =========================================================
+   PANEL — driven by --panel-* tokens. A titled, optionally
+   collapsible container. (The --panel-padding-* tokens are ~0
+   for a compact atlas context; core spacing is used here so the
+   showcase panel is legible.)
+   ========================================================= */
+
+.polly-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-gap-container);
+}
+
+.polly-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--panel-background-header);
+  border: var(--panel-border-header);
+  border-radius: var(--panel-border-header-radius);
+  color: var(--panel-text-header);
+}
+
+.polly-panel-title {
+  font-size: var(--font-size-title-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-height-title-small);
+  color: var(--panel-text-header);
+}
+
+.polly-panel-toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--panel-icon-color);
+  font-size: var(--panel-icon-font-size);
+  cursor: var(--panel-cursor-container);
+}
+
+.polly-panel-content {
+  padding: var(--spacing-4);
+  background: var(--panel-background-container-content);
+  border-radius: var(--panel-border-container-content-radius);
+  color: var(--panel-text-container-content);
+  font-size: var(--font-size-body-medium);
+  line-height: var(--font-height-body-medium);
+}
+
+.polly-panel-footer {
+  padding: var(--panel-padding-footer);
+  color: var(--panel-text-container);
+}

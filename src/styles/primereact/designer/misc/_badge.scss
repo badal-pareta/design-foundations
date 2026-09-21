@@ -1,0 +1,33 @@
+/* =========================================================
+   BADGE — driven by --badge-* tokens.
+   ========================================================= */
+
+.polly-badge {
+  display: var(--badge-base-display);
+  align-items: var(--badge-base-alignitems);
+  justify-content: var(--badge-base-justifycontent);
+
+  height: var(--badge-base-height);
+  min-width: var(--badge-base-minwidth);
+  padding: var(--badge-base-padding);
+
+  background: var(--badge-base-background);
+  color: var(--badge-base-color);
+  border-radius: var(--badge-base-borderradius);
+
+  font-size: var(--badge-base-fontsize);
+  font-weight: var(--badge-base-fontweight);
+  line-height: var(--badge-base-lineheight);
+  text-align: var(--badge-base-textalign);
+}
+
+.polly-badge.size--sm {
+  height: var(--badge-small-height);
+  min-width: var(--badge-small-minwidth);
+  font-size: var(--badge-small-fontsize);
+  line-height: var(--badge-small-lineheight);
+}
+
+.polly-badge.circle {
+  padding: var(--badge-circle-padding);
+}

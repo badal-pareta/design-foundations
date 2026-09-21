@@ -1,0 +1,86 @@
+/* =========================================================
+   TAG — no dedicated --tag tokens; mirrors the reference
+   polly-tag with core colors + color-mix. Solid + light
+   variants per colour (purple is the default).
+   ========================================================= */
+
+.polly-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-sm);
+
+  font-size: var(--font-size-label-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-height-label-medium);
+  white-space: nowrap;
+  cursor: default;
+
+  /* default = purple solid */
+  background: color-mix(in srgb, var(--color-primary-purple) 80%, var(--color-standard-black) 20%);
+  color: var(--color-standard-white);
+}
+
+.polly-tag-icon {
+  font-size: var(--font-size-label-medium);
+}
+
+/* ---- purple ---- */
+.polly-tag.variant--purple-light {
+  background: color-mix(in srgb, var(--color-primary-purple) 10%, var(--color-standard-white) 90%);
+  color: color-mix(in srgb, var(--color-primary-purple) 60%, var(--color-standard-black) 40%);
+}
+
+/* ---- green (success) ---- */
+.polly-tag.variant--green {
+  background: color-mix(in srgb, var(--color-primary-green) 80%, var(--color-standard-black) 20%);
+  color: var(--color-standard-white);
+}
+.polly-tag.variant--green-light {
+  background: color-mix(in srgb, var(--color-primary-green) 10%, var(--color-standard-white) 90%);
+  color: color-mix(in srgb, var(--color-primary-green) 60%, var(--color-standard-black) 40%);
+}
+
+/* ---- red (danger) ---- */
+.polly-tag.variant--red {
+  background: color-mix(in srgb, var(--color-primary-red) 80%, var(--color-standard-black) 20%);
+  color: var(--color-standard-white);
+}
+.polly-tag.variant--red-light {
+  background: color-mix(in srgb, var(--color-primary-red) 10%, var(--color-standard-white) 90%);
+  color: color-mix(in srgb, var(--color-primary-red) 60%, var(--color-standard-black) 40%);
+}
+
+/* ---- blue (info) ---- */
+.polly-tag.variant--blue {
+  background: color-mix(in srgb, var(--color-primary-blue) 80%, var(--color-standard-black) 20%);
+  color: var(--color-standard-white);
+}
+.polly-tag.variant--blue-light {
+  background: color-mix(in srgb, var(--color-primary-blue) 10%, var(--color-standard-white) 90%);
+  color: color-mix(in srgb, var(--color-primary-blue) 60%, var(--color-standard-black) 40%);
+}
+
+/* ---- orange (warning) ---- */
+.polly-tag.variant--orange {
+  background: color-mix(in srgb, var(--color-primary-orange) 80%, var(--color-standard-black) 20%);
+  color: var(--color-standard-white);
+}
+.polly-tag.variant--orange-light {
+  background: color-mix(in srgb, var(--color-primary-orange) 10%, var(--color-standard-white) 90%);
+  color: color-mix(in srgb, var(--color-primary-orange) 60%, var(--color-standard-black) 40%);
+}
+
+/* ---- neutral ---- */
+.polly-tag.variant--neutral {
+  background: color-mix(in srgb, var(--color-primary-neutral) 80%, var(--color-standard-black) 20%);
+  color: var(--color-standard-white);
+}
+.polly-tag.variant--neutral-light {
+  background: color-mix(in srgb, var(--color-primary-neutral) 10%, var(--color-standard-white) 90%);
+  color: color-mix(in srgb, var(--color-primary-neutral) 60%, var(--color-standard-black) 40%);
+}

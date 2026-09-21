@@ -1,0 +1,50 @@
+/* =========================================================
+   CHIP — driven by --chip-* tokens (filled primary variant).
+   ========================================================= */
+
+.polly-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--chip-base-gap);
+
+  padding: var(--chip-base-padding);
+  border-radius: var(--chip-base-borderradius);
+  transition: var(--chip-base-transition);
+
+  background: var(--chip-filled-primary-backgroundcolor-default);
+  border: var(--chip-filled-primary-border-default);
+  color: var(--chip-filled-primary-color-default);
+}
+
+.polly-chip:hover {
+  background: var(--chip-filled-primary-backgroundcolor-hover);
+  border: var(--chip-filled-primary-border-hover);
+  color: var(--chip-filled-primary-color-hover);
+}
+
+.polly-chip-icon,
+.polly-chip-remove {
+  font-size: var(--chip-icon-size);
+  color: var(--chip-icon-color);
+}
+
+.polly-chip-remove {
+  cursor: pointer;
+}
+
+.polly-chip-remove:focus-visible {
+  outline: var(--chip-focus-outline);
+  outline-offset: var(--chip-focus-outlineoffset);
+}
+
+.polly-chip-label {
+  overflow-wrap: var(--chip-label-overflowwrap);
+  word-break: var(--chip-label-wordbreak);
+}
+
+.polly-chip-image {
+  width: var(--chip-icon-size);
+  height: var(--chip-icon-size);
+  border-radius: 50%;
+  object-fit: cover;
+}

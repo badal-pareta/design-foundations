@@ -1,0 +1,327 @@
+/* ============================= */
+/* Base Root */
+/* ============================= */
+
+.polly-dropdown-root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  appearance: var(--select-base-appearance);
+  width: var(--select-base-width);
+
+  font-family: var(--select-base-fontfamily);
+  font-size: var(--select-base-fontsize);
+  font-weight: var(--select-base-fontweight);
+  line-height: var(--select-base-lineheight);
+
+  height: var(--select-base-height-default);
+  /* padding: var(--select-base-padding-default); */
+  /* padding: 0 0.5rem 0 0.75rem; */
+
+  background: var(--select-base-background-default);
+  color: var(--select-base-color-default);
+  border: var(--select-base-border-default);
+  border-radius: var(--select-base-radius);
+
+  transition: var(--select-base-transition);
+}
+
+/* ============================= */
+/* Accessibility Input Fix */
+/* ============================= */
+
+.p-hidden-accessible input.polly-dropdown-input {
+  padding: 0;
+}
+
+/* ============================= */
+/* Label / Visible Span */
+/* ============================= */
+
+.polly-dropdown-root > span.polly-dropdown-input {
+  flex: 1;
+  min-width: 0;
+
+  /* padding: var(--select-label-padding); */
+  padding: 0 0.375rem 0 1rem;
+
+  font-size: var(--select-label-fontsize);
+  font-weight: var(--select-label-fontweight);
+  line-height: var(--select-label-lineheight);
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ============================= */
+/* Left Icon Support */
+/* ============================= */
+
+.has-left-icon .polly-dropdown-root {
+  padding-left: var(--spacing-5);
+}
+
+/* ============================= */
+/* Hover */
+/* ============================= */
+
+.polly-dropdown-root:not([data-p-disabled="true"]):hover {
+  background: var(--select-base-background-hover);
+  border-color: var(--select-base-border-color-hover);
+  outline: var(--select-base-outline-hover);
+}
+
+.polly-dropdown-root.variant--tonal:not([data-p-disabled="true"]):hover {
+  background: color-mix(
+    in srgb,
+    var(--color-secondary-purple) 20%,
+    var(--color-standard-white)
+  );
+}
+
+/* ============================= */
+/* Focus */
+/* ============================= */
+
+.polly-dropdown-root.p-focus {
+  background: var(--select-base-background-focus);
+  border-color: var(--select-base-border-color-focus);
+  box-shadow: var(--select-state-focus-boxshadow);
+  outline: var(--select-base-outline-focus);
+  outline-offset: var(--select-base-outline-offset);
+}
+
+/* ============================= */
+/* Disabled */
+/* ============================= */
+
+.polly-dropdown-root[data-p-disabled="true"] {
+  background: var(--select-base-background-disabled);
+  color: var(--select-base-color-disabled);
+  opacity: var(--select-state-disabled-opacity);
+  cursor: var(--select-state-disabled-cursor);
+}
+
+/* ============================= */
+/* Trigger */
+/* ============================= */
+
+.polly-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: var(--select-trigger-background);
+  color: var(--select-trigger-color);
+  width: var(--select-trigger-width);
+  text-align: var(--select-trigger-textalign);
+  padding: var(--spacing-5);
+}
+
+.polly-dropdown-trigger .polly-icon {
+  font-size: var(--select-trigger-icon-size);
+  transition: var(--select-trigger-icon-transition);
+  pointer-events: none;
+}
+
+/* open state */
+
+.polly-dropdown-root[data-p-focus="true"] .polly-icon {
+  transform: var(--select-trigger-icon-transform-open);
+}
+
+/* ============================= */
+/* Overlay Panel */
+/* ============================= */
+
+.polly-dropdown-panel {
+  background: var(--select-overlay-background);
+  border-radius: var(--select-overlay-radius);
+  box-shadow: var(--select-overlay-shadow);
+  border: var(--select-overlay-border);
+  margin: var(--select-overlay-margin);
+  padding: var(--select-overlay-padding);
+}
+
+/* ============================= */
+/* List */
+/* ============================= */
+
+.polly-dropdown-list {
+  list-style: none;
+  padding: var(--select-list-padding);
+  gap: var(--select-list-gap);
+}
+
+/* ============================= */
+/* Options */
+/* ============================= */
+
+.polly-dropdown-item {
+  background: var(--select-option-background-default);
+  color: var(--select-option-color-default);
+  font-size: var(--select-option-fontsize);
+  font-weight: var(--select-option-fontweight);
+  line-height: var(--select-option-lineheight);
+
+  border: var(--select-option-border);
+  padding: var(--select-option-padding-default);
+  /* margin: var(--select-option-margin); */
+  gap: var(--select-option-gap);
+
+  word-wrap: var(--select-option-wordwrap);
+}
+
+.polly-dropdown-item-label {
+  font-family: var(--select-base-fontfamily);
+  font-size: var(--select-option-fontsize);
+  font-weight: var(--select-option-fontweight);
+  line-height: var(--select-option-lineheight);
+}
+
+/* Hover / keyboard focus */
+
+.polly-dropdown-item:hover,
+.polly-dropdown-item[data-p-focused="true"] {
+  background: var(--select-option-background-hover);
+  color: var(--select-option-color-hover);
+}
+
+/* Selected */
+
+.polly-dropdown-item[data-p-highlight="true"] {
+  background: var(--select-option-background-selected);
+  color: var(--select-option-color-selected);
+}
+
+/* Disabled */
+
+.polly-dropdown-item[data-p-disabled="true"] {
+  background: var(--select-option-background-disabled);
+  color: var(--select-option-color-disabled);
+  cursor: var(--select-state-disabled-cursor);
+}
+
+/* ============================= */
+/* Empty Message */
+/* ============================= */
+
+.polly-dropdown-empty {
+  padding: var(--select-emptymessage-padding);
+  font-size: var(--select-emptymessage-fontsize);
+}
+
+/* ============================= */
+/* Size Variants */
+/* ============================= */
+
+.polly-dropdown-root.size--small {
+  height: var(--select-size-small-height);
+  padding: var(--select-size-small-padding);
+}
+
+.polly-dropdown-root.size--medium {
+  height: var(--select-base-height-default);
+}
+
+.polly-dropdown-root.size--large {
+  height: var(--select-size-large-height);
+  padding: var(--select-size-large-padding);
+}
+
+/* option sizes */
+
+.polly-dropdown-root.size--small .polly-dropdown-item {
+  padding: var(--select-size-small-option-padding);
+}
+
+.polly-dropdown-root.size--large .polly-dropdown-item {
+  padding: var(--select-size-large-option-padding);
+}
+
+/* ============================= */
+/* Variant: Default */
+/* ============================= */
+
+.polly-dropdown-root.variant--default {
+  background: var(--select-base-background-default);
+  border: var(--select-base-border-default);
+}
+
+/* ============================= */
+/* Variant: Tonal */
+/* ============================= */
+
+.polly-dropdown-root.variant--tonal {
+  border: none;
+  background: color-mix(
+    in srgb,
+    var(--color-secondary-purple) 15%,
+    var(--color-standard-white)
+  );
+}
+
+/* trigger divider */
+
+.polly-dropdown-root.variant--tonal .polly-dropdown-trigger {
+  border-left: 1px solid
+    color-mix(in srgb, var(--color-neutral-purple), var(--color-standard-white) 60%);
+}
+
+/* option hover */
+
+.polly-dropdown-root.variant--tonal .polly-dropdown-item:hover,
+.polly-dropdown-root.variant--tonal .polly-dropdown-item[data-p-focused="true"] {
+  background: color-mix(
+    in srgb,
+    var(--color-neutral-purple),
+    var(--color-standard-white) 75%
+  );
+}
+
+/* selected option */
+
+.polly-dropdown-root.variant--tonal .polly-dropdown-item[data-p-highlight="true"] {
+  background: color-mix(
+    in srgb,
+    var(--color-neutral-purple) 25%,
+    var(--color-standard-white)
+  );
+}
+
+/* ============================= */
+/* Text Modifier */
+/* ============================= */
+
+.polly-dropdown-root.text-capitalize .polly-dropdown-input,
+.polly-dropdown-root.text-capitalize .polly-dropdown-item {
+  text-transform: var(--select-modifier-textcapitalize-texttransform);
+}
+
+/* ============================= */
+/* Dropdown Scroll Wrapper */
+/* ============================= */
+
+.polly-dropdown-wrapper {
+  max-height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ============================= */
+/* Dropdown List */
+/* ============================= */
+
+.polly-dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--select-list-padding);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--select-list-gap);
+}

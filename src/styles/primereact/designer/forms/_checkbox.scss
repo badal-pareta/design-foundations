@@ -1,0 +1,69 @@
+/* =========================================================
+   CHECKBOX  — driven by --checkbox-* tokens
+   ========================================================= */
+
+.polly-checkbox {
+  display: var(--checkbox-display);
+  position: var(--checkbox-position);
+  vertical-align: var(--checkbox-verticalalign);
+  cursor: var(--checkbox-cursor-default);
+}
+
+/* native input as an invisible click overlay */
+.polly-checkbox-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: var(--checkbox-cursor-default);
+}
+
+.polly-checkbox-box {
+  display: var(--checkbox-box-display);
+  align-items: var(--checkbox-box-alignitems);
+  justify-content: var(--checkbox-box-justifycontent);
+
+  width: var(--checkbox-size-medium-width);
+  height: var(--checkbox-size-medium-height);
+
+  border: var(--checkbox-border-width) solid var(--checkbox-border-color-default);
+  border-radius: var(--checkbox-border-radius);
+  background: var(--checkbox-background-default);
+
+  transition: var(--checkbox-transition);
+  cursor: var(--checkbox-cursor-default);
+}
+
+.polly-checkbox:hover .polly-checkbox-box {
+  border-color: var(--checkbox-border-color-hover);
+}
+
+.polly-checkbox-box[data-p-highlight="true"] {
+  background: var(--checkbox-background-checked);
+  border-color: var(--checkbox-border-color-checked);
+}
+
+.polly-checkbox-box[data-p-disabled="true"] {
+  background: var(--checkbox-background-disabled);
+  border-color: var(--checkbox-border-color-disabled);
+  cursor: var(--checkbox-cursor-disabled);
+}
+
+.polly-checkbox-icon {
+  color: var(--checkbox-icon-color-checked);
+  font-size: var(--checkbox-icon-fontsize-medium);
+  font-weight: var(--checkbox-icon-fontweight);
+}
+
+/* sizes */
+.polly-checkbox.size--sm .polly-checkbox-box {
+  width: var(--checkbox-size-small-width);
+  height: var(--checkbox-size-small-height);
+}
+
+.polly-checkbox.size--lg .polly-checkbox-box {
+  width: var(--checkbox-size-large-width);
+  height: var(--checkbox-size-large-height);
+}

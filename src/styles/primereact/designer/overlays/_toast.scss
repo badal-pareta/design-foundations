@@ -1,0 +1,91 @@
+/* =========================================================
+   TOAST — driven by --toast-* tokens. Severity sets the
+   left border + icon colour (info default).
+   ========================================================= */
+
+.polly-toast-message {
+  min-width: 20rem;
+  margin: var(--toast-base-margin);
+  padding: var(--toast-base-padding);
+
+  background: var(--toast-base-background);
+  border-left: var(--toast-base-borderleftwidth) var(--toast-base-borderleftstyle)
+    var(--toast-severity-info-bordercolor);
+  border-radius: var(--toast-base-borderradius);
+  box-shadow: var(--toast-base-boxshadow);
+}
+
+.polly-toast-content {
+  display: var(--toast-content-display);
+  grid-template-columns: var(--toast-content-gridtemplatecolumns);
+  gap: var(--toast-content-gap);
+  align-items: center;
+}
+
+.polly-toast-icon {
+  width: var(--toast-icon-width);
+  height: var(--toast-icon-height);
+  font-size: var(--toast-icon-fontsize);
+  color: var(--toast-severity-info-iconcolor);
+}
+
+.polly-toast-text {
+  display: var(--toast-text-display);
+  flex-direction: var(--toast-text-flexdirection);
+  gap: var(--toast-text-gap);
+}
+
+.polly-toast-summary {
+  font-weight: var(--toast-summary-fontweight);
+}
+
+.polly-toast-detail {
+  margin: var(--toast-detail-margin);
+  color: var(--toast-detail-color);
+}
+
+.polly-toast-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--toast-closebutton-padding);
+  background: var(--toast-closebutton-background);
+  border: var(--toast-closebutton-border);
+  border-radius: var(--toast-closebutton-borderradius);
+  color: var(--toast-closebutton-iconcolor);
+  cursor: pointer;
+  transition: var(--toast-closebutton-transition);
+}
+
+.polly-toast-close:hover {
+  background: var(--toast-closebutton-backgroundhover);
+}
+
+/* severity */
+.polly-toast-message.variant--success {
+  border-left-color: var(--toast-severity-success-bordercolor);
+}
+.polly-toast-message.variant--success .polly-toast-icon {
+  color: var(--toast-severity-success-iconcolor);
+}
+
+.polly-toast-message.variant--info {
+  border-left-color: var(--toast-severity-info-bordercolor);
+}
+.polly-toast-message.variant--info .polly-toast-icon {
+  color: var(--toast-severity-info-iconcolor);
+}
+
+.polly-toast-message.variant--warn {
+  border-left-color: var(--toast-severity-warn-bordercolor);
+}
+.polly-toast-message.variant--warn .polly-toast-icon {
+  color: var(--toast-severity-warn-iconcolor);
+}
+
+.polly-toast-message.variant--error {
+  border-left-color: var(--toast-severity-error-bordercolor);
+}
+.polly-toast-message.variant--error .polly-toast-icon {
+  color: var(--toast-severity-error-iconcolor);
+}

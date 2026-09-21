@@ -1,0 +1,31 @@
+/* =========================================================
+   TOOLTIP — driven by --tooltip-* tokens. Dark (default) + light.
+   ========================================================= */
+
+.polly-tooltip-text {
+  display: inline-block;
+  padding: var(--tooltip-base-padding-default);
+
+  background: var(--tooltip-dark-background);
+  color: var(--tooltip-dark-color);
+  border-radius: var(--tooltip-base-borderradius);
+  box-shadow: var(--tooltip-base-shadow);
+
+  font-size: var(--font-size-label-medium);
+  line-height: var(--font-height-label-medium);
+}
+
+.polly-tooltip-arrow {
+  border-style: var(--tooltip-base-arrow-borderstyle);
+  border-color: var(--tooltip-dark-arrow-color);
+}
+
+/* light variant (add `variant--light` to tooltipOptions.className) */
+.polly-tooltip.variant--light .polly-tooltip-text {
+  background: var(--tooltip-light-background);
+  color: var(--tooltip-light-color);
+}
+
+.polly-tooltip.variant--light .polly-tooltip-arrow {
+  border-color: var(--tooltip-light-arrow-color);
+}

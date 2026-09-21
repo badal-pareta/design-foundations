@@ -1,0 +1,87 @@
+/* =========================================================
+   DATA TABLE — driven by --table-base-* tokens.
+   A sortable, bordered table.
+   ========================================================= */
+
+.polly-table {
+  font-family: var(--table-base-fontfamily);
+}
+
+.polly-table-el {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ---- header ---- */
+.polly-table-header-row {
+  border-bottom: var(--table-base-header-row-borderbottom);
+}
+
+.polly-table-th {
+  background: var(--table-base-header-cell-background);
+  border-bottom: var(--table-base-header-cell-borderbottom);
+  border-right: var(--table-base-header-cell-borderright);
+  padding: var(--table-base-header-cell-padding);
+
+  color: var(--table-base-header-cell-color);
+  font-size: var(--table-base-header-cell-fontsize);
+  font-weight: var(--table-base-header-cell-fontweight);
+  line-height: var(--table-base-header-cell-lineheight);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.polly-table-th:last-child {
+  border-right: 0;
+}
+
+.polly-table-th-content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.polly-table-sort {
+  display: inline-flex;
+  cursor: pointer;
+  color: var(--table-base-header-cell-color);
+}
+
+/* ---- body ---- */
+.polly-table-td {
+  border-bottom: var(--table-base-body-cell-borderbottom);
+  border-right: var(--table-base-body-cell-borderright);
+  padding: var(--table-base-body-cell-padding);
+
+  color: var(--table-base-body-cell-color);
+  font-size: var(--table-base-body-cell-fontsize);
+  font-weight: var(--table-base-body-cell-fontweight);
+  line-height: var(--table-base-body-cell-lineheight);
+}
+
+.polly-table-td:last-child {
+  border-right: 0;
+}
+
+.polly-table-row {
+  background: var(--table-base-body-row-background);
+}
+
+.polly-table-row:nth-child(odd) {
+  background: var(--table-base-body-row-odd-background);
+}
+
+.polly-table-row:hover {
+  background: var(--table-base-body-row-hover-background);
+}
+
+.polly-table-row[data-p-highlight="true"] {
+  background: var(--table-base-body-row-selected-background);
+}
+
+.polly-table-empty {
+  padding: var(--table-base-body-cell-padding);
+  color: var(--table-base-body-cell-color);
+  font-size: var(--table-base-body-cell-fontsize);
+  text-align: center;
+}

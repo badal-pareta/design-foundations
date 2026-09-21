@@ -1,0 +1,53 @@
+/* =========================================================
+   DRAWER (PrimeReact Sidebar) — no dedicated --drawer/--sidebar
+   tokens exist, so it reuses the --dialog-* overlay tokens plus
+   core spacing/colour. (Flagged: a --drawer-* set would be ideal.)
+   ========================================================= */
+
+.polly-drawer-mask {
+  background-color: var(--dialog-background-overlay);
+}
+
+.polly-drawer {
+  display: flex;
+  flex-direction: column;
+
+  background: var(--color-standard-white);
+  color: var(--dialog-text-color-default);
+  box-shadow: var(--popover-modal-shadow);
+}
+
+.polly-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--dialog-header-background-default);
+  border-bottom: var(--dialog-border-width) solid var(--dialog-border-color-subtle);
+
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-title-medium);
+  font-weight: var(--font-weight-semibold);
+  color: var(--dialog-title-color-default);
+}
+
+.polly-drawer-content {
+  flex: 1;
+  overflow: auto;
+  padding: var(--spacing-4);
+  font-size: var(--font-size-body-medium);
+  line-height: var(--font-height-body-medium);
+}
+
+.polly-drawer-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--dialog-closebutton-height);
+  padding: 0;
+  border: var(--dialog-closebutton-border);
+  background: var(--dialog-closebutton-background-default);
+  color: var(--dialog-closebutton-color-default);
+  cursor: pointer;
+}
