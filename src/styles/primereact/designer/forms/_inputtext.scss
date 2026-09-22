@@ -1,145 +1,156 @@
-/* =========================================================
-   BASE INPUT
-   ========================================================= */
-
 .polly-inputtext {
-  width: 100%;
-
-  border:
-    var(--inputtext-field-border-width)
+  background: var(--inputtext-field-background-default);
+  border: var(--inputtext-field-border-width)
     var(--inputtext-field-border-style)
     var(--inputtext-field-border-color-default);
-
   border-radius: var(--inputtext-field-border-radius);
-
   color: var(--inputtext-field-text-color);
   font-size: var(--inputtext-field-font-size);
   font-weight: var(--inputtext-field-font-weight);
-
   height: var(--inputtext-field-height-default);
   padding: var(--inputtext-field-padding-default);
-
-  background: var(--inputtext-field-background);
-
   transition: var(--inputtext-field-transition);
 }
 
-/* =========================================================
-   PLACEHOLDER
-   ========================================================= */
+.polly-inputtext {
+  &.p-inputtext-sm {
+    height: var(--inputtext-field-height-small);
+    padding: var(--inputtext-field-padding-small);
+  }
 
-.polly-inputtext::placeholder {
-  color: var(--inputtext-placeholder-color);
+  &.p-inputtext-lg {
+    height: var(--inputtext-field-height-large);
+    padding: var(--inputtext-field-padding-large);
+  }
+
+  &::placeholder {
+    color: var(--inputtext-placeholder-color);
+  }
+  &:hover:not(:disabled):not(.is-invalid) {
+    border-color: var(--inputtext-field-border-color-hover);
+    outline: var(--inputtext-field-outline-width)
+      var(--inputtext-field-outline-style)
+      var(--inputtext-field-outline-color-hover);
+  }
+
+  &:enabled:is(:focus, :active):not(.ng-invalid.ng-touched) {
+    border: var(--inputtext-field-border-width)
+      var(--inputtext-field-border-style)
+      var(--inputtext-field-border-color-focus);
+    outline: var(--inputtext-field-outline-width)
+      var(--inputtext-field-outline-style)
+      var(--inputtext-field-outline-color-focus);
+  }
 }
 
-/* =========================================================
-   HOVER
-   ========================================================= */
+.polly-inputtext {
+  &.is-invalid {
+    border: var(--inputtext-field-border-width)
+      var(--inputtext-field-border-style)
+      var(--inputtext-field-border-color-error) !important;
+    outline: var(--inputtext-field-outline-width)
+      var(--inputtext-field-outline-style)
+      var(--inputtext-field-outline-color-error) !important;
+  }
 
-.polly-inputtext:hover:not(:disabled):not(.is-invalid) {
-  border-color: var(--inputtext-field-border-color-hover);
+  &.is-invalid::placeholder {
+    color: var(--inputtext-prelogin-color-invalid);
+  }
 
-  outline:
-    var(--inputtext-field-outline-width)
-    var(--inputtext-field-outline-style)
-    var(--inputtext-field-outline-color-hover);
+  &:disabled,
+  &.is-disabled {
+    background: var(--inputtext-field-background-disabled);
+    border: var(--inputtext-field-border-width)
+      var(--inputtext-field-border-style)
+      var(--inputtext-field-border-color-disabled);
+    color: var(--inputtext-placeholder-color);
+    outline: var(--inputtext-field-outline-width)
+      var(--inputtext-field-outline-style)
+      var(--inputtext-field-outline-color-disabled);
+  }
+
+  &.size--sm {
+    height: var(--inputtext-field-height-small);
+    padding: var(--inputtext-field-padding-small);
+  }
+
+  &.size--lg {
+    height: var(--inputtext-field-height-large);
+    padding: var(--inputtext-field-padding-large);
+  }
+
+  /* Rounded alternate stays same */
+  &.rounded {
+    border: var(--inputtext-field-border-width)
+      var(--inputtext-field-border-style)
+      var(--inputtext-roundedalternate-border-color-default);
+    border-radius: var(--inputtext-roundedalternate-border-radius);
+
+    &:enabled:hover:not(.ng-invalid.ng-touched) {
+      border-color: var(--inputtext-roundedalternate-border-color-hover);
+      outline: var(--inputtext-roundedalternate-outline-width)
+        var(--inputtext-field-outline-style)
+        var(--inputtext-roundedalternate-outline-color-hover);
+    }
+
+    &:enabled:is(:focus, :active):not(.ng-invalid.ng-touched) {
+      border-color: var(--inputtext-roundedalternate-border-color-focus);
+      outline: var(--inputtext-roundedalternate-outline-width)
+        var(--inputtext-field-outline-style)
+        var(--inputtext-roundedalternate-outline-color-focus);
+    }
+  }
 }
-
-/* =========================================================
-   FOCUS
-   ========================================================= */
-
-.polly-inputtext:focus,
-.polly-inputtext:active {
-  border:
-    var(--inputtext-field-border-width)
-    var(--inputtext-field-border-style)
-    var(--inputtext-field-border-color-focus);
-
-  outline:
-    var(--inputtext-field-outline-width)
-    var(--inputtext-field-outline-style)
-    var(--inputtext-field-outline-color-focus);
-}
-
-/* =========================================================
-   INVALID
-   ========================================================= */
-
-.polly-inputtext.is-invalid {
-  border:
-    var(--inputtext-field-border-width)
-    var(--inputtext-field-border-style)
-    var(--inputtext-field-border-color-error);
-
-  outline:
-    var(--inputtext-field-outline-width)
-    var(--inputtext-field-outline-style)
-    var(--inputtext-field-outline-color-error);
-}
-
-.polly-inputtext.is-invalid::placeholder {
-  color: var(--inputtext-prelogin-color-invalid);
-}
-
-/* =========================================================
-   DISABLED
-   ========================================================= */
-
-.polly-inputtext:disabled,
-.polly-inputtext.is-disabled {
-  background: var(--inputtext-field-background-disabled);
-
-  border:
-    var(--inputtext-field-border-width)
-    var(--inputtext-field-border-style)
-    var(--inputtext-field-border-color-disabled);
-
-  outline:
-    var(--inputtext-field-outline-width)
-    var(--inputtext-field-outline-style)
-    var(--inputtext-field-outline-color-disabled);
-
-  cursor: not-allowed;
-}
-
-/* =========================================================
-   SIZES
-   ========================================================= */
-
-.polly-inputtext.size--sm {
-  height: var(--inputtext-field-height-small);
-  padding: var(--inputtext-field-padding-small);
-}
-
-.polly-inputtext.size--lg {
-  height: var(--inputtext-field-height-large);
-  padding: var(--inputtext-field-padding-large);
-}
-
-/* =========================================================
-   ICON FIELD
-   ========================================================= */
 
 [data-pc-name="iconfield"] {
+  display: inline-flex; /* not the `inline` token — width: 100% needs a flex/block box */
   position: relative;
-  display: inline-flex;
   width: 100%;
-}
 
-/* icon */
+  /* Leading icon */
+  &.icon-left {
+    [data-pc-name="inputicon"] {
+      left: var(--inputtext-icon-position-left-default);
+    }
+    .polly-inputtext {
+      padding-left: var(--spacing-8);
+    }
+  }
+
+  /* Trailing icon */
+  &.icon-right {
+    [data-pc-name="inputicon"] {
+      right: var(--inputtext-icon-position-right-default);
+    }
+    .polly-inputtext {
+      padding-right: var(--spacing-8);
+    }
+  }
+}
 
 [data-pc-name="inputicon"] {
+  color: var(--inputtext-icon-color-default);
+  font-size: var(--inputtext-icon-size-default);
+  pointer-events: none;
   position: absolute;
   top: 50%;
-  left: var(--inputtext-icon-position-left-default);
-  font-size: 1rem;
   transform: translateY(-50%);
-  pointer-events: none;
-}
 
-/* input padding so text doesn't overlap icon */
+  &:has(~ .polly-inputtext:enabled:active) {
+    color: var(--inputtext-icon-color-active);
+  }
+  &:has(~ .polly-inputtext:enabled:focus) {
+    color: var(--inputtext-icon-color-focus);
+  }
+  &:has(~ .polly-inputtext:disabled) {
+    color: var(--inputtext-icon-color-disabled);
+    opacity: var(--inputtext-icon-opacity-disabled);
+  }
 
-[data-pc-name="iconfield"] .polly-inputtext {
-  padding-left: var(--spacing-8);
+  &.input-icon-sm {
+    font-size: var(--inputtext-icon-size-small);
+  }
+  &.input-icon-lg {
+    font-size: var(--inputtext-icon-size-large);
+  }
 }

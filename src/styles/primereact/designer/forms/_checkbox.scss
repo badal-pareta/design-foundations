@@ -1,12 +1,34 @@
-/* =========================================================
-   CHECKBOX  — driven by --checkbox-* tokens
-   ========================================================= */
-
 .polly-checkbox {
   display: var(--checkbox-display);
   position: var(--checkbox-position);
   vertical-align: var(--checkbox-verticalalign);
   cursor: var(--checkbox-cursor-default);
+
+  &:hover .polly-checkbox-box {
+    color: var(--checkbox-icon-color-default);
+    border-color: var(--checkbox-border-color-hover);
+  }
+
+  /* sizes */
+  &.size--sm .polly-checkbox-box {
+    width: var(--checkbox-size-small-width);
+    height: var(--checkbox-size-small-height);
+  }
+
+  &.size--lg .polly-checkbox-box {
+    width: var(--checkbox-size-large-width);
+    height: var(--checkbox-size-large-height);
+  }
+
+  &.error .polly-checkbox-box:not([data-p-disabled="true"]) {
+    border-color: var(--checkbox-border-color-error);
+  }
+
+  &.error
+    .polly-checkbox-box[data-p-highlight="true"]:not([data-p-disabled="true"]) {
+    background: var(--checkbox-background-error);
+    border-color: var(--checkbox-border-color-error);
+  }
 }
 
 /* native input as an invisible click overlay */
@@ -28,16 +50,13 @@
   width: var(--checkbox-size-medium-width);
   height: var(--checkbox-size-medium-height);
 
-  border: var(--checkbox-border-width) solid var(--checkbox-border-color-default);
+  border: var(--checkbox-border-width) solid
+    var(--checkbox-border-color-default);
   border-radius: var(--checkbox-border-radius);
   background: var(--checkbox-background-default);
 
   transition: var(--checkbox-transition);
   cursor: var(--checkbox-cursor-default);
-}
-
-.polly-checkbox:hover .polly-checkbox-box {
-  border-color: var(--checkbox-border-color-hover);
 }
 
 .polly-checkbox-box[data-p-highlight="true"] {
@@ -55,15 +74,4 @@
   color: var(--checkbox-icon-color-checked);
   font-size: var(--checkbox-icon-fontsize-medium);
   font-weight: var(--checkbox-icon-fontweight);
-}
-
-/* sizes */
-.polly-checkbox.size--sm .polly-checkbox-box {
-  width: var(--checkbox-size-small-width);
-  height: var(--checkbox-size-small-height);
-}
-
-.polly-checkbox.size--lg .polly-checkbox-box {
-  width: var(--checkbox-size-large-width);
-  height: var(--checkbox-size-large-height);
 }
