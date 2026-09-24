@@ -1,8 +1,3 @@
-/* =========================================================
-   TOGGLE SWITCH  — driven by --toggleswitch-* tokens.
-   PrimeReact module is `inputswitch`; the knob is the slider ::before.
-   ========================================================= */
-
 .polly-switch {
   display: var(--toggleswitch-base-display);
   align-items: var(--toggleswitch-base-alignitems);
@@ -11,6 +6,58 @@
   width: var(--toggleswitch-base-width);
   height: var(--toggleswitch-base-height);
   background: var(--toggleswitch-base-background);
+
+  /* ON */
+  &.is-checked .polly-switch-slider {
+    background: var(--toggleswitch-slider-background-on);
+    border-color: var(--toggleswitch-slider-border-color-on);
+  }
+
+  &.is-checked .polly-switch-slider::before {
+    background: var(--toggleswitch-handle-background-on);
+    transform: translateX(var(--toggleswitch-handle-translatex-on));
+  }
+
+  &.is-checked:hover .polly-switch-slider {
+    background: var(--toggleswitch-slider-background-onhover);
+  }
+
+  &:has(:focus-visible) .polly-switch-slider::before {
+    outline: var(--toggleswitch-focus-handle-outline);
+  }
+
+  &:active .polly-switch-slider::before {
+    box-shadow: var(--toggleswitch-active-handle-boxshadow);
+    outline: var(--toggleswitch-active-handle-outline);
+  }
+
+  &.size--medium:has(:focus-visible) .polly-switch-slider::before {
+    outline: var(--toggleswitch-medium-outline-width)
+      var(--toggleswitch-outline-style) var(--toggleswitch-outline-color-focus);
+  }
+
+  &.size--medium:active .polly-switch-slider::before {
+    box-shadow: var(--toggleswitch-medium-active-boxshadow);
+    outline: var(--toggleswitch-medium-active-outline);
+  }
+
+  &.is-disabled {
+    opacity: var(--toggleswitch-disabled-opacity);
+
+    & .polly-switch-slider::before {
+      background: var(--toggleswitch-disabled-handle-background);
+    }
+
+    &.is-checked .polly-switch-slider {
+      background: var(--toggleswitch-slider-background-on);
+      border-color: var(--toggleswitch-slider-border-color-on);
+
+      &::before {
+        background: var(--toggleswitch-handle-background-on);
+        transform: translateX(var(--toggleswitch-handle-translatex-on));
+      }
+    }
+  }
 }
 
 .polly-switch-input {
@@ -30,51 +77,28 @@
   height: var(--toggleswitch-slider-height);
 
   background: var(--toggleswitch-slider-background-off);
-  border: var(--toggleswitch-slider-border-width) var(--toggleswitch-slider-border-style)
+  border: var(--toggleswitch-slider-border-width)
+    var(--toggleswitch-slider-border-style)
     var(--toggleswitch-slider-border-color-off);
   border-radius: var(--toggleswitch-slider-borderradius);
 
   transition: var(--toggleswitch-slider-transition);
   cursor: pointer;
-}
 
-/* knob */
-.polly-switch-slider::before {
-  content: "";
-  position: var(--toggleswitch-handle-position);
-  top: var(--toggleswitch-handle-top);
-  left: var(--toggleswitch-handle-left);
+  /* knob */
+  &::before {
+    content: "";
+    position: var(--toggleswitch-handle-position);
+    top: var(--toggleswitch-handle-top);
+    left: var(--toggleswitch-handle-left);
 
-  width: var(--toggleswitch-handle-width);
-  height: var(--toggleswitch-handle-height);
+    width: var(--toggleswitch-handle-width);
+    height: var(--toggleswitch-handle-height);
 
-  background: var(--toggleswitch-handle-background-off);
-  border-radius: var(--toggleswitch-handle-borderradius);
-  box-shadow: var(--toggleswitch-handle-shadow);
+    background: var(--toggleswitch-handle-background-off);
+    border-radius: var(--toggleswitch-handle-borderradius);
+    box-shadow: var(--toggleswitch-handle-shadow);
 
-  transition: transform var(--toggleswitch-handle-transition);
-}
-
-/* ON */
-.polly-switch[data-p-highlight="true"] .polly-switch-slider {
-  background: var(--toggleswitch-slider-background-on);
-  border-color: var(--toggleswitch-slider-border-color-on);
-}
-
-.polly-switch[data-p-highlight="true"] .polly-switch-slider::before {
-  background: var(--toggleswitch-handle-background-on);
-  transform: translateX(var(--toggleswitch-handle-translatex-on));
-}
-
-.polly-switch[data-p-highlight="true"]:hover .polly-switch-slider {
-  background: var(--toggleswitch-slider-background-onhover);
-}
-
-/* disabled */
-.polly-switch[data-p-disabled="true"] {
-  opacity: var(--toggleswitch-disabled-opacity);
-}
-
-.polly-switch[data-p-disabled="true"] .polly-switch-slider::before {
-  background: var(--toggleswitch-disabled-handle-background);
+    transition: transform var(--toggleswitch-handle-transition);
+  }
 }

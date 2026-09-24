@@ -1,143 +1,282 @@
+/* =================================================================== */
+/* Dropdown (Select)                                                   */
+/* -------------------------------------------------------------------- */
+/* Structure (top → bottom follows the DOM / visual hierarchy):         */
+/*   root      → closed control (label + trigger)                       */
+/*   input     → visible selected value / placeholder span              */
+/*   trigger   → chevron button (+ loading spinner)                     */
+/*   panel     → floating overlay (portaled to <body>)                  */
+/*   header    → filter search box                                      */
+/*   wrapper   → scroll container for the option list                   */
+/*   list/item → the selectable options                                 */
+/* All values are driven by `--select-*` design tokens.                 */
+/* =================================================================== */
+
 /* ============================= */
-/* Base Root */
+/* Base Root                     */
 /* ============================= */
 
+/* The closed select box: a flex row with the label on the left and the
+   chevron trigger pushed to the right. */
 .polly-dropdown-root {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
+  // align-items: var(--select-base-alignitems);
   appearance: var(--select-base-appearance);
-  width: var(--select-base-width);
-
-  font-family: var(--select-base-fontfamily);
-  font-size: var(--select-base-fontsize);
-  font-weight: var(--select-base-fontweight);
-  line-height: var(--select-base-lineheight);
-
-  height: var(--select-base-height-default);
-  /* padding: var(--select-base-padding-default); */
-  /* padding: 0 0.5rem 0 0.75rem; */
-
   background: var(--select-base-background-default);
-  color: var(--select-base-color-default);
   border: var(--select-base-border-default);
   border-radius: var(--select-base-radius);
-
+  box-shadow: var(--select-base-boxshadow-default);
+  color: var(--select-base-color-default);
+  height: var(--select-base-height-default);
+  padding: var(--select-base-padding-default);
   transition: var(--select-base-transition);
+
+  &::placeholder{
+    color: var(--select-base-color-placeholder);
+  }
+  /* ---- Hover (skip while disabled) ---- */
+
+  &:not([data-p-disabled="true"]):hover {
+    background: var(--select-base-background-hover);
+    border-color: var(--select-base-border-color-hover);
+    outline: var(--select-base-outline-hover);
+  }
+
+  &.variant--tonal:not([data-p-disabled="true"]):hover {
+    background: color-mix(
+      in srgb,
+      var(--color-secondary-purple) 20%,
+      var(--color-standard-white)
+    );
+  }
+
+  /* ---- Focus (unstyled mode exposes focus via the data attribute, not
+     a `.p-focus` class) ---- */
+
+  &[data-p-focus="true"] {
+    background: var(--select-base-background-focus);
+    border-color: var(--select-base-border-color-focus);
+    box-shadow: var(--select-state-focus-boxshadow);
+    outline: var(--select-base-outline-focus);
+    outline-offset: var(--select-base-outline-offset);
+  }
+
+  /* ---- Disabled ---- */
+
+  &[data-p-disabled="true"] {
+    background: var(--select-base-background-disabled);
+    color: var(--select-base-color-disabled);
+    opacity: var(--select-state-disabled-opacity);
+    cursor: var(--select-state-disabled-cursor);
+  }
+
+  /* ---- Size variants (height/padding; medium is the default height) ---- */
+
+  &.size--small {
+    height: var(--select-size-small-height);
+    padding: var(--select-size-small-padding) !important;
+  }
+
+  &.size--medium {
+    height: var(--select-base-height-default);
+  }
+
+  &.size--large {
+    height: var(--select-size-large-height);
+    padding: var(--select-size-large-padding) !important;
+  }
+
+  /* small & large also resize the option padding in the panel */
+  &.size--small .polly-dropdown-item {
+    padding: var(--select-size-small-option-padding);
+  }
+
+  &.size--large .polly-dropdown-item {
+    padding: var(--select-size-large-option-padding);
+  }
+
+  /* ---- Variant: default ---- */
+
+  &.variant--default {
+    background: var(--select-base-background-default);
+    border: var(--select-base-border-default);
+  }
+
+  /* ---- Variant: tonal (borderless, tinted fill) ---- */
+
+  &.variant--tonal {
+    border: none;
+    background: color-mix(
+      in srgb,
+      var(--color-secondary-purple) 15%,
+      var(--color-standard-white)
+    );
+  }
+
+  /* tonal draws a divider before the trigger instead of a full border */
+  &.variant--tonal .polly-dropdown-trigger {
+    border-left: 1px solid
+      color-mix(
+        in srgb,
+        var(--color-neutral-purple),
+        var(--color-standard-white) 60%
+      );
+  }
+  /* Rotate the chevron while the panel is open. */
+  &[data-p-focus="true"] .polly-icon {
+    transform: var(--select-trigger-icon-transform-open);
+  }
+
+  /* ---- Tonal variant: option hover ---- */
+
+  &.variant--tonal .polly-dropdown-item:hover,
+  &.variant--tonal .polly-dropdown-item[data-p-focused="true"] {
+    background: color-mix(
+      in srgb,
+      var(--color-neutral-purple),
+      var(--color-standard-white) 75%
+    );
+  }
+
+  /* ---- Tonal variant: selected option ---- */
+
+  &.variant--tonal .polly-dropdown-item[data-p-highlight="true"] {
+    background: color-mix(
+      in srgb,
+      var(--color-neutral-purple) 25%,
+      var(--color-standard-white)
+    );
+  }
+
+  /* ============================= */
+  /* Text Modifier                 */
+  /* ============================= */
+
+  /* `.text-capitalize` capitalises both the selected value and the options. */
+  &.text-capitalize .polly-dropdown-input,
+  &.text-capitalize .polly-dropdown-item {
+    text-transform: var(--select-modifier-textcapitalize-texttransform);
+  }
+
+  &.variant--rounded {
+    border-radius: var(--select-variant-rounded-radius);
+    border: var(--select-variant-rounded-border-default);
+    padding: var(--select-variant-rounded-padding);
+
+    &:not([data-p-disabled="true"]) {
+      &:hover {
+        border-color: var(--select-variant-rounded-border-hover);
+        outline: var(--select-variant-rounded-outline-hover);
+      }
+
+      &[data-p-focus="true"] {
+        box-shadow: var(--select-state-focus-boxshadow);
+        border-color: var(--select-variant-rounded-border-focus);
+        outline: var(--select-variant-rounded-outline-focus);
+      }
+    }
+  }
 }
 
 /* ============================= */
-/* Accessibility Input Fix */
+/* Selected Value / Label        */
 /* ============================= */
+
+/* The visible selected value (and placeholder). PrimeReact renders it as a
+   span; the hidden native <select> below handles a11y + form submission. */
+.polly-dropdown-input {
+  color: var(--select-base-color-default) !important;
+  line-height: var(--select-label-lineheight);
+  border: var(--select-label-border);
+  height: var(--select-label-height);
+  padding: var(--select-label-padding);
+  text-overflow: var(--select-label-textoverflow);
+  outline: none;
+
+  &.p-placeholder {
+    color: var(--select-base-color-placeholder) !important;
+  }
+}
+
+/* Superseded label styling — kept for reference:
+   .polly-dropdown-root > span.polly-dropdown-input {
+     flex: 1;
+     min-width: 0;
+     padding: 0 0.375rem 0 1rem;      // was: var(--select-label-padding)
+     font-size: var(--select-label-fontsize);
+     font-weight: var(--select-label-fontweight);
+     line-height: var(--select-label-lineheight);
+     text-overflow: ellipsis;
+     overflow: hidden;
+     white-space: nowrap;
+   } */
+
+/* Accessibility: the visually-hidden native <select> wrapper. */
+.p-hidden-accessible {
+  display: flex;
+}
 
 .p-hidden-accessible input.polly-dropdown-input {
   padding: 0;
 }
 
-/* ============================= */
-/* Label / Visible Span */
-/* ============================= */
+/* Hidden native <select> and its <option>s carry the a11y role + form value
+   inside the visually-hidden wrapper above — no visual styling required. */
+.polly-dropdown-select,
+.polly-dropdown-option {
+  border: 0;
+}
 
-.polly-dropdown-root > span.polly-dropdown-input {
-  flex: 1;
-  min-width: 0;
-
-  /* padding: var(--select-label-padding); */
-  padding: 0 0.375rem 0 1rem;
-
-  font-size: var(--select-label-fontsize);
-  font-weight: var(--select-label-fontweight);
-  line-height: var(--select-label-lineheight);
-
-  text-overflow: ellipsis;
+/* Screen-reader-only live message announcing the current selection. */
+.polly-dropdown-hidden-selected-message {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
 }
 
-/* ============================= */
-/* Left Icon Support */
-/* ============================= */
-
+/* When a left icon is present, pad the control to make room for it. */
 .has-left-icon .polly-dropdown-root {
-  padding-left: var(--spacing-5);
-}
-
-/* ============================= */
-/* Hover */
-/* ============================= */
-
-.polly-dropdown-root:not([data-p-disabled="true"]):hover {
-  background: var(--select-base-background-hover);
-  border-color: var(--select-base-border-color-hover);
-  outline: var(--select-base-outline-hover);
-}
-
-.polly-dropdown-root.variant--tonal:not([data-p-disabled="true"]):hover {
-  background: color-mix(
-    in srgb,
-    var(--color-secondary-purple) 20%,
-    var(--color-standard-white)
-  );
-}
-
-/* ============================= */
-/* Focus */
-/* ============================= */
-
-.polly-dropdown-root.p-focus {
-  background: var(--select-base-background-focus);
-  border-color: var(--select-base-border-color-focus);
-  box-shadow: var(--select-state-focus-boxshadow);
-  outline: var(--select-base-outline-focus);
-  outline-offset: var(--select-base-outline-offset);
-}
-
-/* ============================= */
-/* Disabled */
-/* ============================= */
-
-.polly-dropdown-root[data-p-disabled="true"] {
-  background: var(--select-base-background-disabled);
-  color: var(--select-base-color-disabled);
-  opacity: var(--select-state-disabled-opacity);
-  cursor: var(--select-state-disabled-cursor);
-}
-
-/* ============================= */
-/* Trigger */
-/* ============================= */
-
-.polly-dropdown-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  background: var(--select-trigger-background);
   color: var(--select-trigger-color);
-  width: var(--select-trigger-width);
-  text-align: var(--select-trigger-textalign);
-  padding: var(--spacing-5);
+  font-size: var(--select-trigger-icon-size);
+  transition: var(--select-trigger-icon-transition);
 }
 
-.polly-dropdown-trigger .polly-icon {
+/* ============================= */
+/* Trigger                       */
+/* ============================= */
+
+/* The chevron button on the right edge of the control. */
+.polly-dropdown-trigger,
+.polly-dropdown-clear-icon {
+  color: var(--select-trigger-color);
+  font-size: var(--select-trigger-icon-size);
+  transition: var(--select-trigger-icon-transition);
+}
+
+/* The chevron itself is a polly-icon font glyph (pointer-events off so clicks
+   fall through to the trigger button). */
+.polly-dropdown-trigger .polly-icon,
+.polly-dropdown-clear-icon .polly-icon {
   font-size: var(--select-trigger-icon-size);
   transition: var(--select-trigger-icon-transition);
   pointer-events: none;
 }
 
-/* open state */
-
-.polly-dropdown-root[data-p-focus="true"] .polly-icon {
-  transform: var(--select-trigger-icon-transform-open);
+/* Loading state: the loading glyph is a static polly-icon font icon — spin it
+   with the shared `polly-spin` keyframe (see Animations, below). Scoped to the
+   loading glyph so the chevron trigger icon is unaffected. */
+.polly-dropdown-trigger .polly-icon.loading-icon {
+  display: inline-block;
+  animation: polly-spin 1s linear infinite;
 }
 
 /* ============================= */
-/* Overlay Panel */
+/* Overlay Panel                 */
 /* ============================= */
 
+/* The floating overlay (portaled to <body>) that holds the filter + option list. */
 .polly-dropdown-panel {
   background: var(--select-overlay-background);
   border-radius: var(--select-overlay-radius);
@@ -148,19 +287,124 @@
 }
 
 /* ============================= */
-/* List */
+/* Filter (panel header)         */
 /* ============================= */
 
-.polly-dropdown-list {
-  list-style: none;
-  padding: var(--select-list-padding);
-  gap: var(--select-list-gap);
+.polly-dropdown-header {
+  padding: var(--select-filter-containerpadding);
+}
+
+.polly-dropdown-filter-container {
+  position: relative;
+  display: var(--select-filtersearch-display);
+  width: var(--select-filter-width);
+}
+
+/* Search input; right padding reserves space for the absolute search icon. */
+.polly-dropdown-filter-input {
+  width: var(--select-filter-width);
+  padding: var(--select-filter-inputpadding);
+  padding-right: calc(
+    var(--select-filtersearch-icon-padding-x) * 2 +
+      var(--select-filtersearch-icon-size)
+  );
+  border: var(--select-base-border-default);
+  border-radius: var(--select-base-radius);
+  background: var(--select-base-background-default);
+  color: var(--select-base-color-default);
+  font-family: var(--select-base-fontfamily);
+  font-size: var(--select-base-fontsize);
+  line-height: var(--select-base-lineheight);
+  transition: var(--select-base-transition);
+
+  &::placeholder {
+    color: var(--select-base-color-placeholder);
+  }
+
+  &:hover {
+    border-color: var(--select-base-border-color-hover);
+  }
+
+  &:focus {
+    border-color: var(--select-base-border-color-focus);
+    outline: var(--select-base-outline-focus);
+  }
+}
+
+/* Search glyph overlaid on the filter input. Positioned via transform for now;
+   the token-based top/right offsets are kept commented until finalised. */
+.polly-dropdown-filter-icon {
+  position: absolute;
+  transform: translate(-150%, 65%);
+  width: var(--select-filtersearch-icon-size);
+  height: var(--select-filtersearch-icon-size);
+  color: var(--select-filter-iconcolor);
+  pointer-events: none;
+}
+
+/* Clear (×) glyph for the filter input — same size/colour as the search glyph
+   but clickable. Positioning mirrors the search icon; refine once finalised. */
+.polly-dropdown-filter-clear-icon {
+  position: absolute;
+  transform: translate(-150%, 65%);
+  width: var(--select-filtersearch-icon-size);
+  height: var(--select-filtersearch-icon-size);
+  color: var(--select-filter-iconcolor);
+  cursor: pointer;
 }
 
 /* ============================= */
-/* Options */
+/* Scroll Wrapper                */
 /* ============================= */
 
+/* Scroll container between the panel and the option list. */
+.polly-dropdown-wrapper {
+  max-height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ============================= */
+/* Option List                   */
+/* ============================= */
+
+/* The <ul> of options — a vertical flex stack. */
+.polly-dropdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--select-list-gap);
+
+  margin: 0;
+  padding: var(--select-list-padding);
+  list-style: none;
+}
+
+/* ============================= */
+/* Option Groups                 */
+/* ============================= */
+
+/* Non-selectable header separating sets of options (grouped mode). */
+.polly-dropdown-item-group {
+  padding: var(--select-option-padding-default);
+  font-size: var(--select-optiongroup-fontsize);
+  font-weight: var(--select-optiongroup-fontweight);
+  line-height: var(--select-optiongroup-lineheight);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--select-base-color-default);
+}
+
+.polly-dropdown-item-group-label {
+  font-size: var(--select-optiongroup-fontsize);
+  font-weight: var(--select-optiongroup-fontweight);
+  line-height: var(--select-optiongroup-lineheight);
+}
+
+/* ============================= */
+/* Options (items)               */
+/* ============================= */
+
+/* A single selectable option. */
 .polly-dropdown-item {
   background: var(--select-option-background-default);
   color: var(--select-option-color-default);
@@ -174,6 +418,7 @@
   gap: var(--select-option-gap);
 
   word-wrap: var(--select-option-wordwrap);
+  outline: none;
 }
 
 .polly-dropdown-item-label {
@@ -183,145 +428,77 @@
   line-height: var(--select-option-lineheight);
 }
 
-/* Hover / keyboard focus */
+/* ---- Selected check icon (checkmark mode) ---- */
+
+/* Check glyph shown on the selected option; the blank icon reserves the same
+   space on unselected options so labels stay aligned. */
+.polly-dropdown-check-icon {
+  color: var(--select-option-color-selected);
+  font-size: var(--select-trigger-icon-size);
+}
+
+.polly-dropdown-blank-icon {
+  visibility: hidden;
+  width: var(--select-trigger-icon-size);
+  height: var(--select-trigger-icon-size);
+}
+
+/* ---- Hover / keyboard focus ---- */
 
 .polly-dropdown-item:hover,
 .polly-dropdown-item[data-p-focused="true"] {
   background: var(--select-option-background-hover);
   color: var(--select-option-color-hover);
+  outline: none;
 }
 
-/* Selected */
+/* ---- Selected ---- */
 
 .polly-dropdown-item[data-p-highlight="true"] {
   background: var(--select-option-background-selected);
   color: var(--select-option-color-selected);
 }
 
-/* Disabled */
+/* ---- Disabled ---- */
 
 .polly-dropdown-item[data-p-disabled="true"] {
   background: var(--select-option-background-disabled);
   color: var(--select-option-color-disabled);
   cursor: var(--select-state-disabled-cursor);
+  outline: none;
 }
 
 /* ============================= */
-/* Empty Message */
+/* Empty Message                 */
 /* ============================= */
 
+/* Shown in the panel when no options match. */
 .polly-dropdown-empty {
   padding: var(--select-emptymessage-padding);
   font-size: var(--select-emptymessage-fontsize);
 }
 
 /* ============================= */
-/* Size Variants */
+/* Panel Footer                  */
 /* ============================= */
 
-.polly-dropdown-root.size--small {
-  height: var(--select-size-small-height);
-  padding: var(--select-size-small-padding);
-}
-
-.polly-dropdown-root.size--medium {
-  height: var(--select-base-height-default);
-}
-
-.polly-dropdown-root.size--large {
-  height: var(--select-size-large-height);
-  padding: var(--select-size-large-padding);
-}
-
-/* option sizes */
-
-.polly-dropdown-root.size--small .polly-dropdown-item {
-  padding: var(--select-size-small-option-padding);
-}
-
-.polly-dropdown-root.size--large .polly-dropdown-item {
-  padding: var(--select-size-large-option-padding);
+/* Optional footer slot at the bottom of the overlay panel. */
+.polly-dropdown-footer {
+  padding: var(--select-overlay-padding);
 }
 
 /* ============================= */
-/* Variant: Default */
+/* Animations                    */
 /* ============================= */
 
-.polly-dropdown-root.variant--default {
-  background: var(--select-base-background-default);
-  border: var(--select-base-border-default);
-}
-
-/* ============================= */
-/* Variant: Tonal */
-/* ============================= */
-
-.polly-dropdown-root.variant--tonal {
-  border: none;
-  background: color-mix(
-    in srgb,
-    var(--color-secondary-purple) 15%,
-    var(--color-standard-white)
-  );
-}
-
-/* trigger divider */
-
-.polly-dropdown-root.variant--tonal .polly-dropdown-trigger {
-  border-left: 1px solid
-    color-mix(in srgb, var(--color-neutral-purple), var(--color-standard-white) 60%);
-}
-
-/* option hover */
-
-.polly-dropdown-root.variant--tonal .polly-dropdown-item:hover,
-.polly-dropdown-root.variant--tonal .polly-dropdown-item[data-p-focused="true"] {
-  background: color-mix(
-    in srgb,
-    var(--color-neutral-purple),
-    var(--color-standard-white) 75%
-  );
-}
-
-/* selected option */
-
-.polly-dropdown-root.variant--tonal .polly-dropdown-item[data-p-highlight="true"] {
-  background: color-mix(
-    in srgb,
-    var(--color-neutral-purple) 25%,
-    var(--color-standard-white)
-  );
-}
-
-/* ============================= */
-/* Text Modifier */
-/* ============================= */
-
-.polly-dropdown-root.text-capitalize .polly-dropdown-input,
-.polly-dropdown-root.text-capitalize .polly-dropdown-item {
-  text-transform: var(--select-modifier-textcapitalize-texttransform);
-}
-
-/* ============================= */
-/* Dropdown Scroll Wrapper */
-/* ============================= */
-
-.polly-dropdown-wrapper {
-  max-height: inherit;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-/* ============================= */
-/* Dropdown List */
-/* ============================= */
-
-.polly-dropdown-list {
-  list-style: none;
-  margin: 0;
-  padding: var(--select-list-padding);
-
-  display: flex;
-  flex-direction: column;
-  gap: var(--select-list-gap);
+/* Continuous rotation for the loading spinner (shared name with
+   button/_button.scss; identical definition, kept local so this file
+   is self-contained). */
+@keyframes polly-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
