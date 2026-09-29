@@ -1,25 +1,5 @@
-/* =================================================================== */
-/* Dropdown (Select)                                                   */
-/* -------------------------------------------------------------------- */
-/* Structure (top → bottom follows the DOM / visual hierarchy):         */
-/*   root      → closed control (label + trigger)                       */
-/*   input     → visible selected value / placeholder span              */
-/*   trigger   → chevron button (+ loading spinner)                     */
-/*   panel     → floating overlay (portaled to <body>)                  */
-/*   header    → filter search box                                      */
-/*   wrapper   → scroll container for the option list                   */
-/*   list/item → the selectable options                                 */
-/* All values are driven by `--select-*` design tokens.                 */
-/* =================================================================== */
 
-/* ============================= */
-/* Base Root                     */
-/* ============================= */
-
-/* The closed select box: a flex row with the label on the left and the
-   chevron trigger pushed to the right. */
 .polly-dropdown-root {
-  // align-items: var(--select-base-alignitems);
   appearance: var(--select-base-appearance);
   background: var(--select-base-background-default);
   border: var(--select-base-border-default);
@@ -177,12 +157,7 @@
   }
 }
 
-/* ============================= */
-/* Selected Value / Label        */
-/* ============================= */
 
-/* The visible selected value (and placeholder). PrimeReact renders it as a
-   span; the hidden native <select> below handles a11y + form submission. */
 .polly-dropdown-input {
   color: var(--select-base-color-default) !important;
   line-height: var(--select-label-lineheight);
@@ -196,19 +171,6 @@
     color: var(--select-base-color-placeholder) !important;
   }
 }
-
-/* Superseded label styling — kept for reference:
-   .polly-dropdown-root > span.polly-dropdown-input {
-     flex: 1;
-     min-width: 0;
-     padding: 0 0.375rem 0 1rem;      // was: var(--select-label-padding)
-     font-size: var(--select-label-fontsize);
-     font-weight: var(--select-label-fontweight);
-     line-height: var(--select-label-lineheight);
-     text-overflow: ellipsis;
-     overflow: hidden;
-     white-space: nowrap;
-   } */
 
 /* Accessibility: the visually-hidden native <select> wrapper. */
 .p-hidden-accessible {
@@ -370,10 +332,7 @@
 
 /* The <ul> of options — a vertical flex stack. */
 .polly-dropdown-list {
-  display: flex;
-  flex-direction: column;
   gap: var(--select-list-gap);
-
   margin: 0;
   padding: var(--select-list-padding);
   list-style: none;
@@ -400,9 +359,6 @@
   line-height: var(--select-optiongroup-lineheight);
 }
 
-/* ============================= */
-/* Options (items)               */
-/* ============================= */
 
 /* A single selectable option. */
 .polly-dropdown-item {
@@ -414,7 +370,6 @@
 
   border: var(--select-option-border);
   padding: var(--select-option-padding-default);
-  /* margin: var(--select-option-margin); */
   gap: var(--select-option-gap);
 
   word-wrap: var(--select-option-wordwrap);
@@ -468,32 +423,15 @@
   outline: none;
 }
 
-/* ============================= */
-/* Empty Message                 */
-/* ============================= */
-
-/* Shown in the panel when no options match. */
 .polly-dropdown-empty {
   padding: var(--select-emptymessage-padding);
   font-size: var(--select-emptymessage-fontsize);
 }
 
-/* ============================= */
-/* Panel Footer                  */
-/* ============================= */
-
-/* Optional footer slot at the bottom of the overlay panel. */
 .polly-dropdown-footer {
   padding: var(--select-overlay-padding);
 }
 
-/* ============================= */
-/* Animations                    */
-/* ============================= */
-
-/* Continuous rotation for the loading spinner (shared name with
-   button/_button.scss; identical definition, kept local so this file
-   is self-contained). */
 @keyframes polly-spin {
   from {
     transform: rotate(0deg);

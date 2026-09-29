@@ -1,19 +1,9 @@
-/* =========================================================
-   DATE PICKER (PrimeReact Calendar) — driven by --datepicker-* tokens.
-   Default cell size = medium (1.5rem).
-   ========================================================= */
+@import "../mixins";
 
 .polly-dp {
-  display: inline-flex;
-  position: relative;
-  align-items: center;
+  border: var(--datepicker-root-border);
   font-family: var(--datepicker-root-fontfamily);
 }
-
-.polly-dp-input {
-  padding-right: 2.25rem; /* room for the trigger icon */
-}
-
 /* calendar icon trigger (showIcon) */
 .polly-dp-trigger {
   position: absolute;
@@ -24,7 +14,11 @@
   padding: var(--datepicker-inputicon-padding);
   border: none;
   background: transparent;
-  color: color-mix(in srgb, var(--color-primary-neutral) 90%, var(--color-standard-white) 10%);
+  color: color-mix(
+    in srgb,
+    var(--color-primary-neutral) 90%,
+    var(--color-standard-white) 10%
+  );
   cursor: pointer;
 }
 
@@ -43,7 +37,6 @@
   box-shadow: var(--datepicker-panel-boxshadow);
   padding: var(--datepicker-panel-padding);
   color: var(--datepicker-panel-color);
-  margin-top: var(--datepicker-root-margintop);
   font-family: var(--datepicker-root-fontfamily);
 }
 
@@ -58,40 +51,71 @@
    --------------------------------------------------------- */
 
 .polly-dp-header {
-  display: var(--datepicker-header-display);
-  justify-content: var(--datepicker-header-justifycontent);
-  align-items: var(--datepicker-header-alignitems);
   padding-bottom: var(--datepicker-header-paddingbottom);
+  border-bottom: var(--datepicker-header-separator-style);
 }
 
 .polly-dp-title {
-  display: var(--datepicker-title-display);
-  gap: var(--datepicker-title-gap);
-  align-items: center;
+}
+
+/* caret next to the month / year title */
+.polly-dp-title .polly-icon {
+  font-size: var(--datepicker-header-icon-fontsize);
+  margin-left: var(--datepicker-header-icon-marginleft);
+}
+
+/* decade range title (year-picker view) */
+.polly-dp-decade {
+  color: var(--datepicker-decadecontrols-color);
 }
 
 .polly-dp-select-month,
-.polly-dp-select-year {
+.polly-dp-select-year,
+.polly-dp-decade {
+  @include add-transition(var(--datepicker-transitionbackground));
   padding: var(--datepicker-selectmonth-padding);
-  border: none;
   border-radius: var(--datepicker-selectmonth-borderradius);
   background: transparent;
-  color: inherit;
-  cursor: var(--datepicker-selectmonth-cursor);
-  font: inherit;
-}
+  border: none;
+  display: var(--datepicker-header-controls-display);
+  align-items: var(--datepicker-header-controls-alignitems);
+  justify-content: var(--datepicker-header-controls-justifycontent);
+  padding: var(--datepicker-header-controls-padding-default);
+  cursor: var(--datepicker-header-controls-cursor);
+  user-select: var(--datepicker-header-controls-userselect);
+  color: var(--datepicker-decadecontrols-color) !important;
 
-.polly-dp-select-month:hover {
-  background: var(--datepicker-selectmonth-background-hover);
-}
+  &::after {
+    color: var(--datepicker-navigationbutton-color) !important;
+    content: "\43";
+    font-family: "iconset";
+    font-size: var(--datepicker-header-icon-fontsize);
+    margin-left: var(--datepicker-header-icon-marginleft);
+  }
 
-.polly-dp-select-year:hover {
-  background: var(--datepicker-selectyear-background-hover);
-}
+  &:focus-visible {
+    outline: var(--datepicker-selectmonth-outline-focus);
+  }
 
-.polly-dp-select-month:focus-visible,
-.polly-dp-select-year:focus-visible {
-  outline: var(--datepicker-selectmonth-outline-focus);
+  &:hover {
+    background-color: var(--datepicker-selectmonth-background-hover) !important;
+  }
+
+  &:active {
+    background-color: var(
+      --datepicker-navigationbutton-background-active
+    ) !important;
+  }
+
+  &:focus-visible {
+    outline: var(--datepicker-header-controls-outlineoffset) solid
+      var(--datepicker-select-month-focus-outline);
+    outline-offset: var(--datepicker-header-controls-outlineoffset);
+  }
+
+  &.p-disabled {
+    opacity: var(--datepicker-daytext-disable-opacity);
+  }
 }
 
 /* prev / next nav buttons */
@@ -108,14 +132,32 @@
 
   cursor: pointer;
   transition: var(--datepicker-navigationbutton-transition);
+
+  &:hover {
+    background: var(--datepicker-navigationbutton-background-hover);
+  }
+
+  &:active {
+    background: var(--datepicker-navigationbutton-background-active);
+  }
 }
 
-.polly-dp-nav:hover {
-  background: var(--datepicker-navigationbutton-background-hover);
+/* prev / next spacing + radius */
+.polly-dp-nav-prev {
+  border-radius: var(--datepicker-navigationprev-borderradius);
+  padding: var(--datepicker-navigationprev-padding-medium);
 }
 
-.polly-dp-nav:active {
-  background: var(--datepicker-navigationbutton-background-active);
+.polly-dp-nav-next {
+  border-radius: var(--datepicker-navigationnext-borderradius);
+  padding: var(--datepicker-navigationnext-padding-medium);
+}
+
+.polly-dp-container {
+  margin: 0.875rem 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
 }
 
 /* ---------------------------------------------------------
@@ -128,11 +170,21 @@
 }
 
 .polly-dp-weekday {
-  display: var(--datepicker-weekdaytext-display);
-  align-items: var(--datepicker-weekdaytext-alignitems);
-  justify-content: var(--datepicker-weekdaytext-justifycontent);
   width: var(--datepicker-weekdaytext-width-medium);
   height: var(--datepicker-weekdaytext-height-medium);
+  color: var(--datepicker-weekdaytext-color);
+}
+
+/* weekday header cells (th) */
+.polly-dp-table-header-cell,
+.polly-dp-week-header {
+  padding: 0.5rem;
+  text-align: var(--datepicker-weekdaycell-textalign);
+}
+
+/* week-number column (showWeek) */
+.polly-dp-week-number {
+  text-align: var(--datepicker-daycell-textalign);
   color: var(--datepicker-weekdaytext-color);
 }
 
@@ -142,10 +194,6 @@
 }
 
 .polly-dp-daytext {
-  display: var(--datepicker-daytext-display);
-  align-items: var(--datepicker-daytext-alignitems);
-  justify-content: var(--datepicker-daytext-justifycontent);
-
   width: var(--datepicker-daytext-width-medium);
   height: var(--datepicker-daytext-height-medium);
 
@@ -157,9 +205,16 @@
   transition: var(--datepicker-daytext-transition);
 }
 
-.polly-dp-daytext:hover {
-  background: var(--datepicker-daytext-background-hover);
-  color: var(--datepicker-daytext-color-hover);
+.polly-dp-daytext[data-p-highlight="false"] {
+  &:hover {
+    background-color: var(--datepicker-daytext-background-hover) !important;
+    color: var(--datepicker-daytext-color-default) !important;
+  }
+
+  &:active {
+    background-color: var(--datepicker-daytext-background-active) !important;
+    color: var(--datepicker-daytext-color-default) !important;
+  }
 }
 
 /* today */
@@ -171,10 +226,18 @@
 .polly-dp-daytext[data-p-highlight="true"] {
   background: var(--datepicker-daytext-background-selected);
   color: var(--datepicker-daytext-color-selected);
-}
 
-.polly-dp-daytext[data-p-highlight="true"]:hover {
-  background: var(--datepicker-daytext-background-selectedhover);
+  &:hover {
+    background: var(--datepicker-daytext-background-selectedhover);
+  }
+
+  &:active {
+    background-color: var(--datepicker-daytext-background-active) !important;
+  }
+
+  &.p-disabled {
+    opacity: var(--datepicker-daytext-disable-opacity);
+  }
 }
 
 /* other-month + disabled */
@@ -194,23 +257,38 @@
 
 .polly-dp-monthpicker,
 .polly-dp-yearpicker {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.polly-dp-yearpicker {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.polly-dp-monthpicker {
+  min-width: var(--datepicker-monthpicker-minwidth-default);
+  margin-right: var(--datepicker-monthpicker-marginright);
 }
 
 .polly-dp-monthcell,
 .polly-dp-yearcell {
-  padding: var(--datepicker-monthcell-padding);
-  margin: var(--datepicker-monthcell-margin-default);
-  border-radius: var(--datepicker-monthcell-borderradius);
-  cursor: var(--datepicker-monthcell-cursor);
   transition: var(--datepicker-monthcell-transition);
   text-align: center;
-}
+  border-radius: var(--datepicker-yearpicker-borderradius) !important;
+  cursor: var(--datepicker-monthcell-cursor);
+  margin: var(--datepicker-monthcell-margin-default);
+  padding: var(--datepicker-monthcell-padding);
+  &:hover {
+    background-color: var(--datepicker-monthcell-background-hover) !important;
+  }
 
-.polly-dp-monthcell:hover,
-.polly-dp-yearcell:hover {
-  background: var(--datepicker-monthcell-background-hover);
+  &:active {
+    background-color: var(--datepicker-monthcell-background-active) !important;
+  }
+
+  &.p-disabled {
+    opacity: var(--datepicker-daytext-disable-opacity);
+  }
 }
 
 .polly-dp-monthcell[data-p-highlight="true"],
@@ -220,7 +298,56 @@
 
 /* footer buttons */
 .polly-dp-buttonbar {
-  display: flex;
-  justify-content: space-between;
   padding-top: var(--datepicker-header-paddingbottom);
+}
+
+/* ---------------------------------------------------------
+   SIZE: large — swaps the medium cell/nav tokens for the -large set.
+   The popup panel portals out of .polly-dp onto <body>, so a descendant
+   selector like `.size--lg .polly-dp-panel` never matches. The class must be
+   ON the panel itself — pass `panelClassName="size--lg"` and target the
+   COMPOUND selector `.polly-dp-panel.size--lg`.
+   --------------------------------------------------------- */
+.polly-dp-panel.size--lg {
+  background: red; /* debug marker — remove once confirmed */
+
+  .polly-dp-weekday {
+    width: var(--datepicker-weekdaytext-width-large);
+    height: var(--datepicker-weekdaytext-height-large);
+  }
+
+  .polly-dp-table-header-cell,
+  .polly-dp-week-header {
+    padding: var(--datepicker-weekdaycell-padding-large);
+  }
+
+  .polly-dp-daycell {
+    background: pink;
+    padding: var(--datepicker-daycell-padding-large);
+  }
+
+  .polly-dp-daytext {
+    width: var(--datepicker-daytext-width-large);
+    height: var(--datepicker-daytext-height-large);
+  }
+
+  .polly-dp-monthcell,
+  .polly-dp-yearcell {
+    margin: var(--datepicker-monthcell-margin-large);
+  }
+
+  .polly-dp-monthpicker {
+    min-width: var(--datepicker-monthpicker-minwidth-large);
+  }
+
+  .polly-dp-nav-prev {
+    padding: var(--datepicker-navigationprev-padding-large);
+  }
+
+  .polly-dp-nav-next {
+    padding: var(--datepicker-navigationnext-padding-large);
+  }
+}
+.size--lg {
+  font-size: 4rem;
 }

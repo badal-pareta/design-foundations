@@ -1,6 +1,68 @@
-/* =========================================================
-   TOOLTIP — driven by --tooltip-* tokens. Dark (default) + light.
-   ========================================================= */
+.polly-tooltip {
+  position: absolute;
+  z-index: var(--tooltip-zindex, 1101);
+
+  /* ---- directional offset + arrow (dark, default) ---- */
+  &.p-tooltip-right {
+    .polly-tooltip-arrow {
+      border-width: var(--tooltip-base-arrow-size)
+        var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) 0;
+      border-right-color: var(--tooltip-dark-arrow-color);
+      margin-top: calc(-1 * var(--tooltip-base-arrow-size));
+    }
+  }
+
+  &.p-tooltip-left {
+    flex-direction: row-reverse;
+    .polly-tooltip-arrow {
+      border-width: var(--tooltip-base-arrow-size) 0
+        var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size);
+      border-left-color: var(--tooltip-dark-arrow-color);
+      margin-top: calc(-1 * var(--tooltip-base-arrow-size));
+    }
+  }
+
+  &.p-tooltip-top {
+    flex-direction: column-reverse;
+
+    .polly-tooltip-arrow {
+      border-width: var(--tooltip-base-arrow-size)
+        var(--tooltip-base-arrow-size) 0 var(--tooltip-base-arrow-size);
+      border-top-color: var(--tooltip-dark-arrow-color);
+      margin-left: calc(-1 * var(--tooltip-base-arrow-size));
+    }
+  }
+
+  &.p-tooltip-bottom {
+    flex-direction: column;
+    .polly-tooltip-arrow {
+      border-width: 0 var(--tooltip-base-arrow-size)
+        var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size);
+      border-bottom-color: var(--tooltip-dark-arrow-color);
+      margin-left: calc(-1 * var(--tooltip-base-arrow-size));
+    }
+  }
+
+  /* light variant (add `variant--light` to tooltipOptions.className) */
+  &.variant--light .polly-tooltip-text {
+    background: var(--tooltip-light-background);
+    color: var(--tooltip-light-color);
+  }
+
+  /* light arrow — recolour the pointing side per direction */
+  &.variant--light.p-tooltip-right .polly-tooltip-arrow {
+    border-right-color: var(--tooltip-light-arrow-color);
+  }
+  &.variant--light.p-tooltip-left .polly-tooltip-arrow {
+    border-left-color: var(--tooltip-light-arrow-color);
+  }
+  &.variant--light.p-tooltip-top .polly-tooltip-arrow {
+    border-top-color: var(--tooltip-light-arrow-color);
+  }
+  &.variant--light.p-tooltip-bottom .polly-tooltip-arrow {
+    border-bottom-color: var(--tooltip-light-arrow-color);
+  }
+}
 
 .polly-tooltip-text {
   display: inline-block;
@@ -15,17 +77,9 @@
   line-height: var(--font-height-label-medium);
 }
 
+/* Arrow — a CSS border-triangle: all sides transparent, the direction class
+   (added by the PT from the resolved position) colours the one pointing side. */
 .polly-tooltip-arrow {
   border-style: var(--tooltip-base-arrow-borderstyle);
-  border-color: var(--tooltip-dark-arrow-color);
-}
-
-/* light variant (add `variant--light` to tooltipOptions.className) */
-.polly-tooltip.variant--light .polly-tooltip-text {
-  background: var(--tooltip-light-background);
-  color: var(--tooltip-light-color);
-}
-
-.polly-tooltip.variant--light .polly-tooltip-arrow {
-  border-color: var(--tooltip-light-arrow-color);
+  border-color: var(--tooltip-base-arrow-bordercolor, transparent);
 }

@@ -3,38 +3,64 @@
    ========================================================= */
 
 .polly-chip {
-  display: inline-flex;
-  align-items: center;
   gap: var(--chip-base-gap);
-
   padding: var(--chip-base-padding);
   border-radius: var(--chip-base-borderradius);
   transition: var(--chip-base-transition);
-
   background: var(--chip-filled-primary-backgroundcolor-default);
   border: var(--chip-filled-primary-border-default);
   color: var(--chip-filled-primary-color-default);
-}
 
-.polly-chip:hover {
-  background: var(--chip-filled-primary-backgroundcolor-hover);
-  border: var(--chip-filled-primary-border-hover);
-  color: var(--chip-filled-primary-color-hover);
+  &:hover {
+    background: var(--chip-filled-primary-backgroundcolor-hover);
+    border: var(--chip-filled-primary-border-hover);
+    color: var(--chip-filled-primary-color-hover);
+  }
+
+  &:active {
+    background: var(--chip-filled-primary-backgroundcolor-active);
+    border: var(--chip-filled-primary-border-active);
+    color: var(--chip-filled-primary-color-active);
+  }
+
+  &:focus,
+  &:focus-visible {
+    background: var(--chip-filled-primary-backgroundcolor-focused);
+    border: var(--chip-filled-primary-border-focused);
+    color: var(--chip-filled-primary-color-focused);
+    outline: var(--chip-focus-outline);
+    outline-offset: var(--chip-focus-outlineoffset);
+  }
+
+  &.is-disabled {
+    background: var(--chip-filled-primary-backgroundcolor-disabled);
+    border: var(--chip-filled-primary-border-disabled);
+    color: var(--chip-filled-primary-color-disabled);
+    pointer-events: none;
+  }
+
+  &.variant--error {
+    background: var(--chip-filled-primary-backgroundcolor-error);
+    border: var(--chip-filled-primary-border-error);
+    color: var(--chip-filled-primary-color-error);
+  }
 }
 
 .polly-chip-icon,
 .polly-chip-remove {
+  outline: none;
   font-size: var(--chip-icon-size);
+  width: var(--chip-icon-size);
+  height: var(--chip-icon-size);
   color: var(--chip-icon-color);
 }
 
 .polly-chip-remove {
   cursor: pointer;
-}
-
-.polly-chip-remove:focus-visible {
-  outline: var(--chip-focus-outline);
-  outline-offset: var(--chip-focus-outlineoffset);
+  &:focus-visible {
+    outline: var(--chip-focus-outline);
+    outline-offset: var(--chip-focus-outlineoffset);
+  }
 }
 
 .polly-chip-label {

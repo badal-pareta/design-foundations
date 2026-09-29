@@ -1,15 +1,8 @@
-/* =========================================================
-   ACCORDION — driven by --accordion-* tokens.
-   Active (expanded) header carries data-p-highlight.
-   ========================================================= */
-
-.polly-accordion {
-  display: flex;
-  flex-direction: column;
-}
+.polly-accordion {}
 
 .polly-accordion-tab {
   border: var(--accordion-panel-border);
+  border-color: var(--accordion-header-border-color);
 }
 
 .polly-accordion-header {
@@ -20,36 +13,64 @@
 
   padding: var(--accordion-header-padding-default);
   background: var(--accordion-header-background-default);
-  border: var(--accordion-header-border-default);
+  border: 0;
+  border-bottom: var(--accordion-header-border-default);
+  border-radius: var(--accordion-header-radius-default);
+  margin-bottom: var(--accordion-header-margin-bottom);
   color: var(--accordion-header-color-default);
 
   cursor: pointer;
   user-select: var(--accordion-header-userselect);
   transition: var(--accordion-header-transition);
-}
 
-.polly-accordion-header:hover {
-  background: var(--accordion-header-background-hover);
-  color: var(--accordion-header-color-hover);
-}
+  /* hover only on interactive (not disabled / not already open) headers */
+  &:not([data-p-disabled="true"]):not([data-p-highlight="true"]):hover {
+    background: var(--accordion-header-background-hover);
+    color: var(--accordion-header-color-hover);
+  }
 
-.polly-accordion-header[data-p-highlight="true"] {
-  background: var(--accordion-header-background-active);
-  border: var(--accordion-header-border-active);
-  color: var(--accordion-header-color-active);
+  &:not([data-p-disabled="true"]):not([data-p-highlight="true"]):hover
+    .polly-accordion-icon {
+    color: var(--accordion-icon-color-hover);
+  }
+
+  &[data-p-highlight="true"] {
+    background: var(--accordion-header-background-active);
+    border: 0;
+    border-bottom: var(--accordion-header-border-active);
+    border-radius: var(--accordion-header-radius-active);
+    color: var(--accordion-header-color-active);
+  }
+
+  &[data-p-highlight="true"] .polly-accordion-title {
+    color: var(--accordion-title-color-active);
+  }
+
+  /* disabled */
+  &[data-p-disabled="true"] {
+    background: var(--accordion-state-disabled-header-background);
+    color: var(--accordion-state-disabled-header-color);
+    cursor: var(--accordion-state-disabled-header-cursor);
+    opacity: var(--accordion-state-disabled-content-opacity);
+  }
+
+  &[data-p-disabled="true"] .polly-accordion-title,
+  &[data-p-disabled="true"] .polly-accordion-icon {
+    color: var(--accordion-state-disabled-title-color);
+  }
+
+  &[data-p-highlight="true"] .polly-accordion-icon {
+    color: var(--accordion-icon-color-active);
+  }
 }
 
 /* the clickable header button.
    PrimeReact renders [icon, title]; reverse so the title sits left
    and the chevron sits right (matches the reference). */
 .polly-accordion-header-action {
-  display: flex;
   flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
   gap: var(--spacing-2);
-  width: 100%;
-
+  text-decoration: none;
   padding: 0;
   border: none;
   background: transparent;
@@ -66,10 +87,6 @@
   color: var(--accordion-title-color-default);
 }
 
-.polly-accordion-header[data-p-highlight="true"] .polly-accordion-title {
-  color: var(--accordion-title-color-active);
-}
-
 .polly-accordion-icon {
   font-size: var(--accordion-icon-size);
   color: var(--accordion-icon-color-default);
@@ -77,16 +94,9 @@
   transition: var(--accordion-icon-transition);
 }
 
-.polly-accordion-header[data-p-highlight="true"] .polly-accordion-icon {
-  transform: var(--accordion-icon-transform-active);
-  color: var(--accordion-icon-color-active);
-}
-
 .polly-accordion-content {
   display: var(--accordion-content-display);
-  flex-direction: column;
   gap: var(--accordion-content-gap);
-
   padding: var(--accordion-content-padding-default);
   background: var(--accordion-content-background);
   border-bottom: var(--accordion-content-border-bottom);
@@ -96,9 +106,14 @@
   line-height: var(--accordion-content-lineheight);
 }
 
-/* disabled */
-.polly-accordion-header[data-p-disabled="true"] {
-  background: var(--accordion-state-disabled-header-background);
-  color: var(--accordion-state-disabled-header-color);
-  cursor: var(--accordion-state-disabled-header-cursor);
+/* size--sm — compact padding (mirrors primeng's `.size-small`, which only tightens
+   header + content padding via the dedicated tokens). Add `size--sm` to <Accordion>. */
+.polly-accordion.size--sm {
+  .polly-accordion-header {
+    padding: var(--accordion-size-small-header-padding);
+  }
+
+  .polly-accordion-content {
+    padding: var(--accordion-size-small-content-padding);
+  }
 }

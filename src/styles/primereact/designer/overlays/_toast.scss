@@ -1,32 +1,56 @@
-/* =========================================================
-   TOAST — driven by --toast-* tokens. Severity sets the
-   left border + icon colour (info default).
-   ========================================================= */
-
 .polly-toast-message {
-  min-width: 20rem;
+  min-width: 30rem;
   margin: var(--toast-base-margin);
   padding: var(--toast-base-padding);
 
   background: var(--toast-base-background);
-  border-left: var(--toast-base-borderleftwidth) var(--toast-base-borderleftstyle)
-    var(--toast-severity-info-bordercolor);
+  border-left: var(--toast-base-borderleftwidth)
+    var(--toast-base-borderleftstyle) var(--toast-severity-info-bordercolor);
   border-radius: var(--toast-base-borderradius);
   box-shadow: var(--toast-base-boxshadow);
+  /* severity */
+  &.variant--success {
+    border-left-color: var(--toast-severity-success-bordercolor);
+  }
+  &.variant--success .polly-toast-icon {
+    color: var(--toast-severity-success-iconcolor);
+  }
+
+  &.variant--info {
+    border-left-color: var(--toast-severity-info-bordercolor);
+  }
+  &.variant--info .polly-toast-icon {
+    color: var(--toast-severity-info-iconcolor);
+  }
+
+  &.variant--warn {
+    border-left-color: var(--toast-severity-warn-bordercolor);
+  }
+  &.variant--warn .polly-toast-icon {
+    color: var(--toast-severity-warn-iconcolor);
+  }
+
+  &.variant--error {
+    border-left-color: var(--toast-severity-error-bordercolor);
+  }
+  &.variant--error .polly-toast-icon {
+    color: var(--toast-severity-error-iconcolor);
+  }
 }
 
 .polly-toast-content {
   display: var(--toast-content-display);
   grid-template-columns: var(--toast-content-gridtemplatecolumns);
   gap: var(--toast-content-gap);
-  align-items: center;
 }
 
 .polly-toast-icon {
-  width: var(--toast-icon-width);
-  height: var(--toast-icon-height);
+  height: var(--toast-closebutton-iconsize);
+  width: var(--toast-closebutton-iconsize);
   font-size: var(--toast-icon-fontsize);
   color: var(--toast-severity-info-iconcolor);
+  padding: 0.25rem;
+  // align-self: flex-start;
 }
 
 .polly-toast-text {
@@ -45,9 +69,6 @@
 }
 
 .polly-toast-close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: var(--toast-closebutton-padding);
   background: var(--toast-closebutton-background);
   border: var(--toast-closebutton-border);
@@ -55,37 +76,38 @@
   color: var(--toast-closebutton-iconcolor);
   cursor: pointer;
   transition: var(--toast-closebutton-transition);
+  height: var(--toast-closebutton-iconsize);
+  width: var(--toast-closebutton-iconsize);
 }
 
 .polly-toast-close:hover {
   background: var(--toast-closebutton-backgroundhover);
 }
 
-/* severity */
-.polly-toast-message.variant--success {
-  border-left-color: var(--toast-severity-success-bordercolor);
-}
-.polly-toast-message.variant--success .polly-toast-icon {
-  color: var(--toast-severity-success-iconcolor);
+.polly-toast.icon--hidden .polly-toast-icon {
+  display: none;
 }
 
-.polly-toast-message.variant--info {
-  border-left-color: var(--toast-severity-info-bordercolor);
-}
-.polly-toast-message.variant--info .polly-toast-icon {
-  color: var(--toast-severity-info-iconcolor);
-}
+.polly-toast.vertical {
+  .polly-toast-message {
+    padding: var(--toast-variant-vertical-padding);
+  }
 
-.polly-toast-message.variant--warn {
-  border-left-color: var(--toast-severity-warn-bordercolor);
-}
-.polly-toast-message.variant--warn .polly-toast-icon {
-  color: var(--toast-severity-warn-iconcolor);
-}
+  .polly-toast-content {
+    align-items: var(--toast-variant-vertical-content-alignitems);
+  }
 
-.polly-toast-message.variant--error {
-  border-left-color: var(--toast-severity-error-bordercolor);
-}
-.polly-toast-message.variant--error .polly-toast-icon {
-  color: var(--toast-severity-error-iconcolor);
+  .polly-toast-icon {
+    padding: var(--toast-variant-vertical-icon-padding);
+  }
+
+  .polly-toast-text {
+    align-items: var(--toast-variant-vertical-text-alignitems);
+    flex-direction: var(--toast-variant-vertical-text-flexdirection);
+    gap: var(--toast-variant-vertical-text-gap);
+  }
+
+  .polly-toast-summary {
+    padding: var(--toast-variant-vertical-summary-padding);
+  }
 }
