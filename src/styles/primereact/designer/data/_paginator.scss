@@ -1,106 +1,104 @@
-/* =========================================================
-   PAGINATOR — driven by --paginator-* tokens.
-   ========================================================= */
 
 .polly-paginator {
-  display: flex;
-  align-items: center;
   justify-content: var(--paginator-base-justifycontent);
-  flex-wrap: wrap;
   gap: var(--paginator-base-gap);
-  position: relative;
-  width: 100%;
-
+  position: var(--paginator-base-position);
   padding: var(--paginator-base-padding);
   background: var(--paginator-base-background);
+  border-radius: var(--paginator-base-borderradius);
   color: var(--paginator-base-color);
 }
 
-/* first / prev / next / last nav buttons */
-.polly-paginator-nav {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: var(--paginator-navbutton-minwidth);
-  padding: var(--paginator-navbutton-padding);
+.polly-paginator.size--sm {
+  padding: var(--paginator-size-small-padding);
+}
 
-  background: var(--paginator-navbutton-background-default);
-  color: var(--paginator-navbutton-color-default);
-  border: none;
+.polly-paginator-nav,
+.polly-paginator-page {
   cursor: pointer;
+  border: none;
+  background: var(--paginator-navbutton-background-default);
+  border-radius: 50%;
+  color: var(--paginator-navbutton-color-default);
+  height: 1.875rem;
+  margin: var(--paginator-navbutton-margin);
+  width: 1.875rem;
+  padding: var(--paginator-navbutton-padding);
   transition: var(--paginator-navbutton-transition);
+
+  &:hover {
+    background-color: var(--paginator-navbutton-background-hover);
+  }
+  &:active {
+    background-color: var(--paginator-navbutton-background-active);
+    color: var(--paginator-navbutton-color-active);
+  }
 }
 
-.polly-paginator-nav:hover:not(:disabled) {
-  background: var(--paginator-navbutton-background-hover);
-}
-
-.polly-paginator-nav:disabled {
+.polly-paginator-nav:disabled,
+.polly-paginator-page:disabled {
   background: var(--paginator-navbutton-background-disabled);
   color: var(--paginator-navbutton-color-disabled);
   cursor: not-allowed;
 }
 
-/* page number buttons */
-.polly-paginator-pages {
-  display: flex;
-  align-items: center;
-  gap: var(--paginator-pages-gap);
-}
-
-.polly-paginator-page {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 2rem;
-  height: 2rem;
-
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--paginator-base-color);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
+.polly-paginator-page[aria-current="true"] {
+  background: var(--paginator-pageselected-background) !important;
+  border: var(--paginator-pageselected-border) !important;
+  color: var(--paginator-pageselected-color) !important;
   transition: var(--paginator-pageselected-transition);
 }
 
-.polly-paginator-page[aria-current="true"] {
-  background: var(--paginator-pageselected-background);
-  border: var(--paginator-pageselected-border);
-  color: var(--paginator-pageselected-color);
+.polly-paginator-pages {
+  gap: var(--paginator-pages-gap) !important;
 }
 
-/* ---------------------------------------------------------
-   FULL LAYOUT — rows-per-page dropdown (left) + current-page
-   report (right) as absolute side-zones, nav stays centered.
-   (matches the token model: --paginator-sidezone-* is absolute.)
-   --------------------------------------------------------- */
-
-/* current-page report ("Showing 1 - 50 of 8041") pinned right */
+.polly-paginator .polly-dropdown-root,
+.polly-paginator-content-start,
 .polly-paginator-current {
+  margin: var(--paginator-sidezone-margin);
   position: var(--paginator-sidezone-position);
-  right: var(--paginator-current-right);
   top: var(--paginator-sidezone-top);
   transform: var(--paginator-sidezone-transform);
-
-  display: var(--paginator-current-display);
-  align-items: var(--paginator-current-alignitems);
-  height: var(--paginator-current-height);
-  padding: var(--paginator-current-padding);
-
-  color: var(--paginator-current-color);
-  white-space: nowrap;
 }
 
-/* rows-per-page dropdown pinned left, compact */
+/* rows-per-page dropdown, pinned left */
 .polly-paginator .polly-dropdown-root {
-  position: var(--paginator-sidezone-position);
   left: var(--paginator-rppdropdown-left);
-  top: var(--paginator-sidezone-top);
-  transform: var(--paginator-sidezone-transform);
-
   width: auto;
   min-width: 4.5rem;
   height: 2rem;
+}
+
+// /* RPP dropdown caret — the paginator builds its Dropdown internally with no
+//    `dropdownIcon` prop, so swap the default chevron SVG for the iconset caret
+//    (same glyph as `.polly-icon.caret-down`). */
+.polly-paginator .polly-dropdown-trigger {
+  display: flex;
+  align-items: center;
+}
+
+/* optional "Rows per page" start label, just right of the dropdown */
+.polly-paginator-content-start {
+  color: var(--paginator-contentstart-color);
+  left: var(--paginator-contentstart-left);
+  white-space: var(--paginator-contentstart-whitespace);
+}
+
+/* current-page report ("Showing 1 - 25 of 50"), pinned right */
+.polly-paginator-current {
+  right: var(--paginator-current-right);
+
+  display: var(--paginator-current-display);
+  align-items: var(--paginator-current-alignitems);
+  background-color: var(--paginator-current-backgroundcolor);
+  border: var(--paginator-current-border);
+  color: var(--paginator-current-color);
+  height: var(--paginator-current-height);
+  min-width: var(--paginator-current-minwidth);
+  order: var(--paginator-current-order);
+  padding: var(--paginator-current-padding);
+  white-space: nowrap;
 }
 
 /* jump-to-page input */

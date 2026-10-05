@@ -1,14 +1,9 @@
-/* =========================================================
-   PANEL — driven by --panel-* tokens. A titled, optionally
-   collapsible container. (The --panel-padding-* tokens are ~0
-   for a compact atlas context; core spacing is used here so the
-   showcase panel is legible.)
-   ========================================================= */
 
 .polly-panel {
   display: flex;
   flex-direction: column;
   gap: var(--panel-gap-container);
+  color: var(--panel-text-default);
 }
 
 .polly-panel-header {
@@ -23,11 +18,22 @@
   color: var(--panel-text-header);
 }
 
+/* title-micro (matches the primeng `@include title-micro`) */
 .polly-panel-title {
-  font-size: var(--font-size-title-small);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--font-height-title-small);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  letter-spacing: 0.2px;
   color: var(--panel-text-header);
+}
+
+/* wrapper around the toggle control (kept visible for the showcase; primeng's
+   atlas context hides it via --panel-icon-display and toggles on header click) */
+.polly-panel-icons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .polly-panel-toggler {
@@ -43,6 +49,10 @@
   cursor: var(--panel-cursor-container);
 }
 
+.polly-panel-toggler-icon {
+  font-size: var(--panel-icon-font-size);
+}
+
 .polly-panel-content {
   padding: var(--spacing-4);
   background: var(--panel-background-container-content);
@@ -55,4 +65,50 @@
 .polly-panel-footer {
   padding: var(--panel-padding-footer);
   color: var(--panel-text-container);
+}
+
+.polly-panel.atlas-table-details-panel {
+  gap: var(--panel-gap-container);
+  cursor: var(--panel-cursor-container);
+
+  .polly-panel-header {
+    background-color: var(--panel-background-container-header);
+    border-radius: var(--panel-border-container-header-radius);
+    color: var(--panel-text-container);
+
+    &:hover {
+      background-color: var(--panel-background-container-header-hover);
+    }
+  }
+
+  .polly-panel-icons {
+    color: var(--panel-icon-container-color);
+    font-size: var(--panel-icon-font-size);
+
+    &:hover {
+      background-color: var(--panel-background-container-icon-hover);
+    }
+  }
+
+  .polly-panel-content {
+    background-color: var(--panel-background-container-content);
+    border-radius: var(--panel-border-container-content-radius);
+    color: var(--panel-text-container-content);
+    display: flex;
+    flex-direction: column;
+    gap: var(--panel-gap-container-content);
+  }
+
+  &.active .polly-panel-header {
+    background-color: var(--panel-background-container-active-header);
+    color: var(--panel-text-container-active-header);
+
+    .polly-panel-icons {
+      color: var(--panel-icon-container-active-color);
+
+      &:hover {
+        background-color: var(--panel-background-container-active-icon-hover);
+      }
+    }
+  }
 }

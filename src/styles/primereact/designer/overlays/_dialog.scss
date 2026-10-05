@@ -1,9 +1,3 @@
-/* ============================= */
-/* Polly Dialog */
-/* ============================= */
-
-/* MASK */
-
 .polly-dialog-mask {
   background-color: var(--dialog-background-overlay);
 }
@@ -27,6 +21,30 @@
   max-height: var(--dialog-maxheight);
   padding: var(--dialog-padding-container);
   position: var(--dialog-position-default) !important;
+
+  &.popup-modal .polly-dialog-header {
+    background-color: var(--dialog-header-background-default);
+    border-top: var(--dialog-border-width) solid
+      var(--dialog-border-color-subtle);
+    gap: var(--dialog-header-gap-none);
+    height: var(--dialog-header-height-auto);
+  }
+
+  &.popup-modal .polly-dialog-content {
+    padding: var(--dialog-content-padding-popupmodal);
+  }
+
+  &.popup-modal .polly-dialog-footer {
+    padding: var(--dialog-footer-padding-popupmodal);
+  }
+
+  &.padding-0 .polly-dialog-content {
+    padding: var(--dialog-content-padding-none);
+  }
+
+  &.padding-header-0 .polly-dialog-header {
+    padding: var(--dialog-header-padding-none);
+  }
 }
 
 /* HEADER */
@@ -62,16 +80,38 @@
 
 .polly-dialog-close-button {
   height: var(--dialog-closebutton-height);
+  justify-content: var(--dialog-closebutton-justifycontent);
   border: var(--dialog-closebutton-border);
   background-color: var(--dialog-closebutton-background-default);
   color: var(--dialog-closebutton-color-default);
 }
 
+/* CLOSE ICON — glyph metrics (pass `closeIcon="polly-icon close"` for the iconset X). */
+
+.polly-dialog-close-icon {
+  font-size: var(--dialog-closebutton-icon-fontsize);
+}
+
+/* MAXIMIZE BUTTON — only rendered with `maximizable`. */
+
+.polly-dialog-maximize-button {
+  background-color: var(--dialog-maximizebutton-background-default);
+  border: var(--dialog-maximizebutton-border);
+}
+
+.polly-dialog-maximize-button:hover {
+  background-color: var(--dialog-maximizebutton-background-hover);
+}
+
+.polly-dialog-maximize-icon {
+  font-size: var(--dialog-closebutton-icon-fontsize);
+}
 
 /* CONTENT */
 
 .polly-dialog-content {
   background-color: var(--dialog-content-background);
+  padding: var(--dialog-content-padding-default);
   height: calc(100% - var(--dialog-header-height-default));
 }
 
@@ -81,9 +121,45 @@
   display: var(--dialog-footer-display);
   flex-wrap: var(--dialog-footer-flexwrap);
   gap: var(--dialog-footer-gap);
+  flex: 0;
 
   padding: var(--dialog-footer-padding-default);
   background-color: var(--dialog-footer-background);
 
-  border-top: var(--dialog-footer-border-top-width) solid var(--dialog-footer-border-top-color);
+  border-top: var(--dialog-footer-border-top-width) solid
+    var(--dialog-footer-border-top-color);
+}
+
+.polly-dialog.clear .polly-dialog-header {
+  background-color: var(--dialog-header-background-clear);
+}
+
+.polly-dialog.popup-dialog {
+  & .polly-dialog-header {
+    background-color: var(--dialog-header-background-popup);
+    border-bottom: var(--dialog-header-border-bottom-width) solid
+      var(--dialog-header-border-bottom-color);
+    gap: var(--dialog-header-gap-none);
+    height: var(--dialog-header-height-auto);
+  }
+
+  & .polly-dialog-header-actions {
+    padding-top: var(--dialog-header-padding-popupheaderaction);
+  }
+
+  & .polly-dialog-close-button {
+    height: var(--dialog-header-height-auto);
+  }
+
+  & .polly-dialog-title {
+    color: var(--dialog-title-color-popup);
+  }
+
+  & .polly-dialog-content {
+    padding: var(--dialog-content-padding-popup);
+  }
+
+  & .polly-dialog-footer {
+    padding: var(--dialog-footer-padding-popup);
+  }
 }

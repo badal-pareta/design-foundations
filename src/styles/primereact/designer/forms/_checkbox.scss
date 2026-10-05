@@ -4,7 +4,7 @@
   vertical-align: var(--checkbox-verticalalign);
   cursor: var(--checkbox-cursor-default);
 
-  &:hover .polly-checkbox-box {
+  &:hover .polly-checkbox-box:not([data-p-highlight="true"]) {
     color: var(--checkbox-icon-color-default);
     border-color: var(--checkbox-border-color-hover);
   }
@@ -62,6 +62,7 @@
 .polly-checkbox-box[data-p-highlight="true"] {
   background: var(--checkbox-background-checked);
   border-color: var(--checkbox-border-color-checked);
+  color: var(--checkbox-icon-color-checked);
 }
 
 .polly-checkbox-box[data-p-disabled="true"] {
