@@ -3,7 +3,56 @@
 .polly-dp {
   border: var(--datepicker-root-border);
   font-family: var(--datepicker-root-fontfamily);
+
+  &.size--lg {
+    height: max-content;
+    .polly-dp-nav-prev {
+      padding: var(--datepicker-navigationprev-padding-large);
+    }
+
+    .polly-dp-nav-next {
+      padding: var(--datepicker-navigationnext-padding-large);
+    }
+
+    .polly-dp-select-month,
+    .polly-dp-select-year {
+      @include label-large;
+      padding: var(--datepicker-header-controls-padding-large);
+    }
+
+    .polly-dp-monthpicker,
+    .polly-dp-yearpicker {
+      min-width: var(--datepicker-monthpicker-minwidth-large);
+    }
+
+    .polly-dp-monthcell,
+    .polly-dp-yearcell {
+      @include label-large;
+      margin: var(--datepicker-monthcell-margin-large);
+    }
+
+    .polly-dp-table-header-cell {
+      padding: var(--datepicker-weekdaycell-padding-large) !important;
+    }
+
+    .polly-dp-weekday {
+      @include title-small;
+      height: var(--datepicker-weekdaytext-height-large) !important;
+      width: var(--datepicker-weekdaytext-width-large) !important;
+    }
+
+    .polly-dp-daycell {
+      padding: var(--datepicker-daycell-padding-large) !important;
+    }
+
+    .polly-dp-daytext {
+      @include label-large;
+      height: var(--datepicker-daytext-height-large) !important;
+      width: var(--datepicker-daytext-width-large) !important;
+    }
+  }
 }
+
 /* calendar icon trigger (showIcon) */
 .polly-dp-trigger {
   position: absolute;
@@ -38,10 +87,58 @@
   padding: var(--datepicker-panel-padding);
   color: var(--datepicker-panel-color);
   font-family: var(--datepicker-root-fontfamily);
+  &.size--lg {
+    height: max-content;
+    .polly-dp-nav-prev {
+      padding: var(--datepicker-navigationprev-padding-large);
+    }
+
+    .polly-dp-nav-next {
+      padding: var(--datepicker-navigationnext-padding-large);
+    }
+
+    .polly-dp-select-month,
+    .polly-dp-select-year {
+      @include label-large;
+      padding: var(--datepicker-header-controls-padding-large);
+    }
+
+    .polly-dp-monthpicker,
+    .polly-dp-yearpicker {
+      min-width: var(--datepicker-monthpicker-minwidth-large);
+    }
+
+    .polly-dp-monthcell,
+    .polly-dp-yearcell {
+      @include label-large;
+      margin: var(--datepicker-monthcell-margin-large);
+    }
+
+    .polly-dp-table-header-cell {
+      padding: var(--datepicker-weekdaycell-padding-large) !important;
+    }
+
+    .polly-dp-weekday {
+      @include title-small;
+      height: var(--datepicker-weekdaytext-height-large) !important;
+      width: var(--datepicker-weekdaytext-width-large) !important;
+    }
+
+    .polly-dp-daycell {
+      padding: var(--datepicker-daycell-padding-large) !important;
+    }
+
+    .polly-dp-daytext {
+      @include label-large;
+      height: var(--datepicker-daytext-height-large) !important;
+      width: var(--datepicker-daytext-width-large) !important;
+    }
+  }
 }
 
-/* inline mode has no shadow */
-.polly-dp-panel[data-p-inline="true"] {
+/* inline mode has no shadow — the panel PT adds `--inline` (Calendar emits no
+   `data-p-inline` attribute, so the old attribute selector never matched). */
+.polly-dp-panel--inline {
   box-shadow: var(--datepicker-panel-inline-boxshadow);
   margin-top: 0;
 }
@@ -299,55 +396,4 @@
 /* footer buttons */
 .polly-dp-buttonbar {
   padding-top: var(--datepicker-header-paddingbottom);
-}
-
-/* ---------------------------------------------------------
-   SIZE: large — swaps the medium cell/nav tokens for the -large set.
-   The popup panel portals out of .polly-dp onto <body>, so a descendant
-   selector like `.size--lg .polly-dp-panel` never matches. The class must be
-   ON the panel itself — pass `panelClassName="size--lg"` and target the
-   COMPOUND selector `.polly-dp-panel.size--lg`.
-   --------------------------------------------------------- */
-.polly-dp-panel.size--lg {
-  background: red; /* debug marker — remove once confirmed */
-
-  .polly-dp-weekday {
-    width: var(--datepicker-weekdaytext-width-large);
-    height: var(--datepicker-weekdaytext-height-large);
-  }
-
-  .polly-dp-table-header-cell,
-  .polly-dp-week-header {
-    padding: var(--datepicker-weekdaycell-padding-large);
-  }
-
-  .polly-dp-daycell {
-    background: pink;
-    padding: var(--datepicker-daycell-padding-large);
-  }
-
-  .polly-dp-daytext {
-    width: var(--datepicker-daytext-width-large);
-    height: var(--datepicker-daytext-height-large);
-  }
-
-  .polly-dp-monthcell,
-  .polly-dp-yearcell {
-    margin: var(--datepicker-monthcell-margin-large);
-  }
-
-  .polly-dp-monthpicker {
-    min-width: var(--datepicker-monthpicker-minwidth-large);
-  }
-
-  .polly-dp-nav-prev {
-    padding: var(--datepicker-navigationprev-padding-large);
-  }
-
-  .polly-dp-nav-next {
-    padding: var(--datepicker-navigationnext-padding-large);
-  }
-}
-.size--lg {
-  font-size: 4rem;
 }
