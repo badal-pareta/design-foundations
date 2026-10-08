@@ -5,9 +5,9 @@
   /* ---- directional offset + arrow (dark, default) ---- */
   &.p-tooltip-right {
     .polly-tooltip-arrow {
+      border-right-color: var(--tooltip-dark-arrow-color);
       border-width: var(--tooltip-base-arrow-size)
         var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) 0;
-      border-right-color: var(--tooltip-dark-arrow-color);
       margin-top: calc(-1 * var(--tooltip-base-arrow-size));
     }
   }
@@ -15,9 +15,9 @@
   &.p-tooltip-left {
     flex-direction: row-reverse;
     .polly-tooltip-arrow {
+      border-left-color: var(--tooltip-dark-arrow-color);
       border-width: var(--tooltip-base-arrow-size) 0
         var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size);
-      border-left-color: var(--tooltip-dark-arrow-color);
       margin-top: calc(-1 * var(--tooltip-base-arrow-size));
     }
   }
@@ -26,9 +26,9 @@
     flex-direction: column-reverse;
 
     .polly-tooltip-arrow {
+      border-top-color: var(--tooltip-dark-arrow-color);
       border-width: var(--tooltip-base-arrow-size)
         var(--tooltip-base-arrow-size) 0 var(--tooltip-base-arrow-size);
-      border-top-color: var(--tooltip-dark-arrow-color);
       margin-left: calc(-1 * var(--tooltip-base-arrow-size));
     }
   }
@@ -36,9 +36,9 @@
   &.p-tooltip-bottom {
     flex-direction: column;
     .polly-tooltip-arrow {
+      border-bottom-color: var(--tooltip-dark-arrow-color);
       border-width: 0 var(--tooltip-base-arrow-size)
         var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size);
-      border-bottom-color: var(--tooltip-dark-arrow-color);
       margin-left: calc(-1 * var(--tooltip-base-arrow-size));
     }
   }
@@ -65,21 +65,19 @@
 }
 
 .polly-tooltip-text {
-  display: inline-block;
-  padding: var(--tooltip-base-padding-default);
-
   background: var(--tooltip-dark-background);
-  color: var(--tooltip-dark-color);
   border-radius: var(--tooltip-base-borderradius);
   box-shadow: var(--tooltip-base-shadow);
-
+  color: var(--tooltip-dark-color);
+  display: inline-block;
   font-size: var(--font-size-label-medium);
   line-height: var(--font-height-label-medium);
+  padding: var(--tooltip-base-padding-default);
 }
 
 /* Arrow — a CSS border-triangle: all sides transparent, the direction class
    (added by the PT from the resolved position) colours the one pointing side. */
 .polly-tooltip-arrow {
-  border-style: var(--tooltip-base-arrow-borderstyle);
   border-color: var(--tooltip-base-arrow-bordercolor, transparent);
+  border-style: var(--tooltip-base-arrow-borderstyle);
 }

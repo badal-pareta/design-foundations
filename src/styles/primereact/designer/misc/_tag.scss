@@ -1,136 +1,200 @@
-
 .polly-tag {
   gap: var(--spacing-1);
   width: fit-content;
   max-width: 100%;
   padding: 0.125rem 0.5rem;
   border-radius: var(--radius-sm);
-
-  font-size: var(--font-size-label-medium);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--font-height-label-medium);
-  white-space: nowrap;
   overflow: hidden;
   cursor: default;
+  white-space: nowrap;
 
   /* default = purple solid */
-  background: color-mix(in srgb,
-      var(--color-primary-purple) 80%,
-      var(--color-standard-black) 20%);
+  background: color-mix( in srgb, var(--color-primary-purple) 80%,var(--color-standard-black) 20%);
   color: var(--color-standard-white);
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary-purple) 60%, var(--color-standard-black) 40%);
+  }
+
+  &:active {
+    background: color-mix(in srgb, var(--color-primary-purple) 40%, var(--color-standard-black) 60%);
+  }
 
   /* ---- purple ---- */
   &.variant--purple-light {
-    background: color-mix(in srgb,
-        var(--color-primary-purple) 10%,
-        var(--color-standard-white) 90%);
-    color: color-mix(in srgb,
-        var(--color-primary-purple) 60%,
-        var(--color-standard-black) 40%);
+    background: color-mix( in srgb, var(--color-primary-purple) 10%,var(--color-standard-white) 90%);
+    color: color-mix( in srgb, var(--color-primary-purple) 60%, var(--color-standard-black) 40% );
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-purple) 20%, var(--color-standard-white) 80%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-purple) 40%, var(--color-standard-white) 60%);
+    }
   }
 
   /* ---- green (success) ---- */
   &.variant--green {
-    background: color-mix(in srgb,
-        var(--color-primary-green) 80%,
-        var(--color-standard-black) 20%);
+    background: color-mix( in srgb, var(--color-primary-green) 80%,var(--color-standard-black) 20%);
     color: var(--color-standard-white);
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-green) 60%, var(--color-standard-black) 40%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-green) 40%, var(--color-standard-black) 60%);
+    }
   }
 
   &.variant--green-light {
-    background: color-mix(in srgb,
-        var(--color-primary-green) 10%,
-        var(--color-standard-white) 90%);
-    color: color-mix(in srgb,
-        var(--color-primary-green) 60%,
-        var(--color-standard-black) 40%);
+    background: color-mix( in srgb, var(--color-primary-green) 10%,var(--color-standard-white) 90%);
+    color: color-mix( in srgb, var(--color-primary-green) 60%, var(--color-standard-black) 40% );
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-green) 20%, var(--color-standard-white) 80%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-green) 40%, var(--color-standard-white) 60%);
+    }
   }
 
   /* ---- red (danger) ---- */
   &.variant--red {
-    background: color-mix(in srgb,
-        var(--color-primary-red) 80%,
-        var(--color-standard-black) 20%);
+    background: color-mix( in srgb, var(--color-primary-red) 80%,var(--color-standard-black) 20%);
     color: var(--color-standard-white);
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-red) 60%, var(--color-standard-black) 40%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-red) 40%, var(--color-standard-black) 60%);
+    }
   }
 
   &.variant--red-light {
-    background: color-mix(in srgb,
-        var(--color-primary-red) 10%,
-        var(--color-standard-white) 90%);
-    color: color-mix(in srgb,
-        var(--color-primary-red) 60%,
-        var(--color-standard-black) 40%);
+    background: color-mix( in srgb, var(--color-primary-red) 10%,var(--color-standard-white) 90%);
+    color: color-mix( in srgb, var(--color-primary-red) 60%, var(--color-standard-black) 40% );
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-red) 20%, var(--color-standard-white) 80%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-red) 40%, var(--color-standard-white) 60%);
+    }
   }
 
   /* ---- blue (info) ---- */
   &.variant--blue {
-    background: color-mix(in srgb,
-        var(--color-primary-blue) 80%,
-        var(--color-standard-black) 20%);
+    background: color-mix( in srgb, var(--color-primary-blue) 80%,var(--color-standard-black) 20%);
     color: var(--color-standard-white);
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-blue) 60%, var(--color-standard-black) 40%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-blue) 40%, var(--color-standard-black) 60%);
+    }
   }
 
   &.variant--blue-light {
-    background: color-mix(in srgb,
-        var(--color-primary-blue) 10%,
-        var(--color-standard-white) 90%);
-    color: color-mix(in srgb,
-        var(--color-primary-blue) 60%,
-        var(--color-standard-black) 40%);
+    background: color-mix( in srgb, var(--color-primary-blue) 10%,var(--color-standard-white) 90%);
+    color: color-mix( in srgb, var(--color-primary-blue) 60%, var(--color-standard-black) 40% );
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-blue) 20%, var(--color-standard-white) 80%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-blue) 40%, var(--color-standard-white) 60%);
+    }
   }
 
   /* ---- orange (warning) ---- */
   &.variant--orange {
-    background: color-mix(in srgb,
-        var(--color-primary-orange) 80%,
-        var(--color-standard-black) 20%);
+    background: color-mix( in srgb, var(--color-primary-orange) 80%,var(--color-standard-black) 20%);
     color: var(--color-standard-white);
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-orange) 60%, var(--color-standard-black) 40%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-orange) 40%, var(--color-standard-black) 60%);
+    }
   }
 
   &.variant--orange-light {
-    background: color-mix(in srgb,
-        var(--color-primary-orange) 10%,
-        var(--color-standard-white) 90%);
-    color: color-mix(in srgb,
-        var(--color-primary-orange) 60%,
-        var(--color-standard-black) 40%);
+    background: color-mix( in srgb, var(--color-primary-orange) 10%,var(--color-standard-white) 90%);
+    color: color-mix( in srgb, var(--color-primary-orange) 60%, var(--color-standard-black) 40% );
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-orange) 20%, var(--color-standard-white) 80%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-orange) 40%, var(--color-standard-white) 60%);
+    }
   }
 
   /* ---- neutral ---- */
   &.variant--neutral {
-    background: color-mix(in srgb,
-        var(--color-primary-neutral) 80%,
-        var(--color-standard-black) 20%);
+    background: color-mix( in srgb, var(--color-primary-neutral) 80%,var(--color-standard-black) 20%);
     color: var(--color-standard-white);
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-neutral) 60%, var(--color-standard-black) 40%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-neutral) 40%, var(--color-standard-black) 60%);
+    }
   }
 
   &.variant--neutral-light {
-    background: color-mix(in srgb,
-        var(--color-primary-neutral) 10%,
-        var(--color-standard-white) 90%);
-    color: color-mix(in srgb,
-        var(--color-primary-neutral) 60%,
-        var(--color-standard-black) 40%);
+    background: color-mix( in srgb, var(--color-primary-neutral) 10%,var(--color-standard-white) 90%);
+    color: color-mix( in srgb, var(--color-primary-neutral) 60%, var(--color-standard-black) 40% );
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary-neutral) 20%, var(--color-standard-white) 80%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-primary-neutral) 40%, var(--color-standard-white) 60%);
+    }
   }
 
   /* ---- display (secondary-blue — Qubit's `type="display"`) ---- */
   &.variant--display {
-    background: color-mix(in srgb,
-        var(--color-secondary-blue) 80%,
-        var(--color-standard-black) 20%);
+    background: color-mix( in srgb, var(--color-secondary-blue) 80%,var(--color-standard-black) 20%);
     color: var(--color-standard-white);
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-secondary-blue) 60%, var(--color-standard-black) 40%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-secondary-blue) 40%, var(--color-standard-black) 60%);
+    }
   }
 
   &.variant--display-light {
-    background: color-mix(in srgb,
-        var(--color-secondary-blue) 10%,
-        var(--color-standard-white) 90%);
-    color: color-mix(in srgb,
-        var(--color-secondary-blue) 60%,
-        var(--color-standard-black) 40%);
-  }
+    background: color-mix( in srgb, var(--color-secondary-blue) 10%,var(--color-standard-white) 90%);
+    color: color-mix( in srgb, var(--color-secondary-blue) 60%, var(--color-standard-black) 40% );
 
+    &:hover {
+      background: color-mix(in srgb, var(--color-secondary-blue) 20%, var(--color-standard-white) 80%);
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--color-secondary-blue) 40%, var(--color-standard-white) 60%);
+    }
+  }
 
   /* ---- sizes (heights/padding mirror the reference polly-tag) ---- */
   &.size--lg {
@@ -153,14 +217,17 @@
     cursor: default;
   }
 
-  /* ---- disabled ---- */
-  .polly-tag.is-disabled {
-    background: color-mix(in srgb,
-        var(--color-primary-neutral) 10%,
-        var(--color-standard-white) 90%);
-    color: color-mix(in srgb,
-        var(--color-primary-neutral) 80%,
-        var(--color-standard-white) 20%);
+  /* ---- focus ring (add the `focus` class to opt in) ---- */
+  &.focus:focus,
+  &.focus:focus-visible {
+    outline: 1px solid color-mix(in srgb, var(--color-primary-neutral) 60%, var(--color-standard-black) 40%);
+    outline-offset: 1px;
+  }
+
+  /* ---- disabled (variant-independent: neutral fill, no interaction) ---- */
+  &.is-disabled {
+    background: color-mix( in srgb, var(--color-primary-neutral) 10%,var(--color-standard-white) 90%);
+    color: color-mix( in srgb, var(--color-primary-neutral) 80%, var(--color-standard-white) 20% );
     pointer-events: none;
   }
 }
@@ -171,7 +238,7 @@
 
 /* ---- value: truncate with an ellipsis when a width / max-width constrains ---- */
 .polly-tag-value {
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-width: 0;
 }

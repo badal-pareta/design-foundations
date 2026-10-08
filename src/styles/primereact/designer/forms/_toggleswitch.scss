@@ -1,11 +1,10 @@
 .polly-switch {
-  display: var(--toggleswitch-base-display);
   align-items: var(--toggleswitch-base-alignitems);
-  position: var(--toggleswitch-base-position);
-
-  width: var(--toggleswitch-base-width);
-  height: var(--toggleswitch-base-height);
   background: var(--toggleswitch-base-background);
+  display: var(--toggleswitch-base-display);
+  height: var(--toggleswitch-base-height);
+  position: var(--toggleswitch-base-position);
+  width: var(--toggleswitch-base-width);
 
   /* ON */
   &.is-checked .polly-switch-slider {
@@ -61,44 +60,39 @@
 }
 
 .polly-switch-input {
-  position: absolute;
-  inset: 0;
-  width: 100%;
+  cursor: pointer;
   height: 100%;
+  inset: 0;
   margin: 0;
   opacity: 0;
-  cursor: pointer;
+  position: absolute;
+  width: 100%;
   z-index: 1;
 }
 
 .polly-switch-slider {
-  position: var(--toggleswitch-slider-position);
-  width: var(--toggleswitch-slider-width);
-  height: var(--toggleswitch-slider-height);
-
   background: var(--toggleswitch-slider-background-off);
   border: var(--toggleswitch-slider-border-width)
     var(--toggleswitch-slider-border-style)
     var(--toggleswitch-slider-border-color-off);
   border-radius: var(--toggleswitch-slider-borderradius);
-
-  transition: var(--toggleswitch-slider-transition);
   cursor: pointer;
+  height: var(--toggleswitch-slider-height);
+  position: var(--toggleswitch-slider-position);
+  transition: var(--toggleswitch-slider-transition);
+  width: var(--toggleswitch-slider-width);
 
   /* knob */
   &::before {
-    content: "";
-    position: var(--toggleswitch-handle-position);
-    top: var(--toggleswitch-handle-top);
-    left: var(--toggleswitch-handle-left);
-
-    width: var(--toggleswitch-handle-width);
-    height: var(--toggleswitch-handle-height);
-
     background: var(--toggleswitch-handle-background-off);
     border-radius: var(--toggleswitch-handle-borderradius);
     box-shadow: var(--toggleswitch-handle-shadow);
-
+    content: "";
+    height: var(--toggleswitch-handle-height);
+    left: var(--toggleswitch-handle-left);
+    position: var(--toggleswitch-handle-position);
+    top: var(--toggleswitch-handle-top);
     transition: transform var(--toggleswitch-handle-transition);
+    width: var(--toggleswitch-handle-width);
   }
 }

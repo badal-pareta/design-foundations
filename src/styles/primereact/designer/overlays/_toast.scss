@@ -1,13 +1,12 @@
 .polly-toast-message {
-  min-width: 30rem;
-  margin: var(--toast-base-margin);
-  padding: var(--toast-base-padding);
-
   background: var(--toast-base-background);
   border-left: var(--toast-base-borderleftwidth)
     var(--toast-base-borderleftstyle) var(--toast-severity-info-bordercolor);
   border-radius: var(--toast-base-borderradius);
   box-shadow: var(--toast-base-boxshadow);
+  margin: var(--toast-base-margin);
+  min-width: 30rem;
+  padding: var(--toast-base-padding);
   /* severity */
   &.variant--success {
     border-left-color: var(--toast-severity-success-bordercolor);
@@ -40,16 +39,16 @@
 
 .polly-toast-content {
   display: var(--toast-content-display);
-  grid-template-columns: var(--toast-content-gridtemplatecolumns);
   gap: var(--toast-content-gap);
+  grid-template-columns: var(--toast-content-gridtemplatecolumns);
 }
 
 .polly-toast-icon {
-  height: var(--toast-closebutton-iconsize);
-  width: var(--toast-closebutton-iconsize);
-  font-size: var(--toast-icon-fontsize);
   color: var(--toast-severity-info-iconcolor);
+  font-size: var(--toast-icon-fontsize);
+  height: var(--toast-closebutton-iconsize);
   padding: 0.25rem;
+  width: var(--toast-closebutton-iconsize);
   // align-self: flex-start;
 }
 
@@ -64,19 +63,19 @@
 }
 
 .polly-toast-detail {
-  margin: var(--toast-detail-margin);
   color: var(--toast-detail-color);
+  margin: var(--toast-detail-margin);
 }
 
 .polly-toast-close {
-  padding: var(--toast-closebutton-padding);
   background: var(--toast-closebutton-background);
   border: var(--toast-closebutton-border);
   border-radius: var(--toast-closebutton-borderradius);
   color: var(--toast-closebutton-iconcolor);
   cursor: pointer;
-  transition: var(--toast-closebutton-transition);
   height: var(--toast-closebutton-iconsize);
+  padding: var(--toast-closebutton-padding);
+  transition: var(--toast-closebutton-transition);
   width: var(--toast-closebutton-iconsize);
 }
 

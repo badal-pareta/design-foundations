@@ -1,29 +1,26 @@
-/* =========================================================
-   AVATAR — driven by --avatar-* tokens.
-   ========================================================= */
 
 .polly-avatar {
-  flex-shrink: 0;
-  width: var(--avatar-size-md);
-  height: var(--avatar-size-md);
+  background: var(--avatar-background-purple);
   border: var(--avatar-container-border);
   border-radius: 50%;
-  overflow: hidden;
-  background: var(--avatar-background-purple);
   color: var(--avatar-text-default);
+  flex-shrink: 0;
   font-size: var(--avatar-font-size-md);
+  height: var(--avatar-size-md);
+  overflow: hidden;
+  width: var(--avatar-size-md);
 
   /* sizes */
   &.size--lg {
-    width: var(--avatar-size-lg);
-    height: var(--avatar-size-lg);
     font-size: var(--avatar-font-size-lg);
+    height: var(--avatar-size-lg);
+    width: var(--avatar-size-lg);
   }
 
   &.size--xl {
-    width: var(--avatar-size-xl);
-    height: var(--avatar-size-xl);
     font-size: var(--avatar-font-size-xl);
+    height: var(--avatar-size-xl);
+    width: var(--avatar-size-xl);
   }
 
   /* shape */
@@ -57,12 +54,11 @@
 }
 
 .multi-avatar {
-  display: inline-flex;
   align-items: center;
+  display: inline-flex;
   margin-left: var(--avatar-multiavatar-group-marginleft);
 
   .polly-avatar {
     margin-left: var(--avatar-multiavatar-group-avatar-marginleft) !important;
-    // box-shadow: 0 0 0 2px var(--color-standard-white);
   }
 }

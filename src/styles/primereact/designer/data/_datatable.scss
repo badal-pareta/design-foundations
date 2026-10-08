@@ -3,7 +3,6 @@
 }
 
 .polly-table-el {
-  width: 100%;
   border-collapse: collapse;
 }
 
@@ -14,12 +13,11 @@
 
 .polly-table-th {
   background: var(--table-base-header-cell-background);
+  border: var(--table-base-header-cell-border);
+  border-bottom: var(--table-base-header-cell-borderbottom);
+  border-right: var(--table-base-header-cell-borderright);
   color: var(--table-base-header-cell-color);
   padding: var(--table-base-header-cell-padding);
-  border: var(--table-base-header-cell-border);
-  border-right: var(--table-base-header-cell-borderright);
-  border-bottom: var(--table-base-header-cell-borderbottom);
-
   text-align: left;
   white-space: nowrap;
 
@@ -33,24 +31,21 @@
 }
 
 .polly-table-th-content {
-  display: inline-flex;
-  align-items: center;
   gap: var(--spacing-1);
 }
 
 .polly-table-sort {
-  display: inline-flex;
-  cursor: pointer;
   color: var(--table-base-header-cell-color);
+  cursor: pointer;
 }
 
 /* ---- body ---- */
 .polly-table-td {
+  border: var(--table-base-body-cell-border);
+  border-bottom: var(--table-base-body-cell-borderbottom);
+  border-right: var(--table-base-body-cell-borderright);
   color: var(--table-base-body-cell-color);
   padding: var(--table-base-body-cell-padding);
-  border: var(--table-base-body-cell-border);
-  border-right: var(--table-base-body-cell-borderright);
-  border-bottom: var(--table-base-body-cell-borderbottom);
 
   &:last-child {
     border-right: 0;
@@ -71,96 +66,82 @@
 /* ---- rows: striping, hover, active, selected ---- */
 .polly-table-row {
   background: var(--table-base-body-row-background);
+
+  &:nth-child(odd) {
+    background: var(--table-base-body-row-odd-background);
+  }
+
+  &:hover {
+    background: var(--table-base-body-row-hover-background);
+  }
+
+  &:hover:nth-child(odd) {
+    background: var(--table-base-body-row-hover-odd-background);
+  }
 }
-
-.polly-table-row:nth-child(odd) {
-  background: var(--table-base-body-row-odd-background);
-}
-
-.polly-table-row:hover {
-  background: var(--table-base-body-row-hover-background);
-}
-
-.polly-table-row:hover:nth-child(odd) {
-  background: var(--table-base-body-row-hover-odd-background);
-}
-
-// .polly-table-row[data-p-highlight="true"],
-// .polly-table-row:active {
-//   background: var(--table-base-body-row-active-background);
-// }
-
-// .polly-table-row[data-p-highlight="true"]:nth-child(odd),
-// .polly-table-row:active:nth-child(odd) {
-//   background: var(--table-base-body-row-active-odd-background);
-// }
-
-// .polly-table-row[data-p-highlight="true"],
-// .polly-table-row:focus {
-//   border: var(--table-base-body-row-selected-border);
-//   background: var(--table-base-body-row-selected-background);
-// }
 
 .polly-table-empty {
-  padding: var(--table-base-body-cell-padding);
   color: var(--table-base-body-cell-color);
+  padding: var(--table-base-body-cell-padding);
   text-align: center;
 }
 
 /* =========================================================
    Variant: skeleton — loading placeholder styling.
    ========================================================= */
-.polly-table.skeleton .polly-table-header-row {
-  border: var(--table-skeleton-header-row-border);
-  background: var(--table-skeleton-header-row-background);
-}
+.polly-table.skeleton {
+  & .polly-table-header-row {
+    background: var(--table-skeleton-header-row-background);
+    border: var(--table-skeleton-header-row-border);
+  }
 
-.polly-table.skeleton .polly-table-th {
-  background: var(--table-skeleton-header-cell-background);
-  border: var(--table-skeleton-header-cell-border);
-  padding: var(--table-skeleton-header-cell-padding);
-}
+  & .polly-table-th {
+    background: var(--table-skeleton-header-cell-background);
+    border: var(--table-skeleton-header-cell-border);
+    padding: var(--table-skeleton-header-cell-padding);
+  }
 
-.polly-table.skeleton .polly-table-td {
-  padding: var(--table-skeleton-body-cell-padding);
+  & .polly-table-td {
+    padding: var(--table-skeleton-body-cell-padding);
+  }
 }
-
 /* =========================================================
    Variant: clear — borderless list (no cell borders / stripes).
    ========================================================= */
-.polly-table.clear .polly-table-header-row {
-  border: var(--table-clear-header-row-border);
-}
+.polly-table.clear {
+  & .polly-table-header-row {
+    border: var(--table-clear-header-row-border);
+  }
 
-.polly-table.clear .polly-table-th {
-  color: var(--table-clear-header-cell-color);
-}
+  & .polly-table-th {
+    color: var(--table-clear-header-cell-color);
+  }
 
-.polly-table.clear .polly-table-row {
-  background: var(--table-clear-body-row-background);
-}
+  & .polly-table-row {
+    background: var(--table-clear-body-row-background);
+  }
 
-.polly-table.clear .polly-table-row:is(:hover, :active) {
-  background: var(--table-clear-body-row-hover-background);
-}
+  & .polly-table-row:is(:hover, :active) {
+    background: var(--table-clear-body-row-hover-background);
+  }
 
-.polly-table.clear .polly-table-td {
-  border: var(--table-clear-body-cell-border);
+  & .polly-table-td {
+    border: var(--table-clear-body-cell-border);
+  }
 }
-
 /* =========================================================
    Variant: vertical — vertical gridlines only.
    ========================================================= */
 .polly-table.vertical {
   border: var(--table-vertical-container-border);
-}
 
-.polly-table.vertical .polly-table-th:not(:last-child) {
-  border-right: var(--table-vertical-header-cell-borderright);
-}
+  & .polly-table-th:not(:last-child) {
+    border-right: var(--table-vertical-header-cell-borderright);
+  }
 
-.polly-table.vertical .polly-table-td:not(:last-child) {
-  border-right: var(--table-vertical-body-cell-borderright);
+  & .polly-table-td:not(:last-child) {
+    border-right: var(--table-vertical-body-cell-borderright);
+  }
 }
 
 /* =========================================================
@@ -171,60 +152,65 @@
   overflow: var(--table-rounded-container-overflow);
 }
 
-/* =========================================================
-   Row types (port the `qubit-table` type-* family). Add the class to the
-   DataTable `className`: `type-simplified`, `type-display`, `type-island`.
-   ========================================================= */
-
 /* --- type-simplified: compact, cell-gridlined --- */
-.polly-table.type-simplified .polly-table-th {
-  background: var(--table-qubittable-types-simplified-header-cell-background);
-  border-right: var(
-    --table-qubittable-types-simplified-header-cell-borderright
-  );
-  border-bottom: var(
-    --table-qubittable-types-simplified-header-cell-borderbottom
-  );
-}
+.polly-table.type-simplified {
+  & .polly-table-th {
+    background: var(--table-qubittable-types-simplified-header-cell-background);
+    border-bottom: var(
+      --table-qubittable-types-simplified-header-cell-borderbottom
+    );
+    border-right: var(
+      --table-qubittable-types-simplified-header-cell-borderright
+    );
+  }
 
-.polly-table.type-simplified .polly-table-row {
-  background: var(--table-qubittable-types-simplified-body-row-background);
-  border: var(--table-qubittable-types-simplified-body-row-border);
-}
+  & .polly-table-row {
+    background: var(--table-qubittable-types-simplified-body-row-background);
+    border: var(--table-qubittable-types-simplified-body-row-border);
+  }
 
-.polly-table.type-simplified .polly-table-row:nth-child(even) {
-  background: var(--table-qubittable-types-simplified-body-row-even-background);
-}
+  & .polly-table-row:nth-child(even) {
+    background: var(
+      --table-qubittable-types-simplified-body-row-even-background
+    );
+  }
 
-.polly-table.type-simplified .polly-table-td {
-  background: var(--table-qubittable-types-simplified-body-cell-background);
-  border-right: var(--table-qubittable-types-simplified-body-cell-borderright);
-  border-bottom: var(
-    --table-qubittable-types-simplified-body-cell-borderbottom
-  );
+  & .polly-table-td {
+    background: var(--table-qubittable-types-simplified-body-cell-background);
+    border-bottom: var(
+      --table-qubittable-types-simplified-body-cell-borderbottom
+    );
+    border-right: var(
+      --table-qubittable-types-simplified-body-cell-borderright
+    );
+  }
 }
 
 /* --- type-display: clean striped display rows (no gridlines) --- */
-.polly-table.type-display .polly-table-th {
-  background: var(--table-qubittable-types-display-header-cell-background);
-  border-bottom: var(--table-qubittable-types-display-header-cell-borderbottom);
-}
+.polly-table.type-display {
+  & .polly-table-th {
+    background: var(--table-qubittable-types-display-header-cell-background);
+    border-bottom: var(
+      --table-qubittable-types-display-header-cell-borderbottom
+    );
+  }
 
-.polly-table.type-display .polly-table-td {
-  border: none;
-}
+  & .polly-table-td {
+    border: none;
+  }
 
-.polly-table.type-display .polly-table-row {
-  background: var(--table-qubittable-types-display-body-row-background);
-  border: var(--table-qubittable-types-display-body-row-border);
-}
+  & .polly-table-row {
+    background: var(--table-qubittable-types-display-body-row-background);
+    border: var(--table-qubittable-types-display-body-row-border);
+  }
 
-.polly-table.type-display .polly-table-row:nth-child(even) {
-  background: var(--table-qubittable-types-display-body-row-even-background);
-}
+  & .polly-table-row:nth-child(even) {
+    background: var(--table-qubittable-types-display-body-row-even-background);
+  }
 
-.polly-table.type-display .polly-table-row:hover {
-  background: var(--table-qubittable-types-display-body-row-hover-background);
+  & .polly-table-row:hover {
+    background: var(--table-qubittable-types-display-body-row-hover-background);
+  }
 }
 
 .polly-table.type-display .polly-table-row[data-p-highlight="true"],
@@ -236,8 +222,8 @@
 
 .polly-table.type-island .polly-table-header-row,
 .polly-table.type-island .polly-table-row {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .polly-table.type-island .polly-table-th,
@@ -280,7 +266,6 @@
   background: var(--table-qubittable-types-island-body-row-selected-background);
 }
 
-
 .polly-table-wrapper {
   overflow: auto;
 }
@@ -291,10 +276,15 @@
   z-index: 2;
 }
 
-
 .polly-table-th:has(> .polly-table-col-resizer) {
-  position: var(--table-base-resizable-thead-th-columnresizable-position, relative);
-  background-clip: var(--table-base-resizable-thead-th-columnresizable-backgroundclip, padding-box);
+  background-clip: var(
+    --table-base-resizable-thead-th-columnresizable-backgroundclip,
+    padding-box
+  );
+  position: var(
+    --table-base-resizable-thead-th-columnresizable-position,
+    relative
+  );
 }
 
 /* resizable cells clip so a drag doesn't wrap the content */
@@ -305,33 +295,39 @@
 }
 
 .polly-table-col-resizer {
+  border: var(
+    --table-base-resizable-columnresizer-border,
+    1px solid transparent
+  );
+  cursor: var(--table-base-resizable-columnresizer-cursor, col-resize);
   display: var(--table-base-resizable-columnresizer-display, block);
-  position: var(--table-base-resizable-columnresizer-position, absolute);
-  top: var(--table-base-resizable-columnresizer-top, 0);
-  right: var(--table-base-resizable-columnresizer-right, 0);
+  height: var(--table-base-resizable-columnresizer-height, 100%);
   margin: var(--table-base-resizable-columnresizer-margin, 0);
   padding: var(--table-base-resizable-columnresizer-padding, 0);
+  position: var(--table-base-resizable-columnresizer-position, absolute);
+  right: var(--table-base-resizable-columnresizer-right, 0);
+  top: var(--table-base-resizable-columnresizer-top, 0);
   width: var(--table-base-resizable-columnresizer-width, 0.5rem);
-  height: var(--table-base-resizable-columnresizer-height, 100%);
-  border: var(--table-base-resizable-columnresizer-border, 1px solid transparent);
-  cursor: var(--table-base-resizable-columnresizer-cursor, col-resize);
 }
 
 .polly-table-resize-helper {
-  position: var(--table-base-resizable-columnresizeindicator-position, absolute);
-  width: var(--table-base-resizable-columnresizeindicator-width, 1px);
-  z-index: var(--table-base-resizable-columnresizeindicator-zindex, 10);
   background-color: var(
     --table-base-resizable-columnresizeindicator-background,
     var(--primary-500, #7c3aed)
   );
+  position: var(
+    --table-base-resizable-columnresizeindicator-position,
+    absolute
+  );
+  width: var(--table-base-resizable-columnresizeindicator-width, 1px);
+  z-index: var(--table-base-resizable-columnresizeindicator-zindex, 10);
 }
 
 .polly-table-th:has(.polly-checkbox),
 .polly-table-td:has(.polly-checkbox) {
-  text-align: center;
   padding-left: 0;
   padding-right: 0;
+  text-align: center;
 }
 
 .polly-table-th:has(.polly-checkbox) .polly-checkbox,
@@ -340,6 +336,6 @@
 }
 
 .polly-table-th:has(.polly-checkbox) .polly-table-th-content {
-  justify-content: center;
   gap: 0;
+  justify-content: center;
 }

@@ -1,30 +1,29 @@
-
 .polly-paginator {
-  justify-content: var(--paginator-base-justifycontent);
-  gap: var(--paginator-base-gap);
-  position: var(--paginator-base-position);
-  padding: var(--paginator-base-padding);
   background: var(--paginator-base-background);
   border-radius: var(--paginator-base-borderradius);
   color: var(--paginator-base-color);
-}
+  gap: var(--paginator-base-gap);
+  justify-content: var(--paginator-base-justifycontent);
+  padding: var(--paginator-base-padding);
+  position: var(--paginator-base-position);
 
-.polly-paginator.size--sm {
-  padding: var(--paginator-size-small-padding);
+  &.size--sm {
+    padding: var(--paginator-size-small-padding);
+  }
 }
 
 .polly-paginator-nav,
 .polly-paginator-page {
-  cursor: pointer;
-  border: none;
   background: var(--paginator-navbutton-background-default);
+  border: none;
   border-radius: 50%;
   color: var(--paginator-navbutton-color-default);
+  cursor: pointer;
   height: 1.875rem;
   margin: var(--paginator-navbutton-margin);
-  width: 1.875rem;
   padding: var(--paginator-navbutton-padding);
   transition: var(--paginator-navbutton-transition);
+  width: 1.875rem;
 
   &:hover {
     background-color: var(--paginator-navbutton-background-hover);
@@ -64,18 +63,18 @@
 
 /* rows-per-page dropdown, pinned left */
 .polly-paginator .polly-dropdown-root {
-  left: var(--paginator-rppdropdown-left);
-  width: auto;
-  min-width: 4.5rem;
   height: 2rem;
+  left: var(--paginator-rppdropdown-left);
+  min-width: 4.5rem;
+  width: auto;
 }
 
 // /* RPP dropdown caret — the paginator builds its Dropdown internally with no
 //    `dropdownIcon` prop, so swap the default chevron SVG for the iconset caret
 //    (same glyph as `.polly-icon.caret-down`). */
 .polly-paginator .polly-dropdown-trigger {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 /* optional "Rows per page" start label, just right of the dropdown */
@@ -89,11 +88,11 @@
 .polly-paginator-current {
   right: var(--paginator-current-right);
 
-  display: var(--paginator-current-display);
   align-items: var(--paginator-current-alignitems);
   background-color: var(--paginator-current-backgroundcolor);
   border: var(--paginator-current-border);
   color: var(--paginator-current-color);
+  display: var(--paginator-current-display);
   height: var(--paginator-current-height);
   min-width: var(--paginator-current-minwidth);
   order: var(--paginator-current-order);
@@ -103,7 +102,7 @@
 
 /* jump-to-page input */
 .polly-paginator-jtp {
-  width: 3rem;
   height: 2rem;
   text-align: center;
+  width: 3rem;
 }

@@ -1,15 +1,12 @@
-/* =========================================================
-   CHIP — driven by --chip-* tokens (filled primary variant).
-   ========================================================= */
 
 .polly-chip {
-  gap: var(--chip-base-gap);
-  padding: var(--chip-base-padding);
-  border-radius: var(--chip-base-borderradius);
-  transition: var(--chip-base-transition);
   background: var(--chip-filled-primary-backgroundcolor-default);
   border: var(--chip-filled-primary-border-default);
+  border-radius: var(--chip-base-borderradius);
   color: var(--chip-filled-primary-color-default);
+  gap: var(--chip-base-gap);
+  padding: var(--chip-base-padding);
+  transition: var(--chip-base-transition);
 
   &:hover {
     background: var(--chip-filled-primary-backgroundcolor-hover);
@@ -48,11 +45,11 @@
 
 .polly-chip-icon,
 .polly-chip-remove {
-  outline: none;
-  font-size: var(--chip-icon-size);
-  width: var(--chip-icon-size);
-  height: var(--chip-icon-size);
   color: var(--chip-icon-color);
+  font-size: var(--chip-icon-size);
+  height: var(--chip-icon-size);
+  outline: none;
+  width: var(--chip-icon-size);
 }
 
 .polly-chip-remove {
@@ -69,8 +66,8 @@
 }
 
 .polly-chip-image {
-  width: var(--chip-icon-size);
-  height: var(--chip-icon-size);
   border-radius: 50%;
+  height: var(--chip-icon-size);
   object-fit: cover;
+  width: var(--chip-icon-size);
 }

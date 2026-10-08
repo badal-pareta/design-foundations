@@ -17,39 +17,39 @@
   }
 
   &.notification {
-    background: color-mix(in srgb, var(--color-neutral-purple) 10%, white);
+    background: color-mix(in srgb, var(--color-neutral-purple) 10%, var(--color-standard-white));
     position: relative;
 
     .ellipse {
-      background: color-mix(in srgb, var(--color-secondary-purple), black 20%);
+      background: color-mix(in srgb, var(--color-secondary-purple), var(--color-standard-black) 20%);
       border-radius: 50%;
       position: absolute;
     }
   }
 
   &.filter {
-    background: color-mix(in srgb, var(--color-primary-purple), white 90%);
+    background: color-mix(in srgb, var(--color-primary-purple), var(--color-standard-white) 90%);
     border-radius: 50%;
-    color: color-mix(in srgb, var(--color-neutral-purple), black 20%);
+    color: color-mix(in srgb, var(--color-neutral-purple), var(--color-standard-black) 20%);
 
     &:hover {
-      background: color-mix(in srgb, var(--color-secondary-purple), white 80%);
+      background: color-mix(in srgb, var(--color-secondary-purple), var(--color-standard-white) 80%);
     }
 
     &:active {
-      background: color-mix(in srgb, var(--color-neutral-purple), white 70%);
-      color: color-mix(in srgb, var(--color-secondary-purple), black 20%);
+      background: color-mix(in srgb, var(--color-neutral-purple), var(--color-standard-white) 70%);
+      color: color-mix(in srgb, var(--color-secondary-purple), var(--color-standard-black) 20%);
     }
   }
 
   &.pressed {
-    background: color-mix(in srgb, var(--color-neutral-purple), white 75%);
-    color: color-mix(in srgb, var(--color-secondary-purple), black 20%);
+    background: color-mix(in srgb, var(--color-neutral-purple), var(--color-standard-white) 75%);
+    color: color-mix(in srgb, var(--color-secondary-purple), var(--color-standard-black) 20%);
   }
 
   &:focus-visible {
     outline: 1px solid
-      color-mix(in srgb, var(--color-primary-neutral), black 40%);
+      color-mix(in srgb, var(--color-primary-neutral), var(--color-standard-black) 40%);
     outline-offset: 1px;
   }
 
@@ -98,13 +98,6 @@
 
 .polly-btn.icon-only .polly-btn-label {
   display: none !important;
-}
-
-.polly-btn.icon-only {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
 }
 
 .polly-btn.icon-only {
@@ -356,8 +349,8 @@
 
   .btn-badge {
     position: absolute;
-    top: 0rem;
     right: 0rem;
+    top: 0rem;
   }
 
   &.size--lg {
@@ -450,19 +443,19 @@
 
   &.notification {
     &::before {
-      display: block;
       background-color: color-mix(
         in srgb,
         var(--color-secondary-purple),
         var(--color-standard-black) 20%
       );
-      content: "";
       border-radius: 50%;
-      position: absolute;
+      content: "";
+      display: block;
       height: 0.375rem;
-      width: 0.375rem;
-      top: 0.25rem;
+      position: absolute;
       right: 0.25rem;
+      top: 0.25rem;
+      width: 0.375rem;
     }
     @include add-color-mix(
       background-color,
@@ -475,7 +468,7 @@
       position: absolute;
     }
 
-    .ellipse, 
+    .ellipse,
     .alert {
       @include add-color-mix(
         background-color,

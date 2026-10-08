@@ -7,60 +7,60 @@
 }
 
 .polly-ac-input {
-  width: var(--autocomplete-base-input-width);
-  height: var(--inputtext-field-height-default);
-  padding: var(--autocomplete-base-input-padding-default);
-  color: var(--autocomplete-base-input-color);
-  font-size: var(--inputtext-field-font-size);
   background: var(--inputtext-field-background-default);
   border: var(--inputtext-field-border-width)
     var(--inputtext-field-border-style)
     var(--inputtext-field-border-color-default);
   border-radius: var(--inputtext-field-border-radius);
+  color: var(--autocomplete-base-input-color);
+  font-size: var(--inputtext-field-font-size);
+  height: var(--inputtext-field-height-default);
+  padding: var(--autocomplete-base-input-padding-default);
   transition: var(--inputtext-field-transition);
-}
+  width: var(--autocomplete-base-input-width);
 
-.polly-ac-input:hover {
-  border-color: var(--inputtext-field-border-color-hover);
-}
+  &:hover {
+    border-color: var(--inputtext-field-border-color-hover);
+  }
 
-.polly-ac-input:focus {
-  border-color: var(--inputtext-field-border-color-focus);
-  outline: var(--inputtext-field-outline-width)
-    var(--inputtext-field-outline-style)
-    var(--inputtext-field-outline-color-focus);
+  &:focus {
+    border-color: var(--inputtext-field-border-color-focus);
+    outline: var(--inputtext-field-outline-width)
+      var(--inputtext-field-outline-style)
+      var(--inputtext-field-outline-color-focus);
+  }
 }
 
 .polly-ac:has(.polly-ac-dropdown) .polly-ac-input {
-  padding-right: var(--autocomplete-base-loader-dropdown-width);
-  border-start-end-radius: var(
-    --autocomplete-base-input-borderradius-withdropdown-start
-  );
   border-end-end-radius: var(
     --autocomplete-base-input-borderradius-withdropdown-end
   );
+  border-start-end-radius: var(
+    --autocomplete-base-input-borderradius-withdropdown-start
+  );
+  padding-right: var(--autocomplete-base-loader-dropdown-width);
 }
 
 /* ---- dropdown chevron ---------------------------------------------------- */
 .polly-ac-dropdown {
-  position: absolute;
-  right: var(--autocomplete-base-dropdown-position-right);
-  top: 0;
   align-self: var(--autocomplete-base-dropdown-alignself);
-  width: var(--autocomplete-base-loader-dropdown-width);
   background: var(--autocomplete-base-dropdown-backgroundcolor);
   border: var(--autocomplete-base-dropdown-border);
   color: var(--autocomplete-base-dropdown-color);
-  font-size: var(--autocomplete-base-dropdown-fontsize);
   cursor: pointer;
+  font-size: var(--autocomplete-base-dropdown-fontsize);
+  position: absolute;
+  right: var(--autocomplete-base-dropdown-position-right);
+  top: 0;
+  width: var(--autocomplete-base-loader-dropdown-width);
 }
 
 /* ---- async loader spinner ------------------------------------------------ */
 .polly-ac-loader {
+  animation: polly-spin 1s linear infinite;
+  inset-inline-end: var(--autocomplete-base-loader-default-inset);
   position: absolute;
   top: 30%;
-  inset-inline-end: var(--autocomplete-base-loader-default-inset);
-  animation: polly-spin 1s linear infinite;
 }
 
 /* nudge the spinner left of the chevron when both are shown */
@@ -78,27 +78,27 @@
   border-radius: var(--autocomplete-base-overlay-borderradius);
   box-shadow: var(--autocomplete-base-overlay-boxshadow);
   margin: var(--autocomplete-base-overlay-margin);
-  padding: var(--autocomplete-base-overlay-padding);
   overflow-y: scroll;
+  padding: var(--autocomplete-base-overlay-padding);
 }
 
 .polly-ac-list {
+  gap: var(--autocomplete-base-overlay-list-gap);
   list-style: none;
   margin: 0;
   padding: var(--autocomplete-base-overlay-list-padding);
-  gap: var(--autocomplete-base-overlay-list-gap);
 }
 
 .polly-ac-item-group {
-  padding: var(--autocomplete-base-overlay-option-padding);
   color: var(--autocomplete-base-overlay-option-color);
   font-weight: var(--autocomplete-base-overlay-option-fontweight);
+  padding: var(--autocomplete-base-overlay-option-padding);
 }
 
 .polly-ac-item {
-  padding: var(--autocomplete-base-overlay-option-padding);
-  margin: var(--autocomplete-base-overlay-option-margin);
   border: var(--autocomplete-base-overlay-option-border);
+  margin: var(--autocomplete-base-overlay-option-margin);
+  padding: var(--autocomplete-base-overlay-option-padding);
 
   background: var(--autocomplete-base-overlay-option-backgroundcolor);
   color: var(--autocomplete-base-overlay-option-color);
@@ -106,13 +106,13 @@
   font-weight: var(--autocomplete-base-overlay-option-fontweight);
   line-height: var(--autocomplete-base-overlay-option-lineheight);
 
-  word-wrap: var(--autocomplete-base-overlay-option-wordwrap);
   cursor: pointer;
-}
+  word-wrap: var(--autocomplete-base-overlay-option-wordwrap);
 
-.polly-ac-item:hover {
-  background: var(--autocomplete-base-overlay-option-hover-backgroundcolor);
-  color: var(--autocomplete-base-overlay-option-hover-color);
+  &:hover {
+    background: var(--autocomplete-base-overlay-option-hover-backgroundcolor);
+    color: var(--autocomplete-base-overlay-option-hover-color);
+  }
 }
 
 .polly-ac-item[data-p-highlight="true"],
@@ -122,27 +122,27 @@
 }
 
 .polly-ac-empty {
-  padding: var(--autocomplete-base-overlay-emptymessage-padding);
   background: var(--autocomplete-base-overlay-emptymessage-backgroundcolor);
   color: var(--autocomplete-base-overlay-emptymessage-color);
   font-size: var(--autocomplete-base-overlay-emptymessage-fontsize);
   line-height: var(--autocomplete-base-overlay-emptymessage-lineheight);
+  padding: var(--autocomplete-base-overlay-emptymessage-padding);
 }
 
 /* =========================================================================
    Multiple selection (chips)
    ========================================================================= */
 .polly-ac-container.multiple {
-  flex-wrap: wrap;
   align-items: var(--autocomplete-base-input-multiple-align-items);
+  flex-wrap: wrap;
   gap: var(--autocomplete-base-multiple-chip-gap);
   padding: var(--autocomplete-base-input-multiple-padding);
 
+  background: var(--inputtext-field-background-default);
   border: var(--inputtext-field-border-width)
     var(--inputtext-field-border-style)
     var(--inputtext-field-border-color-default);
   border-radius: var(--inputtext-field-border-radius);
-  background: var(--inputtext-field-background-default);
 
   transition:
     border-color var(--autocomplete-base-transitionduration),
@@ -163,10 +163,10 @@
 }
 
 .polly-ac-input-token input {
-  width: 100%;
+  background: transparent;
   border: none;
   outline: none;
-  background: transparent;
+  width: 100%;
 }
 
 .polly-ac.variant--tonal {
@@ -174,9 +174,9 @@
 
   & .polly-ac-input {
     background: var(--autocomplete-tonal-input-backgroundcolor-default);
-    color: var(--autocomplete-tonal-input-color-default);
     border: var(--autocomplete-tonal-input-border);
     border-radius: var(--autocomplete-tonal-input-borderradius);
+    color: var(--autocomplete-tonal-input-color-default);
   }
 
   & .polly-ac-input::placeholder {
@@ -205,13 +205,13 @@
   }
 
   & .polly-ac-dropdown::before {
-    content: "";
-    position: var(--autocomplete-tonal-dropdown-separatorline-position);
-    inset: var(--autocomplete-tonal-dropdown-separatorline-inset);
-    width: var(--autocomplete-tonal-dropdown-separatorline-width);
     background-color: var(
       --autocomplete-tonal-dropdown-separatorline-backgroundcolor
     );
+    content: "";
+    inset: var(--autocomplete-tonal-dropdown-separatorline-inset);
+    position: var(--autocomplete-tonal-dropdown-separatorline-position);
+    width: var(--autocomplete-tonal-dropdown-separatorline-width);
   }
 
   &[data-p-disabled="true"] {
@@ -221,6 +221,6 @@
 
 .polly-ac[data-p-disabled="true"],
 .polly-ac-input:disabled {
-  opacity: var(--autocomplete-base-disabled-opacity);
   cursor: not-allowed;
+  opacity: var(--autocomplete-base-disabled-opacity);
 }

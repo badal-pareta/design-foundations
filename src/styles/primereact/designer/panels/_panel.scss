@@ -1,52 +1,50 @@
 
 .polly-panel {
+  color: var(--panel-text-default);
   display: flex;
   flex-direction: column;
   gap: var(--panel-gap-container);
-  color: var(--panel-text-default);
 }
 
 .polly-panel-header {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  padding: var(--spacing-3) var(--spacing-4);
   background: var(--panel-background-header);
   border: var(--panel-border-header);
   border-radius: var(--panel-border-header-radius);
   color: var(--panel-text-header);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-3) var(--spacing-4);
 }
 
 /* title-micro (matches the primeng `@include title-micro`) */
 .polly-panel-title {
-  font-family: "Inter", sans-serif;
+  color: var(--panel-text-header);
+  font-family: var(--font-family-inter);
   font-size: 0.75rem;
   font-weight: 600;
-  line-height: 1rem;
   letter-spacing: 0.2px;
-  color: var(--panel-text-header);
+  line-height: 1rem;
 }
 
 /* wrapper around the toggle control (kept visible for the showcase; primeng's
    atlas context hides it via --panel-icon-display and toggles on header click) */
 .polly-panel-icons {
-  display: inline-flex;
   align-items: center;
+  display: inline-flex;
   justify-content: center;
 }
 
 .polly-panel-toggler {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-
-  padding: 0;
-  border: none;
   background: transparent;
+  border: none;
   color: var(--panel-icon-color);
-  font-size: var(--panel-icon-font-size);
   cursor: var(--panel-cursor-container);
+  display: inline-flex;
+  font-size: var(--panel-icon-font-size);
+  justify-content: center;
+  padding: 0;
 }
 
 .polly-panel-toggler-icon {
@@ -54,22 +52,22 @@
 }
 
 .polly-panel-content {
-  padding: var(--spacing-4);
   background: var(--panel-background-container-content);
   border-radius: var(--panel-border-container-content-radius);
   color: var(--panel-text-container-content);
   font-size: var(--font-size-body-medium);
   line-height: var(--font-height-body-medium);
+  padding: var(--spacing-4);
 }
 
 .polly-panel-footer {
-  padding: var(--panel-padding-footer);
   color: var(--panel-text-container);
+  padding: var(--panel-padding-footer);
 }
 
 .polly-panel.atlas-table-details-panel {
-  gap: var(--panel-gap-container);
   cursor: var(--panel-cursor-container);
+  gap: var(--panel-gap-container);
 
   .polly-panel-header {
     background-color: var(--panel-background-container-header);
