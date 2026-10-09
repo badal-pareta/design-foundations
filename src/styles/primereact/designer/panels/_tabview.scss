@@ -1,10 +1,10 @@
 .polly-tabview-nav {
+  border-bottom: var(--tabs-list-border);
   display: flex;
   gap: var(--tabs-list-gap);
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
-  border-bottom: var(--tabs-list-border);
 }
 
 .polly-tabview.tabs--equal .polly-tabview-nav > [data-pc-section="header"] {
@@ -12,32 +12,28 @@
 }
 
 .polly-tabview [data-pc-section="headeraction"] {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--spacing-2);
-
-  width: 100%;
-  height: var(--tabs-tab-height);
-  padding: var(--tabs-tab-padding-y) var(--tabs-tab-padding-x);
-
+  background: var(--tabs-tab-background-default);
   border: none;
   border-bottom: var(--tabs-list-inkbar-height) solid transparent;
   border-radius: var(--tabs-tab-radius);
-  background: var(--tabs-tab-background-default);
-
   color: var(--tabs-tab-color-default);
+  cursor: pointer;
+  display: flex;
   font-family: var(--tabs-tab-font-family);
   font-size: var(--tabs-tab-font-size);
   font-weight: var(--tabs-tab-font-weight);
+  gap: var(--spacing-2);
+  height: var(--tabs-tab-height);
+  justify-content: center;
   line-height: var(--tabs-tab-lineheight);
-
+  padding: var(--tabs-tab-padding-y) var(--tabs-tab-padding-x);
   text-decoration: none;
-  cursor: pointer;
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
     border-color 0.2s ease;
+  width: 100%;
 }
 
 .polly-tabview
@@ -47,8 +43,8 @@
 }
 
 .polly-tabview [data-pc-section="headeraction"][aria-selected="true"] {
-  color: var(--tabs-tab-color-active);
   border-bottom-color: var(--tabs-list-inkbar-color);
+  color: var(--tabs-tab-color-active);
 }
 
 .polly-tabview [data-pc-section="headeraction"][aria-disabled="true"] {
@@ -57,14 +53,14 @@
 }
 
 .polly-tabview-tab-content {
-  display: inline-flex;
   align-items: center;
+  display: inline-flex;
   gap: var(--spacing-2);
 }
 
 .polly-tabview-tab-icon {
-  font-size: var(--tabs-tab-icon-size);
   color: var(--tabs-tab-icon-color-default);
+  font-size: var(--tabs-tab-icon-size);
 }
 
 .polly-tabview [aria-selected="true"] .polly-tabview-tab-icon {
@@ -73,10 +69,10 @@
 
 /* Notification dot */
 .polly-tabview-tab-dot {
-  width: var(--tabs-modifier-notification-dot-size);
-  height: var(--tabs-modifier-notification-dot-size);
-  border-radius: var(--tabs-modifier-notification-dot-radius);
   background: var(--tabs-modifier-notification-dot-background);
+  border-radius: var(--tabs-modifier-notification-dot-radius);
+  height: var(--tabs-modifier-notification-dot-size);
+  width: var(--tabs-modifier-notification-dot-size);
 }
 
 .polly-tabview-inkbar {
@@ -84,8 +80,8 @@
 }
 
 .polly-tabview.size--medium [data-pc-section="headeraction"] {
-  height: var(--tabs-size-medium-tab-height);
   font-size: var(--tabs-size-medium-tab-font-size);
+  height: var(--tabs-size-medium-tab-height);
 }
 
 .polly-tabview.size--medium .polly-tabview-tab-icon {
@@ -93,14 +89,14 @@
 }
 
 .polly-tabview.variant--filled .polly-tabview-nav {
-  gap: var(--tabs-variant-filled-list-gap);
   border-bottom: none;
+  gap: var(--tabs-variant-filled-list-gap);
 }
 
 .polly-tabview.variant--filled [data-pc-section="headeraction"] {
+  background: var(--tabs-variant-filled-tab-background-default);
   border-bottom-color: transparent;
   border-radius: var(--tabs-variant-filled-tab-radius);
-  background: var(--tabs-variant-filled-tab-background-default);
 }
 
 .polly-tabview.variant--filled
@@ -111,8 +107,8 @@
 .polly-tabview.variant--filled
   [data-pc-section="headeraction"][aria-selected="true"] {
   background: var(--tabs-variant-filled-tab-background-active);
-  color: var(--tabs-variant-filled-tab-color-active);
   border-bottom-color: transparent;
+  color: var(--tabs-variant-filled-tab-color-active);
 }
 
 .polly-tabview.variant--filled [aria-selected="true"] .polly-tabview-tab-icon {
@@ -121,8 +117,8 @@
 
 .polly-tabview
   [data-pc-section="headeraction"]:has(.tab--blue)[aria-selected="true"] {
-  color: var(--color-primary-blue);
   border-bottom-color: var(--color-primary-blue);
+  color: var(--color-primary-blue);
 }
 
 .polly-tabview
@@ -132,14 +128,14 @@
 }
 
 .polly-tab-panels {
-  min-height: 0;
-  padding: var(--tabs-panel-padding);
   background: var(--tabs-panel-background);
   border: var(--tabs-panel-border);
   color: var(--tabs-panel-color);
   font-family: var(--tabs-tab-font-family);
   font-size: var(--tabs-tab-font-size);
   font-weight: var(--tabs-tab-font-weight);
+  min-height: 0;
+  padding: var(--tabs-panel-padding);
 }
 
 .polly-tab-panels > [data-pc-section="content"] {
