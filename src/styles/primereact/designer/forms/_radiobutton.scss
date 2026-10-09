@@ -1,0 +1,85 @@
+.polly-radio {
+  align-items: var(--radiobutton-base-alignitems);
+  cursor: var(--radiobutton-base-cursor);
+  display: var(--radiobutton-base-display);
+  position: relative;
+  user-select: var(--radiobutton-base-userselect);
+}
+
+.polly-radio-input {
+  cursor: var(--radiobutton-base-cursor);
+  height: 100%;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.polly-radio-box {
+  align-items: var(--radiobutton-box-alignitems);
+  background: var(--radiobutton-box-background-default);
+  background-clip: var(--radiobutton-checked-icon-backgroundclip) !important;
+  border-radius: var(--radiobutton-box-borderradius);
+  display: var(--radiobutton-box-display);
+  height: var(--radiobutton-box-height);
+  justify-content: var(--radiobutton-box-justifycontent);
+  transition: var(--radiobutton-box-transition);
+  width: var(--radiobutton-box-width);
+}
+
+.polly-radio:not(.is-disabled):active .polly-radio-box {
+  background: var(--radiobutton-box-background-active);
+}
+
+.polly-radio:not(.is-disabled):active .polly-radio-icon {
+  border-color: var(--radiobutton-icon-bordercolor-active);
+}
+
+/* the visible ring */
+.polly-radio-icon {
+  height: var(--radiobutton-icon-height);
+  width: var(--radiobutton-icon-width);
+
+  background: var(--radiobutton-icon-background-default);
+  border: var(--radiobutton-icon-borderwidth)
+    var(--radiobutton-icon-borderstyle)
+    var(--radiobutton-icon-bordercolor-default);
+  border-radius: var(--radiobutton-icon-borderradius);
+}
+
+.polly-radio.is-checked .polly-radio-icon {
+  background: var(--radiobutton-checked-icon-background);
+  background-clip: var(--radiobutton-checked-icon-backgroundclip) !important;
+  border-color: var(--radiobutton-icon-bordercolor-checked);
+  padding: var(--radiobutton-checked-icon-padding);
+  &:hover {
+    background: var(--radiobutton-checked-icon-background);
+    outline: var(--radiobutton-checked-hover-icon-outlinewidth)
+      var(--radiobutton-checked-hover-icon-outlinestyle)
+      var(--radiobutton-checked-hover-icon-outlinecolor) !important;
+    outline-offset: var(
+      --radiobutton-checked-hover-icon-outlineoffset
+    ) !important;
+  }
+}
+
+/* disabled */
+.polly-radio.is-disabled .polly-radio-box {
+  pointer-events: var(--radiobutton-disabled-box-pointerevents);
+}
+
+.polly-radio.is-disabled .polly-radio-icon {
+  border-color: var(--radiobutton-disabled-icon-bordercolor);
+}
+
+.polly-radio.is-checked.is-disabled .polly-radio-icon {
+  background: var(--radiobutton-disabled-icon-bordercolor);
+  border-color: var(--radiobutton-disabled-icon-bordercolor);
+}
+
+/* medium size */
+.polly-radio.size--md .polly-radio-box {
+  height: var(--radiobutton-medium-box-height);
+  width: var(--radiobutton-medium-box-width);
+}

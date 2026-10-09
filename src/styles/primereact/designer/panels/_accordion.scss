@@ -1,0 +1,115 @@
+.polly-accordion {}
+
+.polly-accordion-tab {
+  border: var(--accordion-panel-border);
+  border-color: var(--accordion-header-border-color);
+}
+
+.polly-accordion-header {
+  align-items: var(--accordion-header-alignitems);
+  background: var(--accordion-header-background-default);
+  border: 0;
+  border-bottom: var(--accordion-header-border-default);
+  border-radius: var(--accordion-header-radius-default);
+  color: var(--accordion-header-color-default);
+  display: var(--accordion-header-display);
+  justify-content: var(--accordion-header-justifycontent);
+  margin-bottom: var(--accordion-header-margin-bottom);
+  padding: var(--accordion-header-padding-default);
+  position: var(--accordion-header-position);
+
+  cursor: pointer;
+  transition: var(--accordion-header-transition);
+  user-select: var(--accordion-header-userselect);
+
+  /* hover only on interactive (not disabled / not already open) headers */
+  &:not([data-p-disabled="true"]):not([data-p-highlight="true"]):hover {
+    background: var(--accordion-header-background-hover);
+    color: var(--accordion-header-color-hover);
+  }
+
+  &:not([data-p-disabled="true"]):not([data-p-highlight="true"]):hover
+    .polly-accordion-icon {
+    color: var(--accordion-icon-color-hover);
+  }
+
+  &[data-p-highlight="true"] {
+    background: var(--accordion-header-background-active);
+    border: 0;
+    border-bottom: var(--accordion-header-border-active);
+    border-radius: var(--accordion-header-radius-active);
+    color: var(--accordion-header-color-active);
+  }
+
+  &[data-p-highlight="true"] .polly-accordion-title {
+    color: var(--accordion-title-color-active);
+  }
+
+  /* disabled */
+  &[data-p-disabled="true"] {
+    background: var(--accordion-state-disabled-header-background);
+    color: var(--accordion-state-disabled-header-color);
+    cursor: var(--accordion-state-disabled-header-cursor);
+    opacity: var(--accordion-state-disabled-content-opacity);
+  }
+
+  &[data-p-disabled="true"] .polly-accordion-title,
+  &[data-p-disabled="true"] .polly-accordion-icon {
+    color: var(--accordion-state-disabled-title-color);
+  }
+
+  &[data-p-highlight="true"] .polly-accordion-icon {
+    color: var(--accordion-icon-color-active);
+  }
+}
+
+.polly-accordion-header-action {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  flex-direction: row-reverse;
+  font: inherit;
+  gap: var(--spacing-2);
+  padding: 0;
+  text-decoration: none;
+}
+
+.polly-accordion-title {
+  color: var(--accordion-title-color-default);
+  font-size: var(--accordion-title-fontsize);
+  font-weight: var(--accordion-title-fontweight);
+  line-height: var(--accordion-title-lineheight);
+  margin: var(--accordion-title-margin);
+}
+
+.polly-accordion-icon {
+  color: var(--accordion-icon-color-default);
+  font-size: var(--accordion-icon-size);
+  transform: var(--accordion-icon-transform-default);
+  transition: var(--accordion-icon-transition);
+}
+
+.polly-accordion-content {
+  background: var(--accordion-content-background);
+  border-bottom: var(--accordion-content-border-bottom);
+  display: var(--accordion-content-display);
+  gap: var(--accordion-content-gap);
+  padding: var(--accordion-content-padding-default);
+
+  font-size: var(--accordion-content-fontsize);
+  font-weight: var(--accordion-content-fontweight);
+  line-height: var(--accordion-content-lineheight);
+}
+
+/* size--sm — compact padding (mirrors primeng's `.size-small`, which only tightens
+   header + content padding via the dedicated tokens). Add `size--sm` to <Accordion>. */
+.polly-accordion.size--sm {
+  .polly-accordion-header {
+    padding: var(--accordion-size-small-header-padding);
+  }
+
+  .polly-accordion-content {
+    padding: var(--accordion-size-small-content-padding);
+  }
+}

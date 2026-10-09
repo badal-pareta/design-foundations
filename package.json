@@ -7,6 +7,7 @@
   "main": "./dist/styles/index.css",
   "style": "./dist/styles/index.css",
   "primeng": "./dist/styles/primeng.css",
+  "primereact": "./dist/styles/primereact.css",
   "types": "./dist/index.d.ts",
   "sideEffects": [
     "*.css"
@@ -21,13 +22,15 @@
     ".": "./dist/styles/index.css",
     "./styles": "./dist/styles/index.css",
     "./primeng": "./dist/styles/primeng.css",
+    "./primereact": "./dist/styles/primereact.css",
     "./fonts/*": "./dist/fonts/*"
   },
   "scripts": {
     "clean": "rm -rf dist",
     "build:scss:default": "sass src/styles/foundation/index.scss:dist/styles/index.css --no-source-map --load-path=src/styles",
     "build:scss:primeng": "sass src/styles/primeng/primeng-full.scss:dist/styles/primeng.css --no-source-map --load-path=src/styles",
-    "build:scss": "npm run build:scss:default && npm run build:scss:primeng",
+    "build:scss:primereact": "sass src/styles/primereact/primereact.scss:dist/styles/primereact.css --no-source-map --load-path=src/styles",
+    "build:scss": "npm run build:scss:default && npm run build:scss:primeng && npm run build:scss:primereact",
     "build:copy": "mkdir -p dist/fonts && cp -r src/fonts/* dist/fonts/ 2>/dev/null || true",
     "build": "npm run clean && npm run build:scss && npm run build:copy",
     "prepare": "npm run build",

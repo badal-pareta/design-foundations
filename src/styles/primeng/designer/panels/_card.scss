@@ -49,7 +49,6 @@ body {
     &.active {
       .p-card {
         background-color: var(--card-bg-active);
-        // border: var(--card-border-width) var(--card-border-style) var(--card-border-active);
       }
 
       &:not(&.material) {

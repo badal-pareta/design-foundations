@@ -1,0 +1,25 @@
+.polly-skeleton {
+  background: var(--skeleton-background-default);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+
+  &.dark {
+    background-color: var(--skeleton-background-dark);
+  }
+
+  &::after {
+    animation: polly-skeleton-shimmer 1.2s ease-in-out infinite;
+    background: var(--skeleton-background-after-default);
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes polly-skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,0 +1,73 @@
+
+.polly-chip {
+  background: var(--chip-filled-primary-backgroundcolor-default);
+  border: var(--chip-filled-primary-border-default);
+  border-radius: var(--chip-base-borderradius);
+  color: var(--chip-filled-primary-color-default);
+  gap: var(--chip-base-gap);
+  padding: var(--chip-base-padding);
+  transition: var(--chip-base-transition);
+
+  &:hover {
+    background: var(--chip-filled-primary-backgroundcolor-hover);
+    border: var(--chip-filled-primary-border-hover);
+    color: var(--chip-filled-primary-color-hover);
+  }
+
+  &:active {
+    background: var(--chip-filled-primary-backgroundcolor-active);
+    border: var(--chip-filled-primary-border-active);
+    color: var(--chip-filled-primary-color-active);
+  }
+
+  &:focus,
+  &:focus-visible {
+    background: var(--chip-filled-primary-backgroundcolor-focused);
+    border: var(--chip-filled-primary-border-focused);
+    color: var(--chip-filled-primary-color-focused);
+    outline: var(--chip-focus-outline);
+    outline-offset: var(--chip-focus-outlineoffset);
+  }
+
+  &.is-disabled {
+    background: var(--chip-filled-primary-backgroundcolor-disabled);
+    border: var(--chip-filled-primary-border-disabled);
+    color: var(--chip-filled-primary-color-disabled);
+    pointer-events: none;
+  }
+
+  &.variant--error {
+    background: var(--chip-filled-primary-backgroundcolor-error);
+    border: var(--chip-filled-primary-border-error);
+    color: var(--chip-filled-primary-color-error);
+  }
+}
+
+.polly-chip-icon,
+.polly-chip-remove {
+  color: var(--chip-icon-color);
+  font-size: var(--chip-icon-size);
+  height: var(--chip-icon-size);
+  outline: none;
+  width: var(--chip-icon-size);
+}
+
+.polly-chip-remove {
+  cursor: pointer;
+  &:focus-visible {
+    outline: var(--chip-focus-outline);
+    outline-offset: var(--chip-focus-outlineoffset);
+  }
+}
+
+.polly-chip-label {
+  overflow-wrap: var(--chip-label-overflowwrap);
+  word-break: var(--chip-label-wordbreak);
+}
+
+.polly-chip-image {
+  border-radius: 50%;
+  height: var(--chip-icon-size);
+  object-fit: cover;
+  width: var(--chip-icon-size);
+}

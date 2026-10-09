@@ -1,0 +1,98 @@
+.polly-switch {
+  align-items: var(--toggleswitch-base-alignitems);
+  background: var(--toggleswitch-base-background);
+  display: var(--toggleswitch-base-display);
+  height: var(--toggleswitch-base-height);
+  position: var(--toggleswitch-base-position);
+  width: var(--toggleswitch-base-width);
+
+  /* ON */
+  &.is-checked .polly-switch-slider {
+    background: var(--toggleswitch-slider-background-on);
+    border-color: var(--toggleswitch-slider-border-color-on);
+  }
+
+  &.is-checked .polly-switch-slider::before {
+    background: var(--toggleswitch-handle-background-on);
+    transform: translateX(var(--toggleswitch-handle-translatex-on));
+  }
+
+  &.is-checked:hover .polly-switch-slider {
+    background: var(--toggleswitch-slider-background-onhover);
+  }
+
+  &:has(:focus-visible) .polly-switch-slider::before {
+    outline: var(--toggleswitch-focus-handle-outline);
+  }
+
+  &:active .polly-switch-slider::before {
+    box-shadow: var(--toggleswitch-active-handle-boxshadow);
+    outline: var(--toggleswitch-active-handle-outline);
+  }
+
+  &.size--medium:has(:focus-visible) .polly-switch-slider::before {
+    outline: var(--toggleswitch-medium-outline-width)
+      var(--toggleswitch-outline-style) var(--toggleswitch-outline-color-focus);
+  }
+
+  &.size--medium:active .polly-switch-slider::before {
+    box-shadow: var(--toggleswitch-medium-active-boxshadow);
+    outline: var(--toggleswitch-medium-active-outline);
+  }
+
+  &.is-disabled {
+    opacity: var(--toggleswitch-disabled-opacity);
+
+    & .polly-switch-slider::before {
+      background: var(--toggleswitch-disabled-handle-background);
+    }
+
+    &.is-checked .polly-switch-slider {
+      background: var(--toggleswitch-slider-background-on);
+      border-color: var(--toggleswitch-slider-border-color-on);
+
+      &::before {
+        background: var(--toggleswitch-handle-background-on);
+        transform: translateX(var(--toggleswitch-handle-translatex-on));
+      }
+    }
+  }
+}
+
+.polly-switch-input {
+  cursor: pointer;
+  height: 100%;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.polly-switch-slider {
+  background: var(--toggleswitch-slider-background-off);
+  border: var(--toggleswitch-slider-border-width)
+    var(--toggleswitch-slider-border-style)
+    var(--toggleswitch-slider-border-color-off);
+  border-radius: var(--toggleswitch-slider-borderradius);
+  cursor: pointer;
+  height: var(--toggleswitch-slider-height);
+  position: var(--toggleswitch-slider-position);
+  transition: var(--toggleswitch-slider-transition);
+  width: var(--toggleswitch-slider-width);
+
+  /* knob */
+  &::before {
+    background: var(--toggleswitch-handle-background-off);
+    border-radius: var(--toggleswitch-handle-borderradius);
+    box-shadow: var(--toggleswitch-handle-shadow);
+    content: "";
+    height: var(--toggleswitch-handle-height);
+    left: var(--toggleswitch-handle-left);
+    position: var(--toggleswitch-handle-position);
+    top: var(--toggleswitch-handle-top);
+    transition: transform var(--toggleswitch-handle-transition);
+    width: var(--toggleswitch-handle-width);
+  }
+}

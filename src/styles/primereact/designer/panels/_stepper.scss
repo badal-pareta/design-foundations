@@ -1,0 +1,61 @@
+.polly-stepper-nav {
+  list-style: none;
+}
+
+.polly-step {
+  padding: var(--stepper-step-padding);
+  position: relative;
+}
+
+.polly-step-action {
+  background: var(--stepper-step-header-background);
+  border: var(--stepper-step-header-border);
+  border-radius: var(--stepper-step-header-borderradius);
+  cursor: pointer;
+  gap: var(--stepper-step-header-gap);
+  padding: var(--stepper-step-header-padding);
+}
+
+.polly-step-number {
+  background: var(--stepper-step-number-background-default);
+  border-radius: var(--stepper-step-number-borderradius);
+  color: var(--stepper-step-number-color-default);
+  height: var(--stepper-step-number-height);
+  min-width: var(--stepper-step-number-minwidth);
+  position: relative;
+  z-index: 2;
+}
+
+.polly-step-title {
+  color: var(--stepper-step-title-color-default);
+}
+
+.polly-step-separator {
+  background: var(--stepper-separator-background-default);
+  height: var(--stepper-separator-height);
+  left: 50%;
+  position: absolute;
+  top: calc(var(--stepper-step-number-height) / 2);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.polly-step:last-child .polly-step-separator {
+  display: none;
+}
+
+.polly-step[data-p-active="true"] .polly-step-number {
+  background: var(--stepper-step-number-background-active);
+  border: var(--stepper-step-number-border-active);
+  box-shadow: var(--stepper-step-number-shadow-active);
+  color: var(--stepper-step-number-color-active);
+}
+
+.polly-stepper-panels {
+  padding: var(--stepper-steppanels-padding);
+}
+
+.polly-step-panel {
+  background: var(--stepper-steppanel-background);
+  color: var(--stepper-steppanel-color);
+}

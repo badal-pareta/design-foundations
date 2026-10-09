@@ -1,0 +1,36 @@
+.polly-progressbar-container {
+  height: var(--progressbar-container-height-default);
+  background: var(--progressbar-container-background-default);
+  border: var(--progressbar-container-border);
+  border-radius: var(--progressbar-container-borderradius);
+  overflow: hidden;
+  /* small height */
+  &.size--sm {
+    height: var(--progressbar-container-height-small);
+  }
+
+  /* status variants */
+  &.variant--success .polly-progressbar-value {
+    background: var(--progressbar-value-background-success);
+  }
+  &.variant--danger .polly-progressbar-value {
+    background: var(--progressbar-value-background-danger);
+  }
+  &.variant--running .polly-progressbar-value {
+    background: var(--progressbar-value-background-running);
+  }
+  &.variant--preprocessing .polly-progressbar-value {
+    background: var(--progressbar-value-background-preprocessing);
+  }
+}
+
+.polly-progressbar-value {
+  background: var(--progressbar-value-background-default);
+  transition: width 0.3s ease;
+}
+
+.polly-progressbar-label {
+  color: var(--color-standard-white);
+  font-size: var(--font-size-label-micro);
+  font-weight: var(--font-weight-medium);
+}

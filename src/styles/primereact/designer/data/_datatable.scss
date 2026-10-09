@@ -1,0 +1,341 @@
+.polly-table {
+  font-family: var(--table-base-fontfamily);
+}
+
+.polly-table-el {
+  border-collapse: collapse;
+}
+
+/* ---- header ---- */
+.polly-table-header-row {
+  border-bottom: var(--table-base-header-row-borderbottom);
+}
+
+.polly-table-th {
+  background: var(--table-base-header-cell-background);
+  border: var(--table-base-header-cell-border);
+  border-bottom: var(--table-base-header-cell-borderbottom);
+  border-right: var(--table-base-header-cell-borderright);
+  color: var(--table-base-header-cell-color);
+  padding: var(--table-base-header-cell-padding);
+  text-align: left;
+  white-space: nowrap;
+
+  &.color-alternate {
+    background: var(--table-base-header-cell-coloralternate-background);
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+.polly-table-th-content {
+  gap: var(--spacing-1);
+}
+
+.polly-table-sort {
+  color: var(--table-base-header-cell-color);
+  cursor: pointer;
+}
+
+/* ---- body ---- */
+.polly-table-td {
+  border: var(--table-base-body-cell-border);
+  border-bottom: var(--table-base-body-cell-borderbottom);
+  border-right: var(--table-base-body-cell-borderright);
+  color: var(--table-base-body-cell-color);
+  padding: var(--table-base-body-cell-padding);
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  /* per-cell size overrides (add `size-large|medium|small` via Column bodyClassName) */
+  &.size-large {
+    padding: var(--table-base-body-cell-size-large-padding);
+  }
+  &.size-medium {
+    padding: var(--table-base-body-cell-size-medium-padding);
+  }
+  &.size-small {
+    padding: var(--table-base-body-cell-size-small-padding);
+  }
+}
+
+/* ---- rows: striping, hover, active, selected ---- */
+.polly-table-row {
+  background: var(--table-base-body-row-background);
+
+  &:nth-child(odd) {
+    background: var(--table-base-body-row-odd-background);
+  }
+
+  &:hover {
+    background: var(--table-base-body-row-hover-background);
+  }
+
+  &:hover:nth-child(odd) {
+    background: var(--table-base-body-row-hover-odd-background);
+  }
+}
+
+.polly-table-empty {
+  color: var(--table-base-body-cell-color);
+  padding: var(--table-base-body-cell-padding);
+  text-align: center;
+}
+
+/* =========================================================
+   Variant: skeleton — loading placeholder styling.
+   ========================================================= */
+.polly-table.skeleton {
+  & .polly-table-header-row {
+    background: var(--table-skeleton-header-row-background);
+    border: var(--table-skeleton-header-row-border);
+  }
+
+  & .polly-table-th {
+    background: var(--table-skeleton-header-cell-background);
+    border: var(--table-skeleton-header-cell-border);
+    padding: var(--table-skeleton-header-cell-padding);
+  }
+
+  & .polly-table-td {
+    padding: var(--table-skeleton-body-cell-padding);
+  }
+}
+/* =========================================================
+   Variant: clear — borderless list (no cell borders / stripes).
+   ========================================================= */
+.polly-table.clear {
+  & .polly-table-header-row {
+    border: var(--table-clear-header-row-border);
+  }
+
+  & .polly-table-th {
+    color: var(--table-clear-header-cell-color);
+  }
+
+  & .polly-table-row {
+    background: var(--table-clear-body-row-background);
+  }
+
+  & .polly-table-row:is(:hover, :active) {
+    background: var(--table-clear-body-row-hover-background);
+  }
+
+  & .polly-table-td {
+    border: var(--table-clear-body-cell-border);
+  }
+}
+/* =========================================================
+   Variant: vertical — vertical gridlines only.
+   ========================================================= */
+.polly-table.vertical {
+  border: var(--table-vertical-container-border);
+
+  & .polly-table-th:not(:last-child) {
+    border-right: var(--table-vertical-header-cell-borderright);
+  }
+
+  & .polly-table-td:not(:last-child) {
+    border-right: var(--table-vertical-body-cell-borderright);
+  }
+}
+
+/* =========================================================
+   Variant: rounded — rounded, outlined container clipping corners.
+   ========================================================= */
+.polly-table.rounded {
+  border-radius: var(--table-rounded-container-borderradius);
+  overflow: var(--table-rounded-container-overflow);
+}
+
+/* --- type-simplified: compact, cell-gridlined --- */
+.polly-table.type-simplified {
+  & .polly-table-th {
+    background: var(--table-qubittable-types-simplified-header-cell-background);
+    border-bottom: var(
+      --table-qubittable-types-simplified-header-cell-borderbottom
+    );
+    border-right: var(
+      --table-qubittable-types-simplified-header-cell-borderright
+    );
+  }
+
+  & .polly-table-row {
+    background: var(--table-qubittable-types-simplified-body-row-background);
+    border: var(--table-qubittable-types-simplified-body-row-border);
+  }
+
+  & .polly-table-row:nth-child(even) {
+    background: var(
+      --table-qubittable-types-simplified-body-row-even-background
+    );
+  }
+
+  & .polly-table-td {
+    background: var(--table-qubittable-types-simplified-body-cell-background);
+    border-bottom: var(
+      --table-qubittable-types-simplified-body-cell-borderbottom
+    );
+    border-right: var(
+      --table-qubittable-types-simplified-body-cell-borderright
+    );
+  }
+}
+
+/* --- type-display: clean striped display rows (no gridlines) --- */
+.polly-table.type-display {
+  & .polly-table-th {
+    background: var(--table-qubittable-types-display-header-cell-background);
+    border-bottom: var(
+      --table-qubittable-types-display-header-cell-borderbottom
+    );
+  }
+
+  & .polly-table-td {
+    border: none;
+  }
+
+  & .polly-table-row {
+    background: var(--table-qubittable-types-display-body-row-background);
+    border: var(--table-qubittable-types-display-body-row-border);
+  }
+
+  & .polly-table-row:nth-child(even) {
+    background: var(--table-qubittable-types-display-body-row-even-background);
+  }
+
+  & .polly-table-row:hover {
+    background: var(--table-qubittable-types-display-body-row-hover-background);
+  }
+}
+
+.polly-table.type-display .polly-table-row[data-p-highlight="true"],
+.polly-table.type-display .polly-table-row:active {
+  background: var(
+    --table-qubittable-types-display-body-row-selected-background
+  );
+}
+
+.polly-table.type-island .polly-table-header-row,
+.polly-table.type-island .polly-table-row {
+  align-items: center;
+  display: flex;
+}
+
+.polly-table.type-island .polly-table-th,
+.polly-table.type-island .polly-table-td {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.polly-table.type-island .polly-table-td {
+  border: none;
+}
+
+.polly-table.type-island .polly-table-header-row {
+  background: var(--table-qubittable-types-island-header-row-background);
+  border: var(--table-qubittable-types-island-header-row-border);
+  border-radius: var(--table-qubittable-types-island-header-row-borderradius);
+  margin-bottom: var(--table-qubittable-types-island-header-row-marginbottom);
+}
+
+.polly-table.type-island .polly-table-th {
+  background: var(--table-qubittable-types-island-header-cell-background);
+  border: var(--table-qubittable-types-island-header-cell-border);
+  // padding: var(--table-qubittable-types-island-header-cell-padding);
+}
+
+.polly-table.type-island .polly-table-row {
+  background: var(--table-qubittable-types-island-body-row-background);
+  border: var(--table-qubittable-types-island-body-row-border);
+  border-radius: var(--table-qubittable-types-island-body-row-borderradius);
+  margin-bottom: var(--table-qubittable-types-island-body-row-marginbottom);
+  padding: var(--table-qubittable-types-island-body-row-padding);
+}
+
+.polly-table.type-island .polly-table-row:hover {
+  background: var(--table-qubittable-types-island-body-row-hover-background);
+}
+
+.polly-table.type-island .polly-table-row[data-p-highlight="true"],
+.polly-table.type-island .polly-table-row:active {
+  background: var(--table-qubittable-types-island-body-row-selected-background);
+}
+
+.polly-table-wrapper {
+  overflow: auto;
+}
+
+.polly-table-wrapper .polly-table-thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.polly-table-th:has(> .polly-table-col-resizer) {
+  background-clip: var(
+    --table-base-resizable-thead-th-columnresizable-backgroundclip,
+    padding-box
+  );
+  position: var(
+    --table-base-resizable-thead-th-columnresizable-position,
+    relative
+  );
+}
+
+/* resizable cells clip so a drag doesn't wrap the content */
+.polly-table-el:has(.polly-table-col-resizer) .polly-table-th,
+.polly-table-el:has(.polly-table-col-resizer) .polly-table-td {
+  overflow: var(--table-base-resizable-thead-th-overflow, hidden);
+  white-space: var(--table-base-resizable-thead-th-whitespace, nowrap);
+}
+
+.polly-table-col-resizer {
+  border: var(
+    --table-base-resizable-columnresizer-border,
+    1px solid transparent
+  );
+  cursor: var(--table-base-resizable-columnresizer-cursor, col-resize);
+  display: var(--table-base-resizable-columnresizer-display, block);
+  height: var(--table-base-resizable-columnresizer-height, 100%);
+  margin: var(--table-base-resizable-columnresizer-margin, 0);
+  padding: var(--table-base-resizable-columnresizer-padding, 0);
+  position: var(--table-base-resizable-columnresizer-position, absolute);
+  right: var(--table-base-resizable-columnresizer-right, 0);
+  top: var(--table-base-resizable-columnresizer-top, 0);
+  width: var(--table-base-resizable-columnresizer-width, 0.5rem);
+}
+
+.polly-table-resize-helper {
+  background-color: var(
+    --table-base-resizable-columnresizeindicator-background,
+    var(--primary-500, #7c3aed)
+  );
+  position: var(
+    --table-base-resizable-columnresizeindicator-position,
+    absolute
+  );
+  width: var(--table-base-resizable-columnresizeindicator-width, 1px);
+  z-index: var(--table-base-resizable-columnresizeindicator-zindex, 10);
+}
+
+.polly-table-th:has(.polly-checkbox),
+.polly-table-td:has(.polly-checkbox) {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+.polly-table-th:has(.polly-checkbox) .polly-checkbox,
+.polly-table-td:has(.polly-checkbox) .polly-checkbox {
+  display: inline-flex;
+}
+
+.polly-table-th:has(.polly-checkbox) .polly-table-th-content {
+  gap: 0;
+  justify-content: center;
+}

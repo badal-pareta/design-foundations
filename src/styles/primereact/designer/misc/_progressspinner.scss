@@ -1,0 +1,55 @@
+.polly-spinner-root {
+  height: 5rem;
+  width: 5rem;
+
+  &.size--sm {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  &.size--md {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  &.size--lg {
+    height: 5rem;
+    width: 5rem;
+  }
+}
+
+.polly-spinner-svg {
+  animation: polly-spinner-rotate 2s linear infinite;
+}
+
+.polly-spinner-circle {
+  animation: polly-spinner-dash var(--progressspinner-animation-dash-duration)
+    var(--progressspinner-animation-dash-timing)
+    var(--progressspinner-animation-dash-iteration);
+  stroke: var(--color-primary-purple);
+  stroke-linecap: round;
+  stroke-width: 0.1875rem;
+}
+
+@keyframes polly-spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes polly-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -124;
+  }
+}

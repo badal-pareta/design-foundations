@@ -1,0 +1,226 @@
+.polly-ac {
+  position: relative;
+}
+
+.polly-ac-container {
+  position: relative;
+}
+
+.polly-ac-input {
+  background: var(--inputtext-field-background-default);
+  border: var(--inputtext-field-border-width)
+    var(--inputtext-field-border-style)
+    var(--inputtext-field-border-color-default);
+  border-radius: var(--inputtext-field-border-radius);
+  color: var(--autocomplete-base-input-color);
+  font-size: var(--inputtext-field-font-size);
+  height: var(--inputtext-field-height-default);
+  padding: var(--autocomplete-base-input-padding-default);
+  transition: var(--inputtext-field-transition);
+  width: var(--autocomplete-base-input-width);
+
+  &:hover {
+    border-color: var(--inputtext-field-border-color-hover);
+  }
+
+  &:focus {
+    border-color: var(--inputtext-field-border-color-focus);
+    outline: var(--inputtext-field-outline-width)
+      var(--inputtext-field-outline-style)
+      var(--inputtext-field-outline-color-focus);
+  }
+}
+
+.polly-ac:has(.polly-ac-dropdown) .polly-ac-input {
+  border-end-end-radius: var(
+    --autocomplete-base-input-borderradius-withdropdown-end
+  );
+  border-start-end-radius: var(
+    --autocomplete-base-input-borderradius-withdropdown-start
+  );
+  padding-right: var(--autocomplete-base-loader-dropdown-width);
+}
+
+/* ---- dropdown chevron ---------------------------------------------------- */
+.polly-ac-dropdown {
+  align-self: var(--autocomplete-base-dropdown-alignself);
+  background: var(--autocomplete-base-dropdown-backgroundcolor);
+  border: var(--autocomplete-base-dropdown-border);
+  color: var(--autocomplete-base-dropdown-color);
+  cursor: pointer;
+  font-size: var(--autocomplete-base-dropdown-fontsize);
+  position: absolute;
+  right: var(--autocomplete-base-dropdown-position-right);
+  top: 0;
+  width: var(--autocomplete-base-loader-dropdown-width);
+}
+
+/* ---- async loader spinner ------------------------------------------------ */
+.polly-ac-loader {
+  animation: polly-spin 1s linear infinite;
+  inset-inline-end: var(--autocomplete-base-loader-default-inset);
+  position: absolute;
+  top: 30%;
+}
+
+/* nudge the spinner left of the chevron when both are shown */
+.polly-ac:has(.polly-ac-dropdown) .polly-ac-loader {
+  inset-inline-end: calc(
+    var(--autocomplete-base-loader-dropdown-width) +
+      var(--autocomplete-base-loader-dropdown-padding-x)
+  );
+}
+
+/* ---- overlay panel + options -------------------------------------------- */
+.polly-ac-panel {
+  background: var(--autocomplete-base-overlay-background);
+  border: var(--autocomplete-base-overlay-border);
+  border-radius: var(--autocomplete-base-overlay-borderradius);
+  box-shadow: var(--autocomplete-base-overlay-boxshadow);
+  margin: var(--autocomplete-base-overlay-margin);
+  overflow-y: scroll;
+  padding: var(--autocomplete-base-overlay-padding);
+}
+
+.polly-ac-list {
+  gap: var(--autocomplete-base-overlay-list-gap);
+  list-style: none;
+  margin: 0;
+  padding: var(--autocomplete-base-overlay-list-padding);
+}
+
+.polly-ac-item-group {
+  color: var(--autocomplete-base-overlay-option-color);
+  font-weight: var(--autocomplete-base-overlay-option-fontweight);
+  padding: var(--autocomplete-base-overlay-option-padding);
+}
+
+.polly-ac-item {
+  border: var(--autocomplete-base-overlay-option-border);
+  margin: var(--autocomplete-base-overlay-option-margin);
+  padding: var(--autocomplete-base-overlay-option-padding);
+
+  background: var(--autocomplete-base-overlay-option-backgroundcolor);
+  color: var(--autocomplete-base-overlay-option-color);
+  font-size: var(--autocomplete-base-overlay-option-fontsize);
+  font-weight: var(--autocomplete-base-overlay-option-fontweight);
+  line-height: var(--autocomplete-base-overlay-option-lineheight);
+
+  cursor: pointer;
+  word-wrap: var(--autocomplete-base-overlay-option-wordwrap);
+
+  &:hover {
+    background: var(--autocomplete-base-overlay-option-hover-backgroundcolor);
+    color: var(--autocomplete-base-overlay-option-hover-color);
+  }
+}
+
+.polly-ac-item[data-p-highlight="true"],
+.polly-ac-item[data-p-focus="true"] {
+  background: var(--autocomplete-base-overlay-option-highlight-backgroundcolor);
+  color: var(--autocomplete-base-overlay-option-highlight-color);
+}
+
+.polly-ac-empty {
+  background: var(--autocomplete-base-overlay-emptymessage-backgroundcolor);
+  color: var(--autocomplete-base-overlay-emptymessage-color);
+  font-size: var(--autocomplete-base-overlay-emptymessage-fontsize);
+  line-height: var(--autocomplete-base-overlay-emptymessage-lineheight);
+  padding: var(--autocomplete-base-overlay-emptymessage-padding);
+}
+
+/* =========================================================================
+   Multiple selection (chips)
+   ========================================================================= */
+.polly-ac-container.multiple {
+  align-items: var(--autocomplete-base-input-multiple-align-items);
+  flex-wrap: wrap;
+  gap: var(--autocomplete-base-multiple-chip-gap);
+  padding: var(--autocomplete-base-input-multiple-padding);
+
+  background: var(--inputtext-field-background-default);
+  border: var(--inputtext-field-border-width)
+    var(--inputtext-field-border-style)
+    var(--inputtext-field-border-color-default);
+  border-radius: var(--inputtext-field-border-radius);
+
+  transition:
+    border-color var(--autocomplete-base-transitionduration),
+    box-shadow var(--autocomplete-base-transitionduration),
+    outline-color var(--autocomplete-base-transitionduration);
+}
+
+/* focus ring on the whole field while the inner input is focused */
+.polly-ac-container.multiple:focus-within {
+  border-color: var(--autocomplete-base-input-multiple-focus-border-color);
+  box-shadow: var(--autocomplete-base-input-multiple-focus-box-shadow);
+  outline: var(--autocomplete-base-input-multiple-focus-outline);
+  outline-offset: var(--autocomplete-base-input-multiple-focus-outline-offset);
+}
+
+.polly-ac-input-token {
+  flex: 1 1 auto;
+}
+
+.polly-ac-input-token input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.polly-ac.variant--tonal {
+  border-radius: var(--autocomplete-tonal-input-borderradius);
+
+  & .polly-ac-input {
+    background: var(--autocomplete-tonal-input-backgroundcolor-default);
+    border: var(--autocomplete-tonal-input-border);
+    border-radius: var(--autocomplete-tonal-input-borderradius);
+    color: var(--autocomplete-tonal-input-color-default);
+  }
+
+  & .polly-ac-input::placeholder {
+    color: var(--autocomplete-tonal-input-placeholder-color);
+  }
+
+  & .polly-ac-input:hover {
+    background: var(--autocomplete-tonal-input-backgroundcolor-hover);
+    color: var(--autocomplete-tonal-input-color-hover);
+  }
+
+  & .polly-ac-input:focus {
+    background: var(--autocomplete-tonal-input-backgroundcolor-focus);
+    color: var(--autocomplete-tonal-input-color-focus);
+    outline: var(--autocomplete-tonal-input-outline);
+  }
+
+  & .polly-ac-input:disabled {
+    background: var(--autocomplete-tonal-input-backgroundcolor-disabled);
+    color: var(--autocomplete-tonal-input-color-disabled);
+    outline: var(--autocomplete-tonal-input-outline);
+  }
+
+  & .polly-ac-dropdown {
+    color: var(--autocomplete-tonal-dropdown-icon-color);
+  }
+
+  & .polly-ac-dropdown::before {
+    background-color: var(
+      --autocomplete-tonal-dropdown-separatorline-backgroundcolor
+    );
+    content: "";
+    inset: var(--autocomplete-tonal-dropdown-separatorline-inset);
+    position: var(--autocomplete-tonal-dropdown-separatorline-position);
+    width: var(--autocomplete-tonal-dropdown-separatorline-width);
+  }
+
+  &[data-p-disabled="true"] {
+    opacity: var(--autocomplete-tonal-disabled-opacity);
+  }
+}
+
+.polly-ac[data-p-disabled="true"],
+.polly-ac-input:disabled {
+  cursor: not-allowed;
+  opacity: var(--autocomplete-base-disabled-opacity);
+}

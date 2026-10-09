@@ -1,0 +1,78 @@
+.polly-checkbox {
+  cursor: var(--checkbox-cursor-default);
+  display: var(--checkbox-display);
+  position: var(--checkbox-position);
+  vertical-align: var(--checkbox-verticalalign);
+
+  &:hover .polly-checkbox-box:not([data-p-highlight="true"]) {
+    border-color: var(--checkbox-border-color-hover);
+    color: var(--checkbox-icon-color-default);
+  }
+
+  /* sizes */
+  &.size--sm .polly-checkbox-box {
+    height: var(--checkbox-size-small-height);
+    width: var(--checkbox-size-small-width);
+  }
+
+  &.size--lg .polly-checkbox-box {
+    height: var(--checkbox-size-large-height);
+    width: var(--checkbox-size-large-width);
+  }
+
+  &.error .polly-checkbox-box:not([data-p-disabled="true"]) {
+    border-color: var(--checkbox-border-color-error);
+  }
+
+  &.error
+    .polly-checkbox-box[data-p-highlight="true"]:not([data-p-disabled="true"]) {
+    background: var(--checkbox-background-error);
+    border-color: var(--checkbox-border-color-error);
+  }
+}
+
+/* native input as an invisible click overlay */
+.polly-checkbox-input {
+  cursor: var(--checkbox-cursor-default);
+  height: 100%;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.polly-checkbox-box {
+  align-items: var(--checkbox-box-alignitems);
+  display: var(--checkbox-box-display);
+  justify-content: var(--checkbox-box-justifycontent);
+
+  height: var(--checkbox-size-medium-height);
+  width: var(--checkbox-size-medium-width);
+
+  background: var(--checkbox-background-default);
+  border: var(--checkbox-border-width) solid
+    var(--checkbox-border-color-default);
+  border-radius: var(--checkbox-border-radius);
+
+  cursor: var(--checkbox-cursor-default);
+  transition: var(--checkbox-transition);
+}
+
+.polly-checkbox-box[data-p-highlight="true"] {
+  background: var(--checkbox-background-checked);
+  border-color: var(--checkbox-border-color-checked);
+  color: var(--checkbox-icon-color-checked);
+}
+
+.polly-checkbox-box[data-p-disabled="true"] {
+  background: var(--checkbox-background-disabled);
+  border-color: var(--checkbox-border-color-disabled);
+  cursor: var(--checkbox-cursor-disabled);
+}
+
+.polly-checkbox-icon {
+  color: var(--checkbox-icon-color-checked);
+  font-size: var(--checkbox-icon-fontsize-medium);
+  font-weight: var(--checkbox-icon-fontweight);
+}

@@ -1,0 +1,42 @@
+
+.polly-popover {
+  background: var(--popover-base-background);
+  border: var(--popover-base-border) !important;
+  border-radius: var(--popover-base-borderradius);
+  box-shadow: var(--popover-base-shadow);
+  color: var(--popover-base-color);
+  margin-top: var(--popover-base-margintop);
+  padding: var(--popover-base-padding);
+
+  &.padding-0 {
+    padding: var(--popover-nopadding-padding);
+  }
+
+  &.padding-0 .polly-btn {
+    justify-content: flex-start !important;
+  }
+
+  &.filter-overlay {
+    margin-top: var(--popover-filteroverlay-margintop);
+  }
+
+  &.modal {
+    background-color: var(--popover-modal-background);
+    border-radius: var(--popover-modal-borderradius);
+    box-shadow: var(--popover-modal-shadow);
+    max-height: var(--popover-modal-maxheight);
+    overflow: var(--popover-modal-overflow);
+    padding: var(--popover-modal-padding);
+  }
+}
+
+.polly-popover-content {
+  padding: var(--popover-content-padding) !important;
+}
+
+.polly-popover-close {
+  background: transparent;
+  border: none;
+  color: var(--popover-base-color);
+  cursor: pointer;
+}

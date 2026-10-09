@@ -1,0 +1,397 @@
+@import "../mixins";
+
+.polly-dp {
+  border: var(--datepicker-root-border);
+  font-family: var(--datepicker-root-fontfamily);
+
+  &.size--lg {
+    height: max-content;
+    .polly-dp-nav-prev {
+      padding: var(--datepicker-navigationprev-padding-large);
+    }
+
+    .polly-dp-nav-next {
+      padding: var(--datepicker-navigationnext-padding-large);
+    }
+
+    .polly-dp-select-month,
+    .polly-dp-select-year {
+      @include label-large;
+      padding: var(--datepicker-header-controls-padding-large);
+    }
+
+    .polly-dp-monthpicker,
+    .polly-dp-yearpicker {
+      min-width: var(--datepicker-monthpicker-minwidth-large);
+    }
+
+    .polly-dp-monthcell,
+    .polly-dp-yearcell {
+      @include label-large;
+      margin: var(--datepicker-monthcell-margin-large);
+    }
+
+    .polly-dp-table-header-cell {
+      padding: var(--datepicker-weekdaycell-padding-large) !important;
+    }
+
+    .polly-dp-weekday {
+      @include title-small;
+      height: var(--datepicker-weekdaytext-height-large) !important;
+      width: var(--datepicker-weekdaytext-width-large) !important;
+    }
+
+    .polly-dp-daycell {
+      padding: var(--datepicker-daycell-padding-large) !important;
+    }
+
+    .polly-dp-daytext {
+      @include label-large;
+      height: var(--datepicker-daytext-height-large) !important;
+      width: var(--datepicker-daytext-width-large) !important;
+    }
+  }
+}
+
+/* calendar icon trigger (showIcon) */
+.polly-dp-trigger {
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: color-mix(
+    in srgb,
+    var(--color-primary-neutral) 90%,
+    var(--color-standard-white) 10%
+  );
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  padding: var(--datepicker-inputicon-padding);
+  position: absolute;
+  right: 0;
+}
+
+.polly-dp-trigger .polly-icon {
+  font-size: var(--datepicker-inputicon-size);
+}
+
+/* ---------------------------------------------------------
+   OVERLAY PANEL
+   --------------------------------------------------------- */
+
+.polly-dp-panel {
+  background: var(--datepicker-panel-background);
+  border: var(--datepicker-panel-border);
+  border-radius: var(--datepicker-panel-borderradius);
+  box-shadow: var(--datepicker-panel-boxshadow);
+  color: var(--datepicker-panel-color);
+  font-family: var(--datepicker-root-fontfamily);
+  padding: var(--datepicker-panel-padding);
+  &.size--lg {
+    height: max-content;
+    .polly-dp-nav-prev {
+      padding: var(--datepicker-navigationprev-padding-large);
+    }
+
+    .polly-dp-nav-next {
+      padding: var(--datepicker-navigationnext-padding-large);
+    }
+
+    .polly-dp-select-month,
+    .polly-dp-select-year {
+      @include label-large;
+      padding: var(--datepicker-header-controls-padding-large);
+    }
+
+    .polly-dp-monthpicker,
+    .polly-dp-yearpicker {
+      min-width: var(--datepicker-monthpicker-minwidth-large);
+    }
+
+    .polly-dp-monthcell,
+    .polly-dp-yearcell {
+      @include label-large;
+      margin: var(--datepicker-monthcell-margin-large);
+    }
+
+    .polly-dp-table-header-cell {
+      padding: var(--datepicker-weekdaycell-padding-large) !important;
+    }
+
+    .polly-dp-weekday {
+      @include title-small;
+      height: var(--datepicker-weekdaytext-height-large) !important;
+      width: var(--datepicker-weekdaytext-width-large) !important;
+    }
+
+    .polly-dp-daycell {
+      padding: var(--datepicker-daycell-padding-large) !important;
+    }
+
+    .polly-dp-daytext {
+      @include label-large;
+      height: var(--datepicker-daytext-height-large) !important;
+      width: var(--datepicker-daytext-width-large) !important;
+    }
+  }
+}
+
+/* inline mode has no shadow — the panel PT adds `--inline` (Calendar emits no
+   `data-p-inline` attribute, so the old attribute selector never matched). */
+.polly-dp-panel--inline {
+  box-shadow: var(--datepicker-panel-inline-boxshadow);
+  margin-top: 0;
+}
+
+/* ---------------------------------------------------------
+   HEADER — nav + month/year title
+   --------------------------------------------------------- */
+
+.polly-dp-header {
+  border-bottom: var(--datepicker-header-separator-style);
+  padding-bottom: var(--datepicker-header-paddingbottom);
+}
+
+.polly-dp-title {}
+
+/* caret next to the month / year title */
+.polly-dp-title .polly-icon {
+  font-size: var(--datepicker-header-icon-fontsize);
+  margin-left: var(--datepicker-header-icon-marginleft);
+}
+
+/* decade range title (year-picker view) */
+.polly-dp-decade {
+  color: var(--datepicker-decadecontrols-color);
+}
+
+.polly-dp-select-month,
+.polly-dp-select-year,
+.polly-dp-decade {
+  @include add-transition(var(--datepicker-transitionbackground));
+  align-items: var(--datepicker-header-controls-alignitems);
+  background: transparent;
+  border: none;
+  border-radius: var(--datepicker-selectmonth-borderradius);
+  color: var(--datepicker-decadecontrols-color) !important;
+  cursor: var(--datepicker-header-controls-cursor);
+  display: var(--datepicker-header-controls-display);
+  justify-content: var(--datepicker-header-controls-justifycontent);
+  padding: var(--datepicker-selectmonth-padding);
+  padding: var(--datepicker-header-controls-padding-default);
+  user-select: var(--datepicker-header-controls-userselect);
+
+  &::after {
+    color: var(--datepicker-navigationbutton-color) !important;
+    content: "\43";
+    font-family: "iconset";
+    font-size: var(--datepicker-header-icon-fontsize);
+    margin-left: var(--datepicker-header-icon-marginleft);
+  }
+
+  &:focus-visible {
+    outline: var(--datepicker-selectmonth-outline-focus);
+  }
+
+  &:hover {
+    background-color: var(--datepicker-selectmonth-background-hover) !important;
+  }
+
+  &:active {
+    background-color: var(
+      --datepicker-navigationbutton-background-active
+    ) !important;
+  }
+
+  &:focus-visible {
+    outline: var(--datepicker-header-controls-outlineoffset) solid
+      var(--datepicker-select-month-focus-outline);
+    outline-offset: var(--datepicker-header-controls-outlineoffset);
+  }
+
+  &.p-disabled {
+    opacity: var(--datepicker-daytext-disable-opacity);
+  }
+}
+
+/* prev / next nav buttons */
+.polly-dp-nav {
+  align-items: var(--datepicker-navigationbutton-alignitems);
+  display: var(--datepicker-navigationbutton-display);
+  justify-content: var(--datepicker-navigationbutton-justifycontent);
+
+  background: var(--datepicker-navigationbutton-background-default);
+  border: var(--datepicker-navigationbutton-border);
+  border-radius: var(--datepicker-navigationbutton-borderradius);
+  color: var(--datepicker-navigationbutton-color);
+  padding: var(--datepicker-navigationbutton-padding);
+
+  cursor: pointer;
+  transition: var(--datepicker-navigationbutton-transition);
+
+  &:hover {
+    background: var(--datepicker-navigationbutton-background-hover);
+  }
+
+  &:active {
+    background: var(--datepicker-navigationbutton-background-active);
+  }
+}
+
+/* prev / next spacing + radius */
+.polly-dp-nav-prev {
+  border-radius: var(--datepicker-navigationprev-borderradius);
+  padding: var(--datepicker-navigationprev-padding-medium);
+}
+
+.polly-dp-nav-next {
+  border-radius: var(--datepicker-navigationnext-borderradius);
+  padding: var(--datepicker-navigationnext-padding-medium);
+}
+
+.polly-dp-container {
+  border-collapse: collapse;
+  font-size: 1rem;
+  margin: 0.875rem 0;
+}
+
+/* ---------------------------------------------------------
+   DAY GRID
+   --------------------------------------------------------- */
+
+.polly-dp-table {
+  border-collapse: collapse;
+  margin: var(--datepicker-table-margin);
+}
+
+.polly-dp-weekday {
+  color: var(--datepicker-weekdaytext-color);
+  height: var(--datepicker-weekdaytext-height-medium);
+  width: var(--datepicker-weekdaytext-width-medium);
+}
+
+/* weekday header cells (th) */
+.polly-dp-table-header-cell,
+.polly-dp-week-header {
+  padding: 0.5rem;
+  text-align: var(--datepicker-weekdaycell-textalign);
+}
+
+/* week-number column (showWeek) */
+.polly-dp-week-number {
+  color: var(--datepicker-weekdaytext-color);
+  text-align: var(--datepicker-daycell-textalign);
+}
+
+.polly-dp-daycell {
+  padding: var(--datepicker-daycell-padding-medium);
+  text-align: var(--datepicker-daycell-textalign);
+}
+
+.polly-dp-daytext {
+  height: var(--datepicker-daytext-height-medium);
+  width: var(--datepicker-daytext-width-medium);
+
+  border: var(--datepicker-daytext-border);
+  border-radius: var(--datepicker-daytext-borderradius);
+  color: var(--datepicker-daytext-color-default);
+
+  cursor: var(--datepicker-daytext-cursor);
+  transition: var(--datepicker-daytext-transition);
+}
+
+.polly-dp-daytext[data-p-highlight="false"] {
+  &:hover {
+    background-color: var(--datepicker-daytext-background-hover) !important;
+    color: var(--datepicker-daytext-color-default) !important;
+  }
+
+  &:active {
+    background-color: var(--datepicker-daytext-background-active) !important;
+    color: var(--datepicker-daytext-color-default) !important;
+  }
+}
+
+/* today */
+.polly-dp-daytext[data-p-today="true"] {
+  background: var(--datepicker-daytext-background-active);
+}
+
+/* selected */
+.polly-dp-daytext[data-p-highlight="true"] {
+  background: var(--datepicker-daytext-background-selected);
+  color: var(--datepicker-daytext-color-selected);
+
+  &:hover {
+    background: var(--datepicker-daytext-background-selectedhover);
+  }
+
+  &:active {
+    background-color: var(--datepicker-daytext-background-active) !important;
+  }
+
+  &.p-disabled {
+    opacity: var(--datepicker-daytext-disable-opacity);
+  }
+}
+
+/* other-month + disabled */
+.polly-dp-daytext[data-p-other-month="true"] {
+  opacity: 0.5;
+}
+
+.polly-dp-daycell[data-p-disabled="true"] .polly-dp-daytext,
+.polly-dp-daytext[data-p-disabled="true"] {
+  cursor: var(--datepicker-daydisabled-cursor);
+  opacity: var(--datepicker-daydisabled-opacity);
+}
+
+/* ---------------------------------------------------------
+   MONTH / YEAR PICKER
+   --------------------------------------------------------- */
+
+.polly-dp-monthpicker,
+.polly-dp-yearpicker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.polly-dp-yearpicker {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.polly-dp-monthpicker {
+  margin-right: var(--datepicker-monthpicker-marginright);
+  min-width: var(--datepicker-monthpicker-minwidth-default);
+}
+
+.polly-dp-monthcell,
+.polly-dp-yearcell {
+  border-radius: var(--datepicker-yearpicker-borderradius) !important;
+  cursor: var(--datepicker-monthcell-cursor);
+  margin: var(--datepicker-monthcell-margin-default);
+  padding: var(--datepicker-monthcell-padding);
+  text-align: center;
+  transition: var(--datepicker-monthcell-transition);
+  &:hover {
+    background-color: var(--datepicker-monthcell-background-hover) !important;
+  }
+
+  &:active {
+    background-color: var(--datepicker-monthcell-background-active) !important;
+  }
+
+  &.p-disabled {
+    opacity: var(--datepicker-daytext-disable-opacity);
+  }
+}
+
+.polly-dp-monthcell[data-p-highlight="true"],
+.polly-dp-yearcell[data-p-highlight="true"] {
+  background: var(--datepicker-monthcell-background-active);
+}
+
+/* footer buttons */
+.polly-dp-buttonbar {
+  padding-top: var(--datepicker-header-paddingbottom);
+}
