@@ -1,56 +1,66 @@
 body {
-  .qubit {
-    .p-progressbar {
-      background-color: var(--progressbar-container-background-default);
-      @include border-radius(var(--progressbar-container-borderradius));
-      border: var(--progressbar-container-border);
-      height: var(--progressbar-container-height-default);
+  .qubit.p-progressbar {
+    @include border-radius(var(--progressbar-container-borderradius));
+    background-color: var(--progressbar-container-background-default);
+    border: var(--progressbar-container-border);
+    height: var(--progressbar-container-height-default);
+    overflow: hidden;
+    position: relative;
 
-      .p-progressbar-value {
-        background: var(--progressbar-value-background-default);
-        //TODO: Badal | Animate the progessbar 
-        &.p-progressbar-value-animate {
-          // background: $primaryDarkerColor;
-        }
-      }
+    .p-progressbar-value {
+      background: var(--progressbar-value-background-default);
+      height: 100%;
+      transition: width 0.4s ease;
     }
 
-    &.success {
-      .p-progressbar {
-        .p-progressbar-value {
-          background: var(--progressbar-value-background-success);
-        }
-      }
+    .p-progressbar-label {
+      @include label-small;
+      color: var(--color-standard-white);
     }
 
-    &.running {
-      .p-progressbar {
-        .p-progressbar-value {
-          background: var(--progressbar-value-background-running);
-        }
-      }
+    &.success .p-progressbar-value {
+      background: var(--progressbar-value-background-success);
     }
 
-    &.pre-processing {
-      .p-progressbar {
-        .p-progressbar-value {
-          background: var(--progressbar-value-background-preprocessing);
-        }
-      }
+    &.running .p-progressbar-value {
+      background: var(--progressbar-value-background-running);
     }
 
-    &.danger {
-      .p-progressbar {
-        .p-progressbar-value {
-          background: var(--progressbar-value-background-danger);
-        }
-      }
+    &.pre-processing .p-progressbar-value {
+      background: var(--progressbar-value-background-preprocessing);
+    }
+
+    &.danger .p-progressbar-value {
+      background: var(--progressbar-value-background-danger);
     }
 
     &.small {
-      .p-progressbar {
-        height: var(--progressbar-container-height-small);
+      height: var(--progressbar-container-height-small);
+
+      .p-progressbar-label {
+        @include label-micro;
+        font-size: 0.375rem !important;
       }
     }
+
+    &.p-progressbar-indeterminate .p-progressbar-value {
+      animation: qubit-progressbar-indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+      bottom: 0;
+      position: absolute;
+      top: 0;
+      width: auto;
+    }
+  }
+}
+
+@keyframes qubit-progressbar-indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60%,
+  100% {
+    left: 100%;
+    right: -90%;
   }
 }

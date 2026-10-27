@@ -24,6 +24,7 @@ body {
       }
     }
   }
+
   .p-inputtext.qubit {
     &.p-inputtext-sm,
     &.autocomplete-sm {
@@ -42,6 +43,7 @@ body {
     inset-inline-end: var(--autocomplete-base-loader-default-inset);
   }
 
+  // CHANGED: .qubit.p-autocomplete instead of .qubit .p-autocomplete
   .qubit {
     &.tonal {
       .p-inputtext {
@@ -79,7 +81,8 @@ body {
         }
       }
 
-      .p-disabled {
+      // CHANGED: p-disabled removed
+      &:has(.p-autocomplete-input:disabled) {
         opacity: var(--autocomplete-tonal-disabled-opacity);
       }
 
@@ -97,20 +100,24 @@ body {
       }
     }
 
-    .p-autocomplete:has(.p-autocomplete-dropdown) {
-      .p-autocomplete-loader {
-        inset-inline-end: calc(var(--autocomplete-base-loader-dropdown-width) + var(--autocomplete-base-loader-dropdown-padding-x));
+    // CHANGED: host now owns p-autocomplete
+    &.p-autocomplete {
+
+      &:has(.p-autocomplete-dropdown) {
+        .p-autocomplete-loader {
+          inset-inline-end: calc(
+            var(--autocomplete-base-loader-dropdown-width) +
+            var(--autocomplete-base-loader-dropdown-padding-x)
+          );
+        }
+
+        .p-autocomplete-input {
+          border-end-end-radius: var(--autocomplete-base-input-borderradius-withdropdown-end);
+          border-start-end-radius: var(--autocomplete-base-input-borderradius-withdropdown-start);
+          padding-right: var(--autocomplete-base-loader-dropdown-width);
+        }
       }
 
-      /* Add padding only for dropdown autocomplete */
-      .p-autocomplete-input {
-        border-end-end-radius: var(--autocomplete-base-input-borderradius-withdropdown-end);
-        border-start-end-radius: var(--autocomplete-base-input-borderradius-withdropdown-start);
-        padding-right: var(--autocomplete-base-loader-dropdown-width);
-      }
-    }
-
-    .p-autocomplete {
       .p-autocomplete-input {
         width: var(--autocomplete-base-input-width);
       }
@@ -125,7 +132,8 @@ body {
         right: var(--autocomplete-base-dropdown-position-right);
       }
 
-      &.p-autocomplete-dd {
+      // CHANGED: p-autocomplete-dd removed
+      &:has(.p-autocomplete-dropdown) {
         .p-autocomplete-input {
           padding-right: var(--autocomplete-base-loader-position-right-withdropdown);
         }
@@ -135,7 +143,8 @@ body {
         }
       }
 
-      &.p-disabled {
+      // CHANGED: p-disabled removed
+      &:has(.p-autocomplete-input:disabled) {
         opacity: var(--autocomplete-base-disabled-opacity);
       }
     }

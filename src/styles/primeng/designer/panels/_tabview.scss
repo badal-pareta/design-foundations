@@ -2,16 +2,15 @@
   width: var(--tabs-container-width);
 
   .p-tablist {
-    &-content {
-      scroll-padding-inline: var(--tabs-list-navbutton-size);
-    }
+    border: none;
 
-    &-tab-list {
+    &-content {
       background: var(--tabs-list-background);
       border: var(--tabs-list-border);
       display: flex;
       gap: var(--tabs-list-gap);
       position: relative;
+      scroll-padding-inline: var(--tabs-list-navbutton-size);
     }
 
     &-active-bar {
@@ -19,6 +18,18 @@
       bottom: 0;
       height: var(--tabs-list-inkbar-height);
       position: absolute;
+    }
+
+    &-prev-button {
+      background: var(--tabs-list-button-prev-background);
+      padding-right: var(--tabs-list-button-prev-padding-right);
+      width: var(--tabs-list-button-prev-width);
+    }
+
+    &-next-button {
+      background: var(--tabs-list-button-next-background);
+      padding-left: var(--tabs-list-button-next-padding-left);
+      width: var(--tabs-list-button-next-width);
     }
   }
 
@@ -87,7 +98,7 @@
   }
 
   &.filled {
-    .p-tablist-tab-list {
+    .p-tablist-content {
       gap: var(--tabs-variant-filled-list-gap);
     }
 
@@ -138,33 +149,33 @@
 
   &.omixatlas {
     &-landing {
-      .p-tablist-tab-list {
+      .p-tablist-content {
         padding: var(--tabs-modifier-omixatlas-landing-list-padding);
       }
     }
 
     &-details {
-      .p-tablist-tab-list {
+      .p-tablist-content {
         padding: var(--tabs-modifier-omixatlas-details-list-padding);
       }
     }
 
     &-dataset-cards {
-      .p-tabs {
-        &-nav {
-          padding: var(--tabs-modifier-omixatlas-dataset-cards-nav-padding);
-        }
+      .p-tablist-content {
+        padding: var(--tabs-modifier-omixatlas-dataset-cards-nav-padding);
+      }
 
-        .p-tabpanels {
-          padding: var(--tabs-modifier-omixatlas-dataset-cards-panels-padding);
-        }
+      .p-tabpanels {
+        padding: var(--tabs-modifier-omixatlas-dataset-cards-panels-padding);
       }
     }
   }
 
   &.nav-border-bottom {
-    .p-tablist-tab-list {
+    .p-tablist-content {
       border-bottom: var(--tabs-modifier-navborderbottom-list-border);
+      min-width: var(--tabs-modifier-navborderbottom-list-min-width);
+      width: var(--tabs-modifier-navborderbottom-list-width);
     }
   }
 }

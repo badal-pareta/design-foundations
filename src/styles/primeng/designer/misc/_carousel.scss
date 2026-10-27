@@ -4,7 +4,12 @@ body {
       padding: var(--carousel-indicator-list-padding);
       gap: var(--carousel-indicator-list-gap);
     }
+
     .p-carousel-indicator-active .p-carousel-indicator-button {
+      background: var(--carousel-indicator-button-background-active);
+    }
+
+    .p-carousel-indicator-button.p-carousel-indicator-active {
       background: var(--carousel-indicator-button-background-active);
     }
 

@@ -1,14 +1,14 @@
 p-toast {
-  .qubit {
+  &.qubit {
     &.p-toast {
       width: var(--toast-base-width);
 
       .p-toast-message {
         @include label-large;
         background-color: var(--toast-base-background);
+        border-left: var(--toast-base-borderleftwidth) var(--toast-base-borderleftstyle);
         border-radius: var(--toast-base-borderradius);
         box-shadow: var(--toast-base-boxshadow);
-        border-left: var(--toast-base-borderleftwidth) var(--toast-base-borderleftstyle);
         margin: var(--toast-base-margin);
         padding: var(--toast-base-padding);
 
@@ -16,10 +16,11 @@ p-toast {
         .p-toast-message-content {
           border-width: var(--toast-content-borderwidth);
           display: var(--toast-content-display);
-          grid-template-columns: var(--toast-content-gridtemplatecolumns);
           gap: var(--toast-content-gap);
+          grid-template-columns: var(--toast-content-gridtemplatecolumns);
 
           .p-toast-message-icon {
+            flex-shrink: 0;
             padding: var(--toast-icon-padding);
           }
 
@@ -44,15 +45,19 @@ p-toast {
           }
         }
 
-        /* CLOSE BUTTON (v18) */
+        /* CLOSE BUTTON */
         .p-toast-close-button {
-          border-radius: var(--toast-closebutton-borderradius);
-          transition: var(--toast-closebutton-transition);
+          align-items: center;
           background-color: var(--toast-closebutton-background);
           border: var(--toast-closebutton-border);
-          
+          border-radius: var(--toast-closebutton-borderradius);
+          display: flex;
+          justify-content: center;
           padding: var(--toast-closebutton-padding);
           right: var(--toast-closebutton-right);
+          top: 0.5rem;
+          transition: var(--toast-closebutton-transition);
+
           &:hover {
             background-color: var(--toast-closebutton-backgroundhover);
           }
@@ -61,18 +66,12 @@ p-toast {
             background-color: var(--toast-closebutton-backgroundactive);
           }
 
-
-          /* Icon inside p-button */
           .p-toast-close-icon {
-            @include polly-icon-override('\75');
             color: var(--toast-closebutton-iconcolor);
-            height: var(--toast-closebutton-iconsize);
-            width: var(--toast-closebutton-iconsize);
-
-            font-size: var(--toast-closebutton-iconfontsize);
-            .p-icon {
-            display: none;
-          }
+            height: 1rem;
+            width: 1rem;
+            // height: var(--toast-closebutton-iconsize); //TODO: Navendra | 1rem
+            // width: var(--toast-closebutton-iconsize); //TODO: Navendra | 1rem
           }
         }
 
