@@ -26,12 +26,13 @@ body {
           }
 
           /* ICON */
-          .p-iconwrapper {
+          .p-icon {
             color: var(--accordion-icon-color-default);
             transition: var(--accordion-icon-transition);
             font-size: var(--accordion-icon-size);
             box-shadow: var(--accordion-header-focus-boxshadow);
-            transform: var(--accordion-icon-transform-closed);
+            // transform: var(--accordion-icon-transform-closed); //TODO: Navendra | change the value to rotate(-90deg)
+            transform: rotate(-90deg);
           }
 
           /* HOVER */
@@ -39,7 +40,7 @@ body {
             background: var(--accordion-header-background-hover);
             color: var(--accordion-header-color-hover) !important;
 
-            .p-iconwrapper {
+            .p-icon {
               color: var(--accordion-icon-color-hover);
             }
           }
@@ -55,9 +56,10 @@ body {
               color: var(--accordion-title-color-active);
             }
 
-            .p-iconwrapper {
+            .p-icon {
               color: var(--accordion-icon-color-active);
-              transform: var(--accordion-icon-transform-default);
+              // transform: var(--accordion-icon-transform-default); //TODO: Navendra | change variable to 180deg
+              transform: rotate(180deg);
             }
           }
         }
@@ -67,7 +69,7 @@ body {
           border: var(--accordion-content-border-normal);
           background: var(--accordion-content-background);
           border-bottom: var(--accordion-content-border-bottom);
-          padding: var(--accordion-content-padding-default);
+          overflow: hidden;
 
           .p-accordioncontent-content {
             border: var(--accordion-content-border-normal);
@@ -75,6 +77,19 @@ body {
             font-weight: var(--accordion-content-fontweight);
             line-height: var(--accordion-content-lineheight);
             color: var(--accordion-content-textcolor);
+            padding: var(--accordion-content-padding-default);
+          }
+        }
+
+        /* COLLAPSED */
+        &:not([data-p-active='true']) {
+          .p-accordioncontent {
+            border: 0;
+            border-bottom: 0;
+
+            .p-accordioncontent-content {
+              padding-block: 0;
+            }
           }
         }
       }
@@ -87,7 +102,7 @@ body {
         opacity: var(--accordion-state-disabled-content-opacity);
 
         p,
-        .p-iconwrapper {
+        .p-icon {
           color: var(--accordion-state-disabled-title-color);
         }
       }
@@ -115,7 +130,7 @@ body {
       /* CO-SCIENTIST CARD (app-specific – kept minimal) */
       &.co-scientist-accordion-card {
         .p-accordionheader {
-          .p-iconwrapper {
+          .p-icon {
             display: none;
           }
         }

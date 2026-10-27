@@ -1,8 +1,7 @@
 body {
-  // TODO: Badal | need to revisit this stylesheet for resizable part
   p-table {
     &.qubit {
-      .p-datatable {
+      &.p-datatable {
         font-family: var(--table-base-fontfamily);
 
         .p-datatable-resizable {
@@ -12,7 +11,7 @@ body {
                 overflow: var(--table-base-resizable-thead-th-overflow);
                 white-space: var(--table-base-resizable-thead-th-whitespace);
 
-                &.p-datatable-column-resizable:not(.p-datatable-frozen-column) {
+                &.p-datatable-resizable-column:not(.p-datatable-frozen-column) {
                   background-clip: var(--table-base-resizable-thead-th-columnresizable-backgroundclip);
                   position: var(--table-base-resizable-thead-th-columnresizable-position);
                 }
@@ -35,7 +34,7 @@ body {
           .p-datatable-thead {
             tr {
               th {
-                &.p-datatable-column-resizable {
+                &.p-datatable-resizable-column {
                   &:last-child {
                     .p-datatable-column-resizer {
                       display: var(--table-base-resizable-fit-lastcolumnresizer-display);
@@ -70,6 +69,7 @@ body {
         .p-datatable-thead {
           tr {
             border-bottom: var(--table-base-header-row-borderbottom);
+
             th {
               @include title-micro;
               background-color: var(--table-base-header-cell-background);
@@ -78,6 +78,7 @@ body {
               border: var(--table-base-header-cell-border);
               border-right: var(--table-base-header-cell-borderright);
               border-bottom: var(--table-base-header-cell-borderbottom);
+
               &.color-alternate {
                 background-color: var(--table-base-header-cell-coloralternate-background);
               }
@@ -135,6 +136,7 @@ body {
               &:nth-child(odd) {
                 background-color: var(--table-base-body-row-hover-odd-background);
               }
+
               background-color: var(--table-base-body-row-hover-background);
             }
 
@@ -143,6 +145,7 @@ body {
               &:nth-child(odd) {
                 background-color: var(--table-base-body-row-active-odd-background);
               }
+
               background-color: var(--table-base-body-row-active-background);
             }
           }
@@ -150,7 +153,7 @@ body {
       }
 
       &.skeleton {
-        .p-datatable {
+        &.p-datatable {
           .p-datatable-thead {
             tr {
               border: var(--table-skeleton-header-row-border);
@@ -175,7 +178,7 @@ body {
       }
 
       &.clear {
-        .p-datatable {
+        &.p-datatable {
           .p-datatable-thead {
             tr {
               border: var(--table-clear-header-row-border);
@@ -203,7 +206,7 @@ body {
       }
 
       &.vertical {
-        .p-datatable {
+        &.p-datatable {
           border: var(--table-vertical-container-border);
 
           .p-datatable-thead {
@@ -229,7 +232,7 @@ body {
       }
 
       &.rounded {
-        .p-datatable {
+        &.p-datatable {
           border-radius: var(--table-rounded-container-borderradius);
           overflow: var(--table-rounded-container-overflow);
 
@@ -245,7 +248,7 @@ body {
     }
 
     &.qubit-table {
-      .p-datatable {
+      &.p-datatable {
         font-family: var(--table-qubittable-fontfamily);
         letter-spacing: var(--table-qubittable-letter-spacing);
         line-height: var(--table-qubittable-line-height);
@@ -254,7 +257,7 @@ body {
           min-height: var(--table-qubittable-flexscrollable-tablecontainer-virtualscroller-minheight) !important;
         }
 
-        &.p-datatable-flex.p-datatable-scrollable {
+        &.p-datatable-flex-scrollable.p-datatable-scrollable {
           .p-datatable-table-container {
             &:has(.p-virtualscroller) {
               overflow: var(--table-qubittable-flexscrollable-tablecontainer-virtualscroller-overflow);
@@ -275,7 +278,7 @@ body {
                 overflow: var(--table-qubittable-resizable-thead-th-overflow);
                 white-space: var(--table-qubittable-resizable-thead-th-whitespace);
 
-                &.p-datatable-column-resizable:not(.p-datatable-frozen-column) {
+                &.p-datatable-resizable-column:not(.p-datatable-frozen-column) {
                   background-clip: var(--table-qubittable-resizable-thead-th-columnresizable-backgroundclip);
                   position: var(--table-qubittable-resizable-thead-th-columnresizable-position);
                 }
@@ -298,7 +301,7 @@ body {
           .p-datatable-thead {
             tr {
               th {
-                &.p-datatable-column-resizable {
+                &.p-datatable-resizable-column {
                   &:last-child {
                     .p-datatable-column-resizer {
                       display: var(--table-base-resizable-fit-lastcolumnresizer-display);
@@ -643,7 +646,7 @@ body {
         }
       }
 
-      .p-datatable {
+      &.p-datatable {
         .p-datatable-column-resizer {
           border-right: var(--table-qubitcoscientisttable-columnresizer-borderright);
         }

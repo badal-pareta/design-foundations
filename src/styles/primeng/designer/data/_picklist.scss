@@ -3,10 +3,23 @@ body {
     .p-picklist {
       gap: var(--picklist-container-gap);
       height: var(--picklist-container-height);
+
+      // NEW: Fix PrimeNG 20 header alignment
+      .p-listbox {
+        .p-listbox-header {
+          justify-content: center;
+
+          > span {
+            flex: 1;
+            text-align: center;
+          }
+        }
+      }
+
       .p-picklist-controls {
         gap: var(--picklist-controls-gap);
 
-        & .p-button.p-button-icon-only {
+        .p-button-icon-only {
           background: var(--picklist-button-background-default) !important;
           border: var(--picklist-button-border) !important;
           border-radius: var(--picklist-button-borderradius) !important;
@@ -15,9 +28,11 @@ body {
           height: var(--picklist-button-height) !important;
           padding: var(--picklist-button-padding);
           width: var(--picklist-button-width) !important;
+
           &:hover {
             background: var(--picklist-button-background-hover) !important;
           }
+
           &:active {
             background: var(--picklist-button-background-active) !important;
             color: var(--picklist-button-color-active) !important;
@@ -25,24 +40,27 @@ body {
         }
       }
 
-      /* controls container */
       .p-picklist-transfer-controls {
         display: var(--picklist-transfercontrols-display);
         flex-direction: var(--picklist-transfercontrols-flexdirection);
-        /* Move All to Source << */
-        button[data-pc-section='moveAllToSourceButton'] {
+
+        button[data-pc-name="pcmovealltosourcebutton"],
+        button[data-pc-section="moveAllToSourceButton"] {
           order: var(--picklist-transfercontrols-movealltosource-order);
         }
-        /* Move to Source < */
-        button[data-pc-section='moveToSourceButton'] {
+
+        button[data-pc-name="pcmovetosourcebutton"],
+        button[data-pc-section="moveToSourceButton"] {
           order: var(--picklist-transfercontrols-movetosource-order);
         }
-        /* Move to Target > */
-        button[data-pc-section='moveToTargetButton'] {
+
+        button[data-pc-name="pcmovetotargetbutton"],
+        button[data-pc-section="moveToTargetButton"] {
           order: var(--picklist-transfercontrols-movetotarget-order);
         }
-        /* Move All to Target >> */
-        button[data-pc-section='moveAllToTargetButton'] {
+
+        button[data-pc-name="pcmovealltotargetbutton"],
+        button[data-pc-section="moveAllToTargetButton"] {
           order: var(--picklist-transfercontrols-movealltotarget-order);
         }
       }

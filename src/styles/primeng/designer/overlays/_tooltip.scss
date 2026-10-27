@@ -25,73 +25,68 @@ body {
       border-width: var(--tooltip-base-arrow-borderwidth);
       border-right-color: var(--tooltip-base-arrow-bordercolor);
     }
-  }
 
-  .qubit {
-    &.p-tooltip {
-      /* ================= DARK TOOLTIP ================= */
-      .p-tooltip-text {
-        @include shadow(var(--tooltip-base-shadow));
-        @include label-small;
-        background-color: var(--tooltip-dark-background);
-        border-radius: var(--tooltip-base-borderradius);
-        color: var(--tooltip-dark-color);
-        display: var(--tooltip-base-display);
-        padding: var(--tooltip-base-padding-default);
-      }
+    /* ================= DARK TOOLTIP (default) ================= */
+    .p-tooltip-text {
+      @include shadow(var(--tooltip-base-shadow));
+      @include label-small;
+      background-color: var(--tooltip-dark-background);
+      border-radius: var(--tooltip-base-borderradius);
+      color: var(--tooltip-dark-color);
+      display: var(--tooltip-base-display);
+      padding: var(--tooltip-base-padding-default);
+    }
 
+    .p-tooltip-arrow {
+      border-style: var(--tooltip-base-arrow-borderstyle);
+      border-color: var(--tooltip-base-arrow-bordercolor);
+    }
+
+    /* ===== RIGHT ===== */
+    &.p-tooltip-right {
+      padding: var(--tooltip-base-qubit-positioning-right-padding);
+      margin: var(--tooltip-base-qubit-positioning-right-margin);
       .p-tooltip-arrow {
-        border-style: var(--tooltip-base-arrow-borderstyle);
-        border-color: var(--tooltip-base-arrow-bordercolor);
+        border-width: var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) 0;
+        border-right-color: var(--tooltip-dark-arrow-color);
+        margin-top: calc(-1 * var(--tooltip-base-arrow-size));
       }
+    }
 
-      /* ===== RIGHT ===== */
-      &.p-tooltip-right {
-        padding: var(--tooltip-base-qubit-positioning-right-padding);
-        margin: var(--tooltip-base-qubit-positioning-right-margin);
-        .p-tooltip-arrow {
-          border-width: var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) 0;
-          border-right-color: var(--tooltip-dark-arrow-color);
-          margin-top: calc(-1 * var(--tooltip-base-arrow-size));
-        }
+    /* ===== LEFT ===== */
+    &.p-tooltip-left {
+      padding: var(--tooltip-base-qubit-positioning-left-padding);
+      margin: var(--tooltip-base-qubit-positioning-left-margin);
+      .p-tooltip-arrow {
+        border-width: var(--tooltip-base-arrow-size) 0 var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size);
+        margin-top: calc(-1 * var(--tooltip-base-arrow-size));
+        border-left-color: var(--tooltip-dark-arrow-color);
       }
+    }
 
-      /* ===== LEFT ===== */
-      &.p-tooltip-left {
-        padding: var(--tooltip-base-qubit-positioning-left-padding);
-        margin: var(--tooltip-base-qubit-positioning-left-margin);
-        .p-tooltip-arrow {
-          border-width: var(--tooltip-base-arrow-size) 0 var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size);
-          margin-top: calc(-1 * var(--tooltip-base-arrow-size));
-          border-left-color: var(--tooltip-dark-arrow-color);
-        }
+    /* ===== TOP ===== */
+    &.p-tooltip-top {
+      padding: var(--tooltip-base-qubit-positioning-top-padding);
+      margin: var(--tooltip-base-qubit-positioning-top-margin);
+      .p-tooltip-arrow {
+        border-width: var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) 0 var(--tooltip-base-arrow-size);
+        border-top-color: var(--tooltip-dark-arrow-color);
+        margin-left: calc(-1 * var(--tooltip-base-arrow-size));
       }
+    }
 
-      /* ===== TOP ===== */
-      &.p-tooltip-top {
-        padding: var(--tooltip-base-qubit-positioning-top-padding);
-        margin: var(--tooltip-base-qubit-positioning-top-margin);
-        .p-tooltip-arrow {
-          border-width: var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) 0 var(--tooltip-base-arrow-size);
-          border-top-color: var(--tooltip-dark-arrow-color);
-          margin-left: calc(-1 * var(--tooltip-base-arrow-size));
-        }
-      }
-
-      /* ===== BOTTOM ===== */
-      &.p-tooltip-bottom {
-        padding: var(--tooltip-base-qubit-positioning-bottom-padding);
-        margin: var(--tooltip-base-qubit-positioning-bottom-margin);
-        .p-tooltip-arrow {
-          border-width: 0 var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size);
-          border-bottom-color: var(--tooltip-dark-arrow-color);
-          margin-left: calc(-1 * var(--tooltip-base-arrow-size));
-        }
+    /* ===== BOTTOM ===== */
+    &.p-tooltip-bottom {
+      padding: var(--tooltip-base-qubit-positioning-bottom-padding);
+      margin: var(--tooltip-base-qubit-positioning-bottom-margin);
+      .p-tooltip-arrow {
+        border-width: 0 var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size) var(--tooltip-base-arrow-size);
+        border-bottom-color: var(--tooltip-dark-arrow-color);
+        margin-left: calc(-1 * var(--tooltip-base-arrow-size));
       }
     }
 
     /* ================= LIGHT TOOLTIP ================= */
-
     &.p-tooltip-light {
       .p-tooltip-text {
         background-color: var(--tooltip-light-background);
@@ -132,7 +127,6 @@ body {
       }
 
       /* ================= PATH TOOLTIP ================= */
-
       .p-tooltip.path-tooltip {
         .p-tooltip-text {
           white-space: var(--tooltip-variant-pathtooltip-whitespace);

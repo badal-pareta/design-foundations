@@ -65,12 +65,16 @@ body {
         border-color: var(--checkbox-border-color-hover);
       }
 
-      .p-iconwrapper {
-        color: var(--checkbox-icon-color-default);
-      }
-
       .p-checkbox-icon {
+        /* PrimeNG v22 renders the checked/indeterminate icon as an inline <svg>, not an
+           icon-font glyph — polly-icon-override's `::before { content }` trick doesn't render
+           on SVG elements, so it's inert here. Without an explicit width/height (small and
+           large already set theirs below), the SVG falls back to its own intrinsic size, which
+           renders larger than even the "large" checkbox. Constrain it to match the box here. */
         @include polly-icon-override('\e90a');
+        width: var(--checkbox-size-medium-width);
+        height: var(--checkbox-size-medium-height);
+        font-size: var(--checkbox-icon-fontsize-medium);
         border: var(--checkbox-border-width) solid var(--checkbox-border-color-checked);
         border-radius: var(--checkbox-border-radius);
         font-weight: var(--checkbox-icon-fontweight);

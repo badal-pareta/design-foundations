@@ -118,20 +118,22 @@
     .p-iconfield .p-inputtext:not(:last-child) {
       padding-inline-end: calc((var(--select-filtersearch-icon-padding-x)) + var(--select-filtersearch-icon-size));
     }
+
     .p-iconfield {
       display: var(--select-filtersearch-display);
-      &.p-iconfield-right {
-        .p-inputicon {
-          right: var(--select-filtersearch-inputicon-right) !important;
-          top: var(--select-filtersearch-inputicon-top);
-        }
-      }
 
-      &.p-iconfield-left {
-        /* move icon */
-        .p-inputicon {
-          left: var(--select-filtersearch-inputicon-left) !important;
-          top: var(--select-filtersearch-inputicon-top);
+      .p-inputicon:first-child,
+      .p-inputicon:last-child {
+        display: flex;
+        align-items: center;
+        font-size: var(--select-filtersearch-icon-size);
+        margin-top: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .p-icon {
+          width: var(--select-filtersearch-icon-size);
+          height: var(--select-filtersearch-icon-size);
         }
       }
     }
@@ -211,6 +213,7 @@
     }
   }
 
+  &.p-select-overlay .p-select-list .p-select-option,
   .p-select-overlay .p-select-list .p-select-option {
     @include label-small;
     padding: var(--select-size-small-option-padding);
@@ -228,6 +231,7 @@
     }
   }
 
+  &.p-select-overlay .p-select-list .p-select-option,
   .p-select-overlay .p-select-list .p-select-option {
     @include label-large;
     padding: var(--select-size-large-option-padding);
@@ -291,7 +295,7 @@
       .p-iconfield {
         .p-inputicon {
           @include polly-icon-override('>');
-          .p-iconwrapper {
+          .p-icon {
             display: none;
           }
         }

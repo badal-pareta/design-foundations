@@ -1,6 +1,6 @@
 body {
   p-card {
-    .p-card {
+    &.p-card {
       background-color: var(--card-bg-default);
       border: var(--card-border-width) var(--card-border-style) var(--card-border-default);
       border-radius: var(--card-radius-default);
@@ -18,53 +18,46 @@ body {
       &:active {
         box-shadow: var(--card-shadow-active);
       }
-    }
 
-    &.material {
-      .p-card {
+      &.material {
         border: var(--card-variant-material-border);
       }
-    }
 
-    &.card {
-      &-small {
-        .p-card {
-          border-radius: var(--card-radius-small);
-        }
+      &.card-small {
+        border-radius: var(--card-radius-small);
       }
 
-      &-medium {
-        .p-card {
-          border-radius: var(--card-radius-medium);
-        }
+      &.card-medium {
+        border-radius: var(--card-radius-medium);
       }
 
-      &-large {
-        .p-card {
-          border-radius: var(--card-radius-large);
-        }
+      &.card-large {
+        border-radius: var(--card-radius-large);
       }
-    }
 
-    &.active {
-      .p-card {
+      &.active {
         background-color: var(--card-bg-active);
-        // border: var(--card-border-width) var(--card-border-style) var(--card-border-active);
-      }
 
-      &:not(&.material) {
-        .p-card {
+        &:not(.material) {
           border: var(--card-variant-flat-borderactive);
         }
       }
-    }
 
-    &.focus {
-      .p-card {
+      &.focus {
         &:focus {
-          outline: var(--card-state-focus-outline-width) var(--card-state-focus-outline-style) var(--card-state-focus-outline-color);
+          outline: var(--card-state-focus-outline-width)
+            var(--card-state-focus-outline-style)
+            var(--card-state-focus-outline-color);
           outline-offset: var(--card-state-focus-outline-offset);
         }
+      }
+
+      .p-card-body {
+        padding: 0;
+      }
+
+      .p-card-content {
+        padding: 0;
       }
     }
   }

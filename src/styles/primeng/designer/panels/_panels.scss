@@ -1,95 +1,90 @@
 body {
-  /* Hide default toggle icon wrapper (v18) */
-  .p-panel {
+  p-panel {
+    border-radius: var(--panel-border-container-radius);
     color: var(--panel-text-default);
-    &-header {
+    cursor: var(--panel-cursor-container);
+    gap: var(--panel-gap-container);
+    padding: var(--panel-padding-atlastable-container);
+
+    &.p-component {
+      color: var(--panel-text-default);
+    }
+
+    .p-panel-header {
       background: var(--panel-background-header);
       border: var(--panel-border-header);
       border-radius: var(--panel-border-header-radius);
       color: var(--panel-text-header);
       padding: var(--panel-padding-header);
 
-      .p-panel-icons {
+      .p-panel-header-actions {
+        align-items: center;
         display: var(--panel-icon-display) !important;
+        justify-content: center;
       }
     }
 
-    &-title {
+    .p-panel-title {
       @include title-micro;
     }
 
-    &-content-container {
+    .p-panel-content-container {
       @include title-micro;
     }
 
-    &-content {
+    .p-panel-content {
       padding: var(--panel-padding-content);
     }
 
-    &-footer {
+    .p-panel-footer {
       padding: var(--panel-padding-footer);
-    }
-  }
-  .p-panel-toggleable {
-    &.p-panel-header {
-      padding: var(--panel-padding-header);
     }
   }
 
   .atlas-table-details-panel {
-    .p-panel {
-      border-radius: var(--panel-border-container-radius);
-      cursor: var(--panel-cursor-container);
-      gap: var(--panel-gap-container);
-      padding: var(--panel-padding-atlastable-container);
+    border-radius: var(--panel-border-container-radius);
+    cursor: var(--panel-cursor-container);
+    gap: var(--panel-gap-container);
+    padding: var(--panel-padding-atlastable-container);
 
-      &-icons {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-      }
+    .p-panel-header {
+      background-color: var(--panel-background-container-header);
+      border-radius: var(--panel-border-container-header-radius);
+      color: var(--panel-text-container);
 
-      &-header {
-        background-color: var(--panel-background-container-header);
-        border-radius: var(--panel-border-container-header-radius);
-        color: var(--panel-text-container);
-
-        .p-panel-icons {
-          color: var(--panel-icon-container-color);
-          font-size: var(--panel-icon-font-size);
-
-          &:hover {
-            background-color: var(--panel-background-container-icon-hover);
-          }
-        }
+      .p-panel-header-actions {
+        color: var(--panel-icon-container-color);
+        font-size: var(--panel-icon-font-size);
 
         &:hover {
-          background-color: var(--panel-background-container-header-hover);
+          background-color: var(--panel-background-container-icon-hover);
         }
       }
 
-      &-content {
-        background-color: var(--panel-background-container-content);
-        border-radius: var(--panel-border-container-content-radius);
-        color: var(--panel-text-container-content);
-        display: flex;
-        flex-direction: column;
-        gap: var(--panel-gap-container-content);
+      &:hover {
+        background-color: var(--panel-background-container-header-hover);
       }
     }
 
+    .p-panel-content {
+      background-color: var(--panel-background-container-content);
+      border-radius: var(--panel-border-container-content-radius);
+      color: var(--panel-text-container-content);
+      display: flex;
+      flex-direction: column;
+      gap: var(--panel-gap-container-content);
+    }
+
     &.active {
-      .p-panel {
-        &-header {
-          background-color: var(--panel-background-container-active-header);
-          color: var(--panel-text-container-active-header);
+      .p-panel-header {
+        background-color: var(--panel-background-container-active-header);
+        color: var(--panel-text-container-active-header);
 
-          .p-panel-icons {
-            color: var(--panel-icon-container-active-color);
+        .p-panel-header-actions {
+          color: var(--panel-icon-container-active-color);
 
-            &:hover {
-              background-color: var(--panel-background-container-active-icon-hover);
-            }
+          &:hover {
+            background-color: var(--panel-background-container-active-icon-hover);
           }
         }
       }

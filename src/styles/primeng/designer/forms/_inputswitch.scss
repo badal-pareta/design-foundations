@@ -1,19 +1,21 @@
-/* ================= Input Switch (v17) / Toggle Switch (v18) ================= */
+/* ================= Toggle Switch (v20) ================= */
 body {
   p-toggleswitch {
-    align-items: var(--toggleswitch-base-alignitems);
-    display: var(--toggleswitch-base-display);
-
-    .p-toggleswitch {
+    &.p-toggleswitch {
+      align-items: var(--toggleswitch-base-alignitems);
       background-color: var(--toggleswitch-base-background);
+      display: var(--toggleswitch-base-display);
       height: var(--toggleswitch-base-height);
       position: var(--toggleswitch-base-position);
       width: var(--toggleswitch-base-width);
 
+
       /* SLIDER */
       .p-toggleswitch-slider {
         background: var(--toggleswitch-slider-background-off);
-        border: var(--toggleswitch-slider-border-width) var(--toggleswitch-slider-border-style) var(--toggleswitch-slider-border-color-off);
+        border: var(--toggleswitch-slider-border-width)
+          var(--toggleswitch-slider-border-style)
+          var(--toggleswitch-slider-border-color-off);
         border-radius: var(--toggleswitch-slider-borderradius);
         height: var(--toggleswitch-slider-height);
         position: var(--toggleswitch-slider-position);
@@ -72,11 +74,11 @@ body {
           .p-toggleswitch-slider {
             background-color: var(--toggleswitch-slider-background-onhover) !important;
             border-color: var(--toggleswitch-slider-border-color-on) !important;
-            
+
             .p-toggleswitch-handle {
               background-color: var(--toggleswitch-handle-background-on) !important;
               transform: translateX(var(--toggleswitch-handle-translatex-on)) !important;
-          }
+            }
           }
         }
       }
@@ -95,7 +97,7 @@ body {
         .p-toggleswitch-slider {
           background-color: var(--toggleswitch-slider-background-off) !important;
           border-color: var(--toggleswitch-slider-border-color-off) !important;
-  
+
           .p-toggleswitch-handle {
             background-color: var(--toggleswitch-handle-background-off);
             outline: var(--toggleswitch-hover-off-handle-outline);
@@ -117,7 +119,8 @@ body {
         &.p-focus {
           .p-toggleswitch-slider {
             .p-toggleswitch-handle {
-              outline: var(--toggleswitch-medium-outline-width) var(--toggleswitch-outline-style)
+              outline: var(--toggleswitch-medium-outline-width)
+                var(--toggleswitch-outline-style)
                 var(--toggleswitch-outline-color-focus);
             }
           }
@@ -126,7 +129,8 @@ body {
         &:not(.p-disabled):hover {
           .p-toggleswitch-slider {
             .p-toggleswitch-handle {
-              outline: var(--toggleswitch-medium-outline-width) var(--toggleswitch-outline-style)
+              outline: var(--toggleswitch-medium-outline-width)
+                var(--toggleswitch-outline-style)
                 var(--toggleswitch-outline-color-hover);
             }
           }
