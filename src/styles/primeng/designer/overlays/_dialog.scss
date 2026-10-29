@@ -45,7 +45,8 @@ body {
           color: var(--dialog-closebutton-color-default);
           justify-content: var(--dialog-closebutton-justifycontent);
           height: var(--dialog-closebutton-height);
-
+          gap: 0;
+          padding: 0;
           .p-icon {
             @include polly-icon-override('\75');
             font-size: var(--dialog-closebutton-icon-fontsize);

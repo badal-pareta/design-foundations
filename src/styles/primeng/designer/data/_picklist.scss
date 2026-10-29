@@ -28,6 +28,7 @@ body {
           height: var(--picklist-button-height) !important;
           padding: var(--picklist-button-padding);
           width: var(--picklist-button-width) !important;
+          gap: 0;
 
           &:hover {
             background: var(--picklist-button-background-hover) !important;
